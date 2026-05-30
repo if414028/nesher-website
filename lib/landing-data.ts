@@ -99,6 +99,15 @@ export const portfolioItems = [
     image: "/portfolio/letsgrowacademy/overview-dashboard.png",
   },
   {
+    title: "AdaInventory",
+    category: "Android RFID Application",
+    description:
+      "Aplikasi Android untuk PT Adamata yang terintegrasi dengan handheld RFID UHF-RH03 dan thermal Bluetooth printer untuk tagging klasifikasi sampah.",
+    href: "/portfolio/adainventory",
+    image: "/portfolio/adainventory/home.png",
+    previewType: "mobile",
+  },
+  {
     title: "Dashboard Profesional",
     category: "Dashboard System",
     description:
@@ -234,6 +243,85 @@ export const myHananeelCintaDetail = {
       description:
         "Form permintaan doa untuk kunjungan, bantuan doa, atau konseling.",
       src: "/portfolio/myhananeelcinta/permintaan-doa.webp",
+    },
+  ],
+};
+
+export const adaInventoryDetail = {
+  title: "AdaInventory",
+  category: "Android RFID Application",
+  subtitle:
+    "Aplikasi Android untuk PT Adamata yang dibuat khusus terintegrasi dengan perangkat handheld RFID UHF-RH03, thermal Bluetooth printer, dan backend Flask untuk proses tagging klasifikasi sampah menggunakan RFID Tag.",
+  overview:
+    "AdaInventory membantu proses klasifikasi dan pelacakan sampah menjadi lebih cepat dan terstruktur. Operator dapat membuat label sampah, menulis RFID Tag melalui handheld UHF-RH03, mencetak label dengan thermal Bluetooth printer, serta melakukan stock opname yang terhubung ke backend Flask dan database PostgreSQL.",
+  client: "PT Adamata",
+  platform: "Android",
+  role: "Android app & backend integration",
+  toneColor: "#5EC9CF",
+  stack: [
+    "Android",
+    "RFID UHF-RH03",
+    "Thermal Bluetooth Printer",
+    "Flask",
+    "PostgreSQL",
+    "REST API",
+  ],
+  highlights: [
+    "Integrasi khusus dengan perangkat handheld RFID UHF-RH03 untuk membaca dan menulis RFID Tag.",
+    "Pembuatan label sampah berdasarkan tipe, vertikal, sumber, lokasi warehouse, station, shift, tanggal, dan berat.",
+    "Print label sampah melalui thermal Bluetooth printer langsung dari aplikasi Android.",
+    "Stock opname untuk memantau pekerjaan klasifikasi dan status penyelesaian.",
+    "RFID settings untuk konfigurasi power, band, session, frequency point, dan RFLink.",
+    "Backend Flask dengan PostgreSQL untuk penyimpanan data label, klasifikasi, dan sinkronisasi aplikasi.",
+  ],
+  gallery: [
+    {
+      title: "Home",
+      description:
+        "Halaman utama untuk menghubungkan Bluetooth printer, RFID handheld, dan akses cepat ke modul labelling, setting, putaway, dan digital storage.",
+      src: "/portfolio/adainventory/home.png",
+    },
+    {
+      title: "Buat Label Baru",
+      description:
+        "Form pembuatan label sampah dengan nomor otomatis dan data klasifikasi seperti tipe, vertikal, sumber, lokasi, station, tanggal, shift, dan berat.",
+      src: "/portfolio/adainventory/labelling-create.png",
+    },
+    {
+      title: "Rincian Label",
+      description:
+        "Detail label RFID berisi data klasifikasi sampah, nomor label, lokasi, berat, serta action untuk print dan write RFID Tag.",
+      src: "/portfolio/adainventory/labelling-detail.png",
+    },
+    {
+      title: "RFID Setting",
+      description:
+        "Pengaturan teknis RFID handheld untuk power, band, session, frequency point, RFLink, EPC, dan TID.",
+      src: "/portfolio/adainventory/settings.png",
+    },
+    {
+      title: "Write RFID Tag",
+      description:
+        "Flow penulisan data ke RFID Tag melalui tuas perangkat handheld RFID.",
+      src: "/portfolio/adainventory/labelling-write-tag.png",
+    },
+    {
+      title: "Stock Opname",
+      description:
+        "Daftar pekerjaan stock opname dengan status selesai atau kerjakan untuk setiap kategori sampah dan lokasi.",
+      src: "/portfolio/adainventory/stockopname.png",
+    },
+    {
+      title: "Print Label",
+      description:
+        "Konfirmasi print label untuk memastikan thermal Bluetooth printer sudah terhubung sebelum mencetak.",
+      src: "/portfolio/adainventory/labelling-print.png",
+    },
+    {
+      title: "Labelling",
+      description:
+        "Daftar label RFID dengan tombol rincian dan akses untuk membuat label baru.",
+      src: "/portfolio/adainventory/labelling.png",
     },
   ],
 };

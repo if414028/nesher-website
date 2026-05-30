@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,6 +9,8 @@ import { SectionHeader } from "@/components/landing/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { portfolioItems } from "@/lib/landing-data";
+
+type PortfolioItem = (typeof portfolioItems)[number];
 
 function PortfolioMockup({
   image,
@@ -77,7 +79,67 @@ function PortfolioMockup({
   );
 }
 
+export function PortfolioGrid({
+  items,
+  startIndex = 0,
+}: {
+  items: PortfolioItem[];
+  startIndex?: number;
+}) {
+  return (
+    <div className="grid gap-5 md:grid-cols-2">
+      {items.map((item, index) => (
+        <MotionDiv
+          key={item.title}
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: index * 0.06 }}
+          whileHover={{ y: -6 }}
+        >
+          <Card className="h-full rounded-[2rem] border border-white bg-white p-5 shadow-[0_18px_55px_rgba(59,7,100,0.08)] ring-0">
+            <PortfolioMockup
+              image={item.image}
+              index={(startIndex + index) % 3}
+              previewType={item.previewType}
+              title={item.title}
+            />
+            <div className="px-1 pb-2 pt-4">
+              <span className="inline-flex rounded-full bg-[#F6F1FF] px-3 py-1 text-xs font-semibold text-[#6D28D9]">
+                {item.category}
+              </span>
+              <h3 className="mt-4 text-2xl font-bold text-[#111827]">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-base leading-7 text-[#6B7280]">
+                {item.description}
+              </p>
+              <Button
+                asChild
+                variant="outline"
+                className="mt-6 h-10 rounded-full border-[#E9DFFF] bg-white text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
+              >
+                <Link
+                  href={item.href}
+                  rel={
+                    item.href.startsWith("https://") ? "noreferrer" : undefined
+                  }
+                  target={item.href.startsWith("https://") ? "_blank" : undefined}
+                >
+                  Lihat Detail <ArrowUpRight className="ml-2 size-4" />
+                </Link>
+              </Button>
+            </div>
+          </Card>
+        </MotionDiv>
+      ))}
+    </div>
+  );
+}
+
 export function PortfolioSection() {
+  const featuredPortfolios = portfolioItems.slice(0, 4);
+
   return (
     <section id="portfolio" className="bg-[#FAF7FF] py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -88,56 +150,19 @@ export function PortfolioSection() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {portfolioItems.map((item, index) => (
-            <MotionDiv
-              key={item.title}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: index * 0.06 }}
-              whileHover={{ y: -6 }}
-            >
-              <Card className="h-full rounded-[2rem] border border-white bg-white p-5 shadow-[0_18px_55px_rgba(59,7,100,0.08)] ring-0">
-                <PortfolioMockup
-                  image={item.image}
-                  index={index % 3}
-                  previewType={item.previewType}
-                  title={item.title}
-                />
-                <div className="px-1 pb-2 pt-4">
-                  <span className="inline-flex rounded-full bg-[#F6F1FF] px-3 py-1 text-xs font-semibold text-[#6D28D9]">
-                    {item.category}
-                  </span>
-                  <h3 className="mt-4 text-2xl font-bold text-[#111827]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-base leading-7 text-[#6B7280]">
-                    {item.description}
-                  </p>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="mt-6 h-10 rounded-full border-[#E9DFFF] bg-white text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
-                  >
-                    <Link
-                      href={item.href}
-                      rel={
-                        item.href.startsWith("https://")
-                          ? "noreferrer"
-                          : undefined
-                      }
-                      target={
-                        item.href.startsWith("https://") ? "_blank" : undefined
-                      }
-                    >
-                      Lihat Detail <ArrowUpRight className="ml-2 size-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </Card>
-            </MotionDiv>
-          ))}
+        <div className="mt-12">
+          <PortfolioGrid items={featuredPortfolios} />
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Button
+            asChild
+            className="h-12 rounded-full bg-[#6D28D9] px-7 text-base text-white shadow-[0_18px_40px_rgba(109,40,217,0.2)] hover:bg-[#5B21B6] hover:text-white"
+          >
+            <Link href="/portfolio">
+              Lihat Semua Portofolio <ArrowRight className="ml-2 size-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
