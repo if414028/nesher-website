@@ -108,6 +108,14 @@ export const portfolioItems = [
     previewType: "mobile",
   },
   {
+    title: "Panti Sosial Mutiara Karawang",
+    category: "Company Profile Website",
+    description:
+      "Website publikasi untuk Panti Sosial Mutiara Karawang agar profil, layanan, galeri kegiatan, dan informasi kontak mudah diakses publik.",
+    href: "/portfolio/panti-sosial-mutiara-karawang",
+    image: "/portfolio/panti-sosial-mutiara-karawang/home.png",
+  },
+  {
     title: "Dashboard Profesional",
     category: "Dashboard System",
     description:
@@ -322,6 +330,59 @@ export const adaInventoryDetail = {
       description:
         "Daftar label RFID dengan tombol rincian dan akses untuk membuat label baru.",
       src: "/portfolio/adainventory/labelling.png",
+    },
+  ],
+};
+
+export const pantiSosialMutiaraKarawangDetail = {
+  title: "Panti Sosial Mutiara Karawang",
+  category: "Company Profile Website",
+  subtitle:
+    "Website company profile untuk Panti Sosial Mutiara Karawang yang dibuat sebagai sarana publikasi profil panti sosial, layanan, galeri kegiatan, dan informasi kontak kepada publik.",
+  overview:
+    "Website ini membantu Panti Sosial Mutiara Karawang memperkenalkan pelayanan mereka secara lebih rapi dan mudah diakses. Pengunjung dapat melihat profil panti, memahami layanan yang diberikan, menelusuri galeri kegiatan, serta menemukan informasi kontak dan lokasi panti secara jelas.",
+  client: "Panti Sosial Mutiara Karawang",
+  platform: "Website",
+  role: "Company profile website development",
+  stack: ["Next.js", "Responsive Website", "Company Profile", "Gallery", "Contact Section"],
+  highlights: [
+    "Hero section dengan visual kegiatan panti dan headline yang langsung menjelaskan identitas lembaga.",
+    "Halaman tentang kami untuk menjelaskan sejarah, profil, dan tujuan pelayanan panti sosial.",
+    "Section layanan untuk menampilkan pelayanan seperti doa, konseling, dan pengobatan medis.",
+    "Galeri kegiatan untuk memperlihatkan aktivitas pelayanan dan kehidupan sehari-hari di panti.",
+    "Halaman kontak dengan email, nomor telepon, alamat, dan peta lokasi.",
+    "Dibangun dengan Next.js agar struktur website siap dikembangkan dan mudah dikelola.",
+  ],
+  gallery: [
+    {
+      title: "Beranda",
+      description:
+        "Landing page utama dengan hero image, headline, dan pengantar singkat tentang Panti Sosial Mutiara Karawang.",
+      src: "/portfolio/panti-sosial-mutiara-karawang/home.png",
+    },
+    {
+      title: "Tentang Kami",
+      description:
+        "Halaman profil yang menjelaskan sejarah panti sosial dan pelayanan kepada penyandang disabilitas mental.",
+      src: "/portfolio/panti-sosial-mutiara-karawang/about.png",
+    },
+    {
+      title: "Pelayanan",
+      description:
+        "Section layanan dengan kartu informasi untuk doa, konseling, dan pengobatan medis.",
+      src: "/portfolio/panti-sosial-mutiara-karawang/services.png",
+    },
+    {
+      title: "Galeri Kegiatan",
+      description:
+        "Galeri foto kegiatan panti sebagai media publikasi dan dokumentasi aktivitas pelayanan.",
+      src: "/portfolio/panti-sosial-mutiara-karawang/gallery.png",
+    },
+    {
+      title: "Kontak",
+      description:
+        "Halaman kontak berisi email, nomor telepon, alamat, gambar kegiatan, dan peta lokasi.",
+      src: "/portfolio/panti-sosial-mutiara-karawang/contact.png",
     },
   ],
 };
