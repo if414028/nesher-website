@@ -108,26 +108,21 @@ export const portfolioItems = [
     previewType: "mobile",
   },
   {
+    title: "Paraka Jakarta",
+    category: "Android App & Dashboard",
+    description:
+      "Aplikasi Android dan dashboard Laravel 11 untuk memetakan pendukung calon gubernur DKI Jakarta Pramono Anung dan Rano Karno pada Pilgub DKI Jakarta 2024.",
+    href: "/portfolio/paraka-jakarta",
+    image: "/portfolio/paraka-jakarta/map-survey.jpeg",
+    previewType: "mobile",
+  },
+  {
     title: "Panti Sosial Mutiara Karawang",
     category: "Company Profile Website",
     description:
       "Website publikasi untuk Panti Sosial Mutiara Karawang agar profil, layanan, galeri kegiatan, dan informasi kontak mudah diakses publik.",
     href: "/portfolio/panti-sosial-mutiara-karawang",
     image: "/portfolio/panti-sosial-mutiara-karawang/home.png",
-  },
-  {
-    title: "Dashboard Profesional",
-    category: "Dashboard System",
-    description:
-      "Sistem reporting untuk membantu management memantau performa bisnis dan mengambil keputusan berbasis data.",
-    href: whatsappUrl,
-  },
-  {
-    title: "Custom Web Application",
-    category: "Web Application",
-    description:
-      "Sistem berbasis web yang dibuat sesuai workflow bisnis dan kebutuhan operasional.",
-    href: whatsappUrl,
   },
 ];
 
@@ -383,6 +378,111 @@ export const pantiSosialMutiaraKarawangDetail = {
       description:
         "Halaman kontak berisi email, nomor telepon, alamat, gambar kegiatan, dan peta lokasi.",
       src: "/portfolio/panti-sosial-mutiara-karawang/contact.png",
+    },
+  ],
+};
+
+export const parakaJakartaDetail = {
+  title: "Paraka Jakarta",
+  category: "Android App & Dashboard",
+  subtitle:
+    "Aplikasi Android dan dashboard untuk PT Indigital Semua Bisa yang digunakan untuk memetakan pendukung calon gubernur Jakarta Pramono Anung dan Rano Karno pada Pemilihan Gubernur DKI Jakarta 2024.",
+  overview:
+    "Paraka Jakarta dirancang sebagai sistem lapangan dan monitoring untuk aktivitas pemetaan dukungan. Surveyor dapat mengisi data pemilik rumah, mengambil foto, mencatat alamat berdasarkan koordinat, menjawab pertanyaan survey, dan mengirim data ke dashboard. Tim admin dapat memantau rekap laporan, sebaran marker di peta, data surveyor, serta ringkasan aktivitas melalui dashboard berbasis Laravel 11.",
+  client: "PT Indigital Semua Bisa",
+  platform: "Android App & Web Dashboard",
+  role: "Mobile app & dashboard development",
+  toneColor: "#D65A1F",
+  stack: [
+    "Android",
+    "Laravel 11",
+    "Dashboard",
+    "Google Maps",
+    "Survey Mapping",
+    "REST API",
+  ],
+  highlights: [
+    "Survey flow untuk mencatat identitas pemilik rumah, pekerjaan, alamat, usia, dan jenis kelamin.",
+    "Pemetaan lokasi berbasis koordinat untuk melihat sebaran pendukung dan hasil survey lapangan.",
+    "Form pertanyaan survey untuk mencatat awareness dan preferensi dukungan terhadap kandidat.",
+    "Pengambilan foto sebagai dokumentasi data lapangan sebelum data dikirim.",
+    "Rekap laporan mobile agar surveyor dapat melihat hasil input yang sudah tersimpan.",
+    "Dashboard Laravel 11 untuk overview data, map marker, dan management surveyor.",
+  ],
+  mobileGallery: [
+    {
+      title: "Map & Survey Result",
+      description:
+        "Tampilan peta dengan marker lokasi dan ringkasan data survey rumah berdasarkan koordinat.",
+      src: "/portfolio/paraka-jakarta/map-survey.jpeg",
+    },
+    {
+      title: "Data Review",
+      description:
+        "Halaman review data pemilik rumah, alamat, dan jawaban survey sebelum dikirim.",
+      src: "/portfolio/paraka-jakarta/submit-detail.jpeg",
+    },
+    {
+      title: "Camera Capture",
+      description:
+        "Flow kamera untuk mengambil dokumentasi visual sebagai bagian dari data lapangan.",
+      src: "/portfolio/paraka-jakarta/camera.jpeg",
+    },
+    {
+      title: "Survey Question",
+      description:
+        "Pertanyaan survey mengenai preferensi pilihan calon gubernur DKI Jakarta 2024.",
+      src: "/portfolio/paraka-jakarta/vote-question.jpeg",
+    },
+    {
+      title: "Candidate Awareness",
+      description:
+        "Pertanyaan survey untuk mengetahui awareness responden terhadap kandidat.",
+      src: "/portfolio/paraka-jakarta/awareness-question.jpeg",
+    },
+    {
+      title: "Owner Information",
+      description:
+        "Form input informasi pemilik rumah sebelum survey dan pemetaan dilanjutkan.",
+      src: "/portfolio/paraka-jakarta/owner-form.jpeg",
+    },
+    {
+      title: "Rekap Laporan",
+      description:
+        "Daftar laporan survey yang sudah dibuat oleh surveyor di aplikasi Android.",
+      src: "/portfolio/paraka-jakarta/report-list.jpeg",
+    },
+    {
+      title: "Login",
+      description:
+        "Halaman login aplikasi Paraka Jakarta dengan identitas visual campaign.",
+      src: "/portfolio/paraka-jakarta/login.jpeg",
+    },
+    {
+      title: "Splash Screen",
+      description:
+        "Splash screen dengan branding Paraka Jakarta sebelum masuk ke aplikasi.",
+      src: "/portfolio/paraka-jakarta/splash.jpeg",
+    },
+  ],
+  dashboardGallery: [
+    {
+      title: "Dashboard Overview",
+      description:
+        "Ringkasan jumlah surveyor dan banner untuk monitoring aktivitas campaign.",
+      src: "/portfolio/paraka-jakarta/dashboard-overview.png",
+    },
+    {
+      title: "Map Monitoring",
+      description:
+        "Dashboard peta untuk melihat marker survey berdasarkan area dan surveyor.",
+      src: "/portfolio/paraka-jakarta/dashboard-map.png",
+    },
+    {
+      title: "Surveyor Management",
+      description:
+        "Tabel surveyor untuk mengelola data petugas, koordinator, username, dan password.",
+      src: "/portfolio/paraka-jakarta/dashboard-surveyor.png",
     },
   ],
 };
