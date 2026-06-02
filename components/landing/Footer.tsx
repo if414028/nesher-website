@@ -65,10 +65,10 @@ export function Footer() {
               hello@neshertechnology.com
             </a>
             <a
-              href="https://www.neshertechnology.com"
+              href="https://www.neshertechnology.id"
               className="transition hover:text-[#6D28D9]"
             >
-              www.neshertechnology.com
+              www.neshertechnology.id
             </a>
           </div>
         </div>

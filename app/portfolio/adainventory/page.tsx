@@ -15,12 +15,20 @@ import { Footer } from "@/components/landing/Footer";
 import { Navbar } from "@/components/landing/Navbar";
 import { Button } from "@/components/ui/button";
 import { adaInventoryDetail, whatsappUrl } from "@/lib/landing-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "AdaInventory Portfolio | Nesher Tech",
+export const metadata: Metadata = createPageMetadata({
+  title: "AdaInventory RFID App Portfolio | Nesher Teknologi Nusantara",
   description:
-    "Detail portfolio AdaInventory, aplikasi Android RFID untuk PT Adamata yang terintegrasi dengan UHF-RH03, thermal Bluetooth printer, Flask, dan PostgreSQL.",
-};
+    "Detail portfolio AdaInventory, aplikasi Android RFID untuk PT Adamata yang terintegrasi dengan handheld UHF-RH03, thermal Bluetooth printer, backend Flask, dan PostgreSQL.",
+  path: "/portfolio/adainventory",
+  image: "/portfolio/adainventory/home.png",
+  keywords: [
+    "portfolio aplikasi Android RFID",
+    "aplikasi inventory RFID",
+    "AdaInventory",
+  ],
+});
 
 const stats = [
   { label: "Platform", value: adaInventoryDetail.platform },

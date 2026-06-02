@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { MotionDiv, Reveal } from "@/components/landing/Motion";
@@ -167,12 +168,12 @@ export function HeroSection() {
             Digital Partner for Growing Businesses
           </div>
           <h1 className="mx-auto mt-6 max-w-5xl text-balance text-4xl font-bold leading-tight text-[#111827] sm:text-6xl">
-            Solusi Digital Untuk Kemajuan Bisnis Anda
+            Software House untuk Website, Aplikasi, dan Dashboard Bisnis Anda
           </h1>
           <p className="mx-auto mt-5 max-w-3xl text-pretty text-lg leading-8 text-[#6B7280] sm:text-xl">
-            Nesher Tech membantu bisnis membangun website, web application,
-            dashboard, dan aplikasi custom yang modern, cepat, scalable, dan
-            mudah digunakan.
+            Nesher Teknologi Nusantara membantu bisnis membangun website company
+            profile, web application, dashboard, dan aplikasi custom yang
+            modern, cepat, scalable, dan mudah digunakan.
           </p>
           <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
@@ -188,9 +189,7 @@ export function HeroSection() {
               variant="outline"
               className="h-12 rounded-full border-[#E9DFFF] bg-white px-7 text-base text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
             >
-              <a href={whatsappUrl} rel="noreferrer" target="_blank">
-                Lihat Portofolio
-              </a>
+              <Link href="/portfolio">Lihat Portofolio</Link>
             </Button>
           </div>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-4 text-sm text-[#6B7280]">

@@ -18,12 +18,21 @@ import {
   pantiSosialMutiaraKarawangDetail,
   whatsappUrl,
 } from "@/lib/landing-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Panti Sosial Mutiara Karawang Portfolio | Nesher Tech",
+export const metadata: Metadata = createPageMetadata({
+  title:
+    "Panti Sosial Mutiara Karawang Website Portfolio | Nesher Teknologi Nusantara",
   description:
-    "Detail portfolio website Panti Sosial Mutiara Karawang, website publikasi panti sosial yang dibuat dengan Next.js.",
-};
+    "Detail portfolio website Panti Sosial Mutiara Karawang, company profile berbasis Next.js untuk publikasi profil, layanan, galeri kegiatan, dan kontak.",
+  path: "/portfolio/panti-sosial-mutiara-karawang",
+  image: "/portfolio/panti-sosial-mutiara-karawang/home.png",
+  keywords: [
+    "portfolio website company profile",
+    "website panti sosial",
+    "Panti Sosial Mutiara Karawang",
+  ],
+});
 
 const stats = [
   { label: "Platform", value: pantiSosialMutiaraKarawangDetail.platform },
