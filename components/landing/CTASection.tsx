@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 import { Reveal } from "@/components/landing/Motion";
 import { Button } from "@/components/ui/button";
@@ -32,9 +33,7 @@ export function CTASection() {
               variant="outline"
               className="h-12 rounded-full border-white/30 bg-transparent px-7 text-base text-white hover:bg-white/10 hover:text-white"
             >
-              <a href={whatsappUrl} rel="noreferrer" target="_blank">
-                Lihat Portofolio
-              </a>
+              <Link href="/portfolio">Lihat Portofolio</Link>
             </Button>
           </div>
         </div>

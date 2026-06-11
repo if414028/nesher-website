@@ -2,12 +2,20 @@ import type { Metadata } from "next";
 
 import { PortfolioCaseStudyPage } from "@/components/portfolio/PortfolioCaseStudyPage";
 import { adaInventoryDetail } from "@/lib/landing-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "AdaInventory Portfolio | Nesher Tech",
+export const metadata: Metadata = createPageMetadata({
+  title: "AdaInventory RFID App Portfolio | Nesher Teknologi Nusantara",
   description:
-    "Detail portfolio AdaInventory, aplikasi Android RFID untuk PT Adamata yang terintegrasi dengan UHF-RH03, thermal Bluetooth printer, Flask, dan PostgreSQL.",
-};
+    "Detail portfolio AdaInventory, aplikasi Android RFID untuk PT Adamata yang terintegrasi dengan handheld UHF-RH03, thermal Bluetooth printer, backend Flask, dan PostgreSQL.",
+  path: "/portfolio/adainventory",
+  image: "/portfolio/adainventory/home.png",
+  keywords: [
+    "portfolio aplikasi Android RFID",
+    "aplikasi inventory RFID",
+    "AdaInventory",
+  ],
+});
 
 export default function AdaInventoryPage() {
   return (

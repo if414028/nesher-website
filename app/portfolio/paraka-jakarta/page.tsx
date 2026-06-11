@@ -2,12 +2,20 @@ import type { Metadata } from "next";
 
 import { PortfolioCaseStudyPage } from "@/components/portfolio/PortfolioCaseStudyPage";
 import { parakaJakartaDetail } from "@/lib/landing-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Paraka Jakarta Portfolio | Nesher Tech",
+export const metadata: Metadata = createPageMetadata({
+  title: "Paraka Jakarta App & Dashboard Portfolio | Nesher Teknologi Nusantara",
   description:
-    "Detail portfolio Paraka Jakarta, aplikasi Android dan dashboard Laravel 11 untuk pemetaan pendukung Pilgub DKI Jakarta 2024.",
-};
+    "Detail portfolio Paraka Jakarta, aplikasi Android dan dashboard Laravel 11 untuk survey lapangan, pemetaan lokasi, monitoring data, dan management surveyor.",
+  path: "/portfolio/paraka-jakarta",
+  image: "/portfolio/paraka-jakarta/dashboard-map.png",
+  keywords: [
+    "portfolio aplikasi survey",
+    "dashboard mapping",
+    "Paraka Jakarta",
+  ],
+});
 
 export default function ParakaJakartaPage() {
   return (

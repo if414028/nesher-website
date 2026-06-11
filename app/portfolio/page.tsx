@@ -7,12 +7,21 @@ import { Navbar } from "@/components/landing/Navbar";
 import { PortfolioGrid } from "@/components/landing/PortfolioSection";
 import { Button } from "@/components/ui/button";
 import { portfolioItems } from "@/lib/landing-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Portfolio | Nesher Tech",
+export const metadata: Metadata = createPageMetadata({
+  title: "Portfolio Solusi Digital | Nesher Teknologi Nusantara",
   description:
-    "Daftar portfolio solusi digital Nesher Tech, mulai dari mobile application, dashboard system, web application, dan sistem custom.",
-};
+    "Lihat portfolio Nesher Teknologi Nusantara: mobile application, dashboard system, website company profile, web application, dan sistem custom untuk bisnis dan organisasi.",
+  path: "/portfolio",
+  image: "/portfolio/letsgrowacademy/overview-dashboard.png",
+  keywords: [
+    "portfolio software house",
+    "portfolio aplikasi mobile",
+    "portfolio dashboard",
+    "portfolio website company profile",
+  ],
+});
 
 export default function PortfolioPage() {
   return (
