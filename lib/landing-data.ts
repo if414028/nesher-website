@@ -1,11 +1,18 @@
 export const whatsappUrl = "https://wa.me/6285121069310";
+export const emailAddress = "hello@neshertechnology.com";
+export const officeAddress =
+  "Estubizi Business Center, Lobby Setiabudi 2, Jl. H. R. Rasuna Said 6, RT.6/RW.7, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Jakarta, Daerah Khusus Ibukota Jakarta 12920.";
+export const officeMapUrl =
+  "https://www.google.com/maps/search/?api=1&query=Estubizi%20Business%20Center%20Lobby%20Setiabudi%202%20Jl.%20H.%20R.%20Rasuna%20Said%206%20Karet%20Kuningan%20Setiabudi%20Jakarta%2012920";
+export const officeMapEmbedUrl =
+  "https://www.google.com/maps?q=Estubizi%20Business%20Center%20Lobby%20Setiabudi%202%20Jl.%20H.%20R.%20Rasuna%20Said%206%20Karet%20Kuningan%20Setiabudi%20Jakarta%2012920&output=embed";
 
 export const navLinks = [
   { label: "Home", href: "/#home" },
   { label: "Services", href: "/#services" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Process", href: "/#process" },
-  { label: "Contact", href: whatsappUrl },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const highlightServices = [
@@ -89,6 +96,14 @@ export const portfolioItems = [
     href: "/portfolio/myhananeelcinta",
     image: "/portfolio/myhananeelcinta/home.webp",
     previewType: "mobile",
+  },
+  {
+    title: "Zoe Everblossom",
+    category: "Official Brand Website",
+    description:
+      "Website resmi Zoe Everblossom untuk memperkenalkan dan menjual lilin aromaterapi, rangkaian bunga, hadiah, serta hampers dengan nuansa visual yang lembut dan elegan.",
+    href: "/portfolio/zoe-everblossom",
+    image: "/portfolio/zoe-everblossom/home.png",
   },
   {
     title: "LetsGrowAcademy",
@@ -338,6 +353,8 @@ export const pantiSosialMutiaraKarawangDetail = {
     "Website ini membantu Panti Sosial Mutiara Karawang memperkenalkan pelayanan mereka secara lebih rapi dan mudah diakses. Pengunjung dapat melihat profil panti, memahami layanan yang diberikan, menelusuri galeri kegiatan, serta menemukan informasi kontak dan lokasi panti secara jelas.",
   client: "Panti Sosial Mutiara Karawang",
   platform: "Website",
+  domain: "pantimutiarakarawang.com",
+  url: "https://www.pantimutiarakarawang.com/",
   role: "Company profile website development",
   stack: ["Next.js", "Responsive Website", "Company Profile", "Gallery", "Contact Section"],
   highlights: [
@@ -378,6 +395,86 @@ export const pantiSosialMutiaraKarawangDetail = {
       description:
         "Halaman kontak berisi email, nomor telepon, alamat, gambar kegiatan, dan peta lokasi.",
       src: "/portfolio/panti-sosial-mutiara-karawang/contact.png",
+    },
+  ],
+};
+
+export const zoeEverblossomDetail = {
+  title: "Zoe Everblossom",
+  category: "Official Brand Website",
+  subtitle:
+    "Website resmi untuk Zoe Everblossom, brand yang menjual lilin aromaterapi, rangkaian bunga, hadiah, dan hampers dengan pengalaman belanja yang hangat, lembut, dan elegan.",
+  overview:
+    "Zoe Everblossom dirancang sebagai storefront digital yang mempertemukan cerita brand, katalog produk, dan jalur pemesanan dalam satu pengalaman website. Pengunjung dapat mengenal karakter Zoe, melihat koleksi lilin Honey Lavender, menemukan pilihan hampers atau hadiah, mengajukan kolaborasi, dan menghubungi brand melalui kanal yang jelas.",
+  client: "Zoe Everblossom",
+  platform: "Website",
+  domain: "zoeeverblossom.id",
+  url: "https://zoeeverblossom.id",
+  role: "Official website development",
+  stack: [
+    "Next.js",
+    "Tailwind CSS",
+    "Responsive Website",
+    "Product Catalog",
+    "Brand Storytelling",
+    "WhatsApp CTA",
+  ],
+  highlights: [
+    "Homepage dengan hero floral yang langsung membawa nuansa lembut, elegan, dan sesuai identitas Zoe Everblossom.",
+    "Katalog produk untuk menampilkan lilin aromaterapi Honey Lavender lengkap dengan ukuran, aroma, harga, dan CTA pemesanan.",
+    "Section hadiah dan hampers untuk kebutuhan bridesmaid, ulang tahun, perusahaan, souvenir pernikahan, dan momen spesial lainnya.",
+    "Halaman brand story yang menjelaskan nilai Zoe melalui narasi doa, keindahan, rasa syukur, dan elegansi yang tenang.",
+    "Halaman kolaborasi dengan form inquiry untuk brand, event, pernikahan, dan kerja sama khusus.",
+    "Kontak dan WhatsApp CTA yang mudah ditemukan agar calon pelanggan bisa konsultasi atau melakukan pemesanan dengan cepat.",
+  ],
+  gallery: [
+    {
+      title: "Beranda",
+      description:
+        "Hero floral dengan headline utama, CTA koleksi dan hampers, serta positioning produk lilin soy wax buatan tangan.",
+      src: "/portfolio/zoe-everblossom/home.png",
+    },
+    {
+      title: "Koleksi Pilihan",
+      description:
+        "Product section untuk menampilkan pilihan lilin Honey Lavender Mini, Classic, dan Signature dengan harga serta CTA pemesanan.",
+      src: "/portfolio/zoe-everblossom/products.png",
+    },
+    {
+      title: "Hadiah & Hampers",
+      description:
+        "Section untuk kebutuhan hadiah personal, hampers perusahaan, bridesmaid, dan souvenir pernikahan.",
+      src: "/portfolio/zoe-everblossom/hampers.png",
+    },
+    {
+      title: "Tentang Zoe",
+      description:
+        "Brand story yang memperkenalkan Zoe Everblossom melalui nilai kehangatan, keindahan, dan rasa syukur.",
+      src: "/portfolio/zoe-everblossom/about.png",
+    },
+    {
+      title: "Testimoni & CTA",
+      description:
+        "Catatan pelanggan dan call to action untuk mendorong kolaborasi atau pemesanan produk custom.",
+      src: "/portfolio/zoe-everblossom/testimonials.png",
+    },
+    {
+      title: "Katalog",
+      description:
+        "Halaman katalog lengkap dengan filter kategori, sorting, dan product card yang mudah dipindai.",
+      src: "/portfolio/zoe-everblossom/catalog.png",
+    },
+    {
+      title: "Kolaborasi",
+      description:
+        "Halaman kemitraan dengan daftar layanan kolaborasi dan form inquiry untuk acara, brand, atau pernikahan.",
+      src: "/portfolio/zoe-everblossom/collaboration.png",
+    },
+    {
+      title: "Kontak",
+      description:
+        "Halaman kontak berisi WhatsApp, Instagram, lokasi, email, dan CTA rekomendasi produk.",
+      src: "/portfolio/zoe-everblossom/contact.png",
     },
   ],
 };

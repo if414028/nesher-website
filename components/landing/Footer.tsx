@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { navLinks, services } from "@/lib/landing-data";
+import {
+  emailAddress,
+  navLinks,
+  officeAddress,
+  officeMapUrl,
+  services,
+} from "@/lib/landing-data";
 
 export function Footer() {
   return (
@@ -59,16 +65,24 @@ export function Footer() {
           <h3 className="font-semibold text-[#111827]">Contact</h3>
           <div className="mt-4 grid gap-3 text-sm text-[#6B7280]">
             <a
-              href="mailto:hello@neshertechnology.com"
+              href={`mailto:${emailAddress}`}
               className="transition hover:text-[#6D28D9]"
             >
-              hello@neshertechnology.com
+              {emailAddress}
             </a>
             <a
-              href="https://www.neshertechnology.com"
+              href={officeMapUrl}
+              rel="noreferrer"
+              target="_blank"
+              className="leading-6 transition hover:text-[#6D28D9]"
+            >
+              {officeAddress}
+            </a>
+            <a
+              href="https://www.neshertechnology.id"
               className="transition hover:text-[#6D28D9]"
             >
-              www.neshertechnology.com
+              www.neshertechnology.id
             </a>
           </div>
         </div>
