@@ -24,7 +24,12 @@ export function CTASection() {
               asChild
               className="h-12 rounded-full bg-white px-7 text-base text-[#3B0764] hover:bg-[#5B21B6] hover:text-white"
             >
-              <a href={whatsappUrl} rel="noreferrer" target="_blank">
+              <a
+                data-gtag-conversion
+                href={whatsappUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
                 Mulai Konsultasi <ArrowRight className="ml-2 size-4" />
               </a>
             </Button>

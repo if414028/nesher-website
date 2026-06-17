@@ -180,7 +180,12 @@ export function HeroSection() {
               asChild
               className="h-12 rounded-full bg-[#6D28D9] px-7 text-base text-white shadow-[0_18px_40px_rgba(109,40,217,0.25)] hover:bg-[#5B21B6] hover:text-white"
             >
-              <a href={whatsappUrl} rel="noreferrer" target="_blank">
+              <a
+                data-gtag-conversion
+                href={whatsappUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
                 Konsultasi Gratis <ArrowRight className="ml-2 size-4" />
               </a>
             </Button>

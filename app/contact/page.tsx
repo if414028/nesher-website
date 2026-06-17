@@ -127,6 +127,9 @@ export default function ContactPage() {
 
               return (
                 <a
+                  data-gtag-conversion={
+                    item.title === "Office" ? undefined : true
+                  }
                   key={item.title}
                   href={item.href}
                   rel="noreferrer"
@@ -182,6 +185,7 @@ export default function ContactPage() {
               <form
                 action={`mailto:${emailAddress}`}
                 className="grid gap-5"
+                data-gtag-conversion
                 encType="text/plain"
                 method="post"
               >
@@ -246,7 +250,12 @@ export default function ContactPage() {
                     variant="outline"
                     className="h-12 rounded-full border-[#E9DFFF] bg-white px-7 text-base text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
                   >
-                    <a href={whatsappUrl} rel="noreferrer" target="_blank">
+                    <a
+                      data-gtag-conversion
+                      href={whatsappUrl}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
                       Chat WhatsApp <Phone className="ml-2 size-4" />
                     </a>
                   </Button>

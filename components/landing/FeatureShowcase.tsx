@@ -109,7 +109,12 @@ export function FeatureShowcase() {
                 asChild
                 className="mt-8 h-11 rounded-full bg-[#6D28D9] px-6 text-white hover:bg-[#5B21B6] hover:text-white"
               >
-                <a href={whatsappUrl} rel="noreferrer" target="_blank">
+                <a
+                  data-gtag-conversion
+                  href={whatsappUrl}
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   Diskusikan Kebutuhan <ArrowRight className="ml-2 size-4" />
                 </a>
               </Button>

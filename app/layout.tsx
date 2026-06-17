@@ -53,6 +53,71 @@ export default function RootLayout({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'AW-18246471925');
+
+          window.gtag_report_conversion = function gtagReportConversion(url) {
+            var callback = function () {
+              if (typeof url !== 'undefined') {
+                window.location = url;
+              }
+            };
+
+            gtag('event', 'conversion', {
+              'send_to': 'AW-18246471925/0AoUCLai0sAcEPWhzPxD',
+              'value': 1.0,
+              'currency': 'IDR',
+              'event_callback': callback
+            });
+
+            return false;
+          };
+
+          document.addEventListener('click', function (event) {
+            if (!event.target || !event.target.closest) {
+              return;
+            }
+
+            var target = event.target.closest('[data-gtag-conversion]');
+
+            if (!target) {
+              return;
+            }
+
+            var url = target.href;
+            var targetWindow = target.getAttribute('target');
+
+            if (url) {
+              if (targetWindow === '_blank' || url.indexOf('mailto:') === 0) {
+                gtag('event', 'conversion', {
+                  'send_to': 'AW-18246471925/0AoUCLai0sAcEPWhzPxD',
+                  'value': 1.0,
+                  'currency': 'IDR'
+                });
+                return;
+              }
+
+              event.preventDefault();
+              window.gtag_report_conversion(url);
+              return;
+            }
+
+            gtag('event', 'conversion', {
+              'send_to': 'AW-18246471925/0AoUCLai0sAcEPWhzPxD',
+              'value': 1.0,
+              'currency': 'IDR'
+            });
+          });
+
+          document.addEventListener('submit', function (event) {
+            if (!event.target || !event.target.matches('[data-gtag-conversion]')) {
+              return;
+            }
+
+            gtag('event', 'conversion', {
+              'send_to': 'AW-18246471925/0AoUCLai0sAcEPWhzPxD',
+              'value': 1.0,
+              'currency': 'IDR'
+            });
+          });
         `}
       </Script>
     </html>

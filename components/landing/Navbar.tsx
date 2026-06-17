@@ -48,7 +48,12 @@ export function Navbar() {
             asChild
             className="h-11 rounded-full bg-[#6D28D9] px-6 text-white shadow-[0_14px_30px_rgba(109,40,217,0.22)] hover:bg-[#5B21B6] hover:text-white"
           >
-            <a href={whatsappUrl} rel="noreferrer" target="_blank">
+            <a
+              data-gtag-conversion
+              href={whatsappUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
               Konsultasi Gratis
             </a>
           </Button>
@@ -92,6 +97,7 @@ export function Navbar() {
               className="mt-2 h-11 rounded-full bg-[#6D28D9] text-white hover:bg-[#5B21B6] hover:text-white"
             >
               <a
+                data-gtag-conversion
                 href={whatsappUrl}
                 onClick={() => setOpen(false)}
                 rel="noreferrer"
