@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 import { MotionDiv, Reveal } from "@/components/landing/Motion";
 import { Button } from "@/components/ui/button";
@@ -8,74 +9,45 @@ import { showcaseFeatures, whatsappUrl } from "@/lib/landing-data";
 
 function WebsiteMockup() {
   return (
-    <div className="rounded-[2rem] border border-[#E9DFFF] bg-white p-4 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
-      <div className="mb-4 flex gap-2">
-        <span className="size-3 rounded-full bg-[#F87171]" />
-        <span className="size-3 rounded-full bg-[#FBBF24]" />
-        <span className="size-3 rounded-full bg-[#34D399]" />
-      </div>
-      <div className="rounded-[1.5rem] bg-[#FAF7FF] p-6">
-        <div className="h-4 w-28 rounded-full bg-[#6D28D9]" />
-        <div className="mt-8 h-10 max-w-xs rounded-full bg-[#111827]" />
-        <div className="mt-4 h-4 max-w-md rounded-full bg-[#D8C7FF]" />
-        <div className="mt-2 h-4 max-w-sm rounded-full bg-[#E9DFFF]" />
-        <div className="mt-8 grid gap-3 sm:grid-cols-3">
-          {[1, 2, 3].map((item) => (
-            <div key={item} className="h-28 rounded-3xl bg-white" />
-          ))}
-        </div>
-      </div>
+    <div className="overflow-hidden rounded-[2rem] border border-[#E9DFFF] bg-white p-3 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
+      <Image
+        src="/images/business-growth-handshake.jpg"
+        alt="Ilustrasi konsultasi bisnis dengan grafik pertumbuhan"
+        width={736}
+        height={736}
+        className="aspect-[4/3] w-full rounded-[1.5rem] object-cover"
+        sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
+      />
     </div>
   );
 }
 
 function DashboardMockup() {
   return (
-    <div className="rounded-[2rem] border border-[#E9DFFF] bg-white p-5 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
-      <div className="grid gap-3 sm:grid-cols-3">
-        {[1, 2, 3].map((item) => (
-          <div key={item} className="rounded-3xl bg-[#FAF7FF] p-4">
-            <div className="h-3 w-16 rounded-full bg-[#D8C7FF]" />
-            <div className="mt-4 h-7 w-20 rounded-full bg-[#111827]" />
-          </div>
-        ))}
-      </div>
-      <div className="mt-4 flex h-56 items-end gap-3 rounded-[1.5rem] bg-[#FAF7FF] p-5">
-        {[48, 70, 56, 88, 64, 96, 76].map((height) => (
-          <div
-            key={height}
-            className="flex-1 rounded-t-2xl bg-gradient-to-t from-[#6D28D9] to-[#C4B5FD]"
-            style={{ height: `${height}%` }}
-          />
-        ))}
-      </div>
+    <div className="overflow-hidden rounded-[2rem] border border-[#E9DFFF] bg-white p-3 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
+      <Image
+        src="/images/business-dashboard-interface.webp"
+        alt="Ilustrasi dashboard digital dengan visualisasi data bisnis"
+        width={736}
+        height={913}
+        className="aspect-[4/3] w-full rounded-[1.5rem] object-cover"
+        sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
+      />
     </div>
   );
 }
 
 function WorkflowMockup() {
   return (
-    <div className="rounded-[2rem] border border-[#E9DFFF] bg-white p-5 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
-      <div className="grid gap-4 md:grid-cols-3">
-        {["Request", "Design", "Develop"].map((column, index) => (
-          <div key={column} className="rounded-[1.5rem] bg-[#FAF7FF] p-4">
-            <div className="mb-4 flex items-center justify-between">
-              <span className="text-sm font-semibold text-[#3B0764]">
-                {column}
-              </span>
-              <span className="rounded-full bg-white px-2 py-1 text-xs text-[#6B7280]">
-                {index + 2}
-              </span>
-            </div>
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="mb-3 rounded-2xl bg-white p-3">
-                <div className="h-3 rounded-full bg-[#D8C7FF]" />
-                <div className="mt-2 h-3 w-2/3 rounded-full bg-[#E9DFFF]" />
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+    <div className="overflow-hidden rounded-[2rem] border border-[#E9DFFF] bg-white p-3 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
+      <Image
+        src="/images/custom-workflow-automation.jpg"
+        alt="Ilustrasi sistem workflow digital dengan checklist otomatis"
+        width={735}
+        height={490}
+        className="aspect-[4/3] w-full rounded-[1.5rem] object-cover"
+        sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
+      />
     </div>
   );
 }
