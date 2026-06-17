@@ -19,6 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: absoluteUrl("/privacy-policy"),
+      lastModified: new Date("2026-06-17"),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
   ];
 
   const portfolioRoutes: MetadataRoute.Sitemap = portfolioItems.map((item) => ({

@@ -6,7 +6,7 @@ export const siteConfig = {
   name: "Nesher Teknologi Nusantara",
   shortName: "Nesher Tech",
   url: siteUrl,
-  email: "hello@neshertechnology.com",
+  email: "nesherteknologinusantara@gmail.com",
   whatsapp: "https://wa.me/6285121069310",
   description:
     "Nesher Teknologi Nusantara adalah software house Indonesia untuk jasa pembuatan website, web application, dashboard bisnis, mobile app, UI/UX design, dan sistem custom.",

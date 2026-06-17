@@ -84,6 +84,12 @@ export function Footer() {
             >
               www.neshertechnology.id
             </a>
+            <Link
+              href="/privacy-policy"
+              className="transition hover:text-[#6D28D9]"
+            >
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>

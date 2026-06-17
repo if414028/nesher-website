@@ -1,5 +1,5 @@
 export const whatsappUrl = "https://wa.me/6285121069310";
-export const emailAddress = "hello@neshertechnology.com";
+export const emailAddress = "nesherteknologinusantara@gmail.com";
 export const officeAddress =
   "Estubizi Business Center, Lobby Setiabudi 2, Jl. H. R. Rasuna Said 6, RT.6/RW.7, Kuningan, Karet Kuningan, Kecamatan Setiabudi, Jakarta, Daerah Khusus Ibukota Jakarta 12920.";
 export const officeMapUrl =
