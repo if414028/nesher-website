@@ -26,6 +26,10 @@ const clientLogos = [
     logo: "/images/indigital-semua-bisa-logo.webp",
   },
   {
+    name: "Institut Teknologi Del",
+    logo: "/images/institut-teknologi-del-logo.webp",
+  },
+  {
     name: "Relawan Ayo Jo",
     logo: "/images/relawan-ayojo-logo.webp",
   },

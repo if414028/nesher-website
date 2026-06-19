@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { HeroFlowBackground } from "@/components/landing/HeroFlowBackground";
 import { MotionDiv, Reveal } from "@/components/landing/Motion";
 import { whatsappUrl } from "@/lib/landing-data";
 
@@ -159,9 +160,11 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="overflow-hidden bg-gradient-to-b from-[#FAF7FF] via-white to-white pb-20 pt-14 sm:pt-16 lg:pb-28"
+      className="relative isolate overflow-hidden bg-[#FBFAFE] pb-20 pt-14 sm:pt-16 lg:pb-28"
     >
-      <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      <HeroFlowBackground />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-64 bg-gradient-to-b from-transparent to-white" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <Reveal>
           <div className="inline-flex items-center gap-2 rounded-full border border-[#E9DFFF] bg-white px-4 py-2 text-sm font-semibold text-[#3B0764] shadow-sm">
             <Sparkles className="size-4 text-[#6D28D9]" />
@@ -207,7 +210,9 @@ export function HeroSection() {
           </div>
         </Reveal>
       </div>
-      <DashboardMockup />
+      <div className="relative z-10">
+        <DashboardMockup />
+      </div>
     </section>
   );
 }

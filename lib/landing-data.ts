@@ -10,7 +10,7 @@ export const officeMapEmbedUrl =
 export const navLinks = [
   { label: "Home", href: "/#home" },
   { label: "Services", href: "/#services" },
-  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Process", href: "/#process" },
   { label: "Contact", href: "/contact" },
 ];
@@ -129,6 +129,15 @@ export const portfolioItems = [
       "Aplikasi Android dan dashboard Laravel 11 untuk memetakan pendukung calon gubernur DKI Jakarta Pramono Anung dan Rano Karno pada Pilgub DKI Jakarta 2024.",
     href: "/portfolio/paraka-jakarta",
     image: "/portfolio/paraka-jakarta/map-survey.jpeg",
+    previewType: "mobile",
+  },
+  {
+    title: "DiTenun",
+    category: "AI Android Application",
+    description:
+      "Aplikasi Android untuk Institut Teknologi Del yang memanfaatkan AI untuk membantu pengguna menciptakan motif tenun digital yang terinspirasi dari kekayaan motif Nusantara.",
+    href: "/portfolio/ditenun",
+    image: "/portfolio/ditenun/home.png",
     previewType: "mobile",
   },
   {
@@ -580,6 +589,46 @@ export const parakaJakartaDetail = {
       description:
         "Tabel surveyor untuk mengelola data petugas, koordinator, username, dan password.",
       src: "/portfolio/paraka-jakarta/dashboard-surveyor.png",
+    },
+  ],
+};
+
+export const diTenunDetail = {
+  title: "DiTenun",
+  category: "AI Android Application",
+  subtitle:
+    "Aplikasi Android untuk Institut Teknologi Del yang membantu pengguna menciptakan desain motif tenun digital baru dengan memanfaatkan artificial intelligence dan referensi motif Nusantara.",
+  overview:
+    "DiTenun dirancang sebagai ruang eksplorasi budaya dan teknologi dalam perangkat mobile. Pengguna dapat mengenal berbagai motif tenun Nusantara, memilih inspirasi motif, lalu mengikuti alur pembuatan untuk menghasilkan kreasi motif baru. Aplikasi ini menghadirkan cara yang lebih interaktif untuk mempelajari, mengembangkan, dan melestarikan kekayaan visual kain tenun Indonesia melalui teknologi AI.",
+  client: "Institut Teknologi Del",
+  platform: "Android",
+  role: "Android application development",
+  stack: [
+    "Android",
+    "Artificial Intelligence",
+    "Motif Generation",
+    "Digital Textile",
+    "Nusantara Culture",
+  ],
+  highlights: [
+    "Alur pembuatan motif baru yang memandu pengguna memilih jenis kain dan motif sebelum menghasilkan kreasi.",
+    "Pemanfaatan AI untuk membantu menghasilkan variasi motif tenun digital.",
+    "Galeri Motif Nusantara sebagai referensi visual dan sarana mengenal kekayaan tenun Indonesia.",
+    "Pengelompokan koleksi motif berdasarkan wilayah agar pengguna lebih mudah menjelajahi referensi budaya.",
+    "Pengalaman mobile yang menghubungkan eksplorasi budaya, kreativitas, dan teknologi dalam satu aplikasi.",
+  ],
+  gallery: [
+    {
+      title: "Beranda DiTenun",
+      description:
+        "Halaman pembuka aplikasi dengan akses menuju fitur belanja dan eksplorasi pembuatan motif tenun digital.",
+      src: "/portfolio/ditenun/home.png",
+    },
+    {
+      title: "Galeri Motif Nusantara",
+      description:
+        "Koleksi referensi motif tenun Nusantara dan alur singkat untuk memilih kain, memilih motif, lalu menghasilkan kreasi baru.",
+      src: "/portfolio/ditenun/motif-gallery.png",
     },
   ],
 };

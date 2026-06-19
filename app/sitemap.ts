@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { portfolioItems } from "@/lib/landing-data";
 import { absoluteUrl } from "@/lib/seo";
 
-const lastModified = new Date("2026-06-02");
+const lastModified = new Date("2026-06-19");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
