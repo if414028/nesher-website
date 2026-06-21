@@ -192,7 +192,7 @@ function ProblemIllustration({ index }: { index: number }) {
 
 export function ProblemSection() {
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeader
@@ -201,7 +201,7 @@ export function ProblemSection() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {problems.map((problem, index) => (
             <MotionDiv
               key={problem}
@@ -209,11 +209,11 @@ export function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.45, delay: index * 0.05 }}
-              whileHover={{ y: -6 }}
+              whileHover={{ y: -3 }}
             >
-              <Card className="relative h-full min-h-64 justify-end overflow-hidden rounded-[1.75rem] border border-[#E9DFFF] bg-[#FBFAFF] p-6 shadow-[0_18px_55px_rgba(59,7,100,0.07)] ring-0">
+              <Card className="relative h-full min-h-72 justify-end overflow-hidden rounded-[2rem] border-0 bg-[#F5F5F7] p-6 shadow-none ring-0">
                 <ProblemIllustration index={index} />
-                <h3 className="relative rounded-2xl bg-white/90 p-4 text-lg font-semibold leading-snug text-[#111827] shadow-[0_12px_30px_rgba(59,7,100,0.12)] backdrop-blur">
+                <h3 className="relative rounded-2xl bg-white/75 p-4 text-lg font-semibold leading-snug tracking-[-0.015em] text-[#1D1D1F] shadow-sm backdrop-blur-xl">
                   {problem}
                 </h3>
               </Card>

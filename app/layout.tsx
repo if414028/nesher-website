@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
+import { AppleReveal } from "@/components/site/AppleReveal";
 import { createPageMetadata, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -42,7 +43,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className="h-full antialiased" suppressHydrationWarning>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <AppleReveal />
+      </body>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-18246471925"
         strategy="afterInteractive"

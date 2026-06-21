@@ -45,7 +45,7 @@ function LogoItem({ logo, name }: ClientLogo) {
     .slice(0, 2);
 
   return (
-    <div className="min-h-20 rounded-2xl bg-white px-4 py-4 text-[#3B0764] transition hover:-translate-y-1 hover:shadow-[0_14px_42px_rgba(59,7,100,0.08)]">
+    <div className="min-h-20 rounded-2xl px-4 py-4 text-[#3B0764] opacity-65 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0">
       {logo ? (
         <div className="flex h-full min-w-0 flex-col items-center justify-center gap-2 text-center">
           <span className="flex h-10 w-full items-center justify-center overflow-hidden">
@@ -54,7 +54,7 @@ function LogoItem({ logo, name }: ClientLogo) {
               alt={`${name} logo`}
               width={180}
               height={120}
-              className="h-9 max-w-full object-contain"
+              className="h-9 w-auto max-w-full object-contain"
             />
           </span>
           <span className="block max-w-full break-words text-xs font-bold leading-tight tracking-wide text-[#111827]">
@@ -77,16 +77,16 @@ function LogoItem({ logo, name }: ClientLogo) {
 
 export function ClientMarqueeSection() {
   return (
-    <section className="border-y border-[#E9DFFF]/70 bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <section className="bg-white px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
       <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-        <p className="text-sm font-bold uppercase tracking-[0.24em] text-[#6D28D9]">
-          Dipercaya oleh berbagai kebutuhan digital
+        <p className="text-sm font-semibold text-[#6D28D9]">
+          Dipercaya untuk membangun produk digital
         </p>
-        <h2 className="mt-3 text-3xl font-bold text-[#111827] sm:text-4xl">
-          Klien Kami
+        <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em] text-[#1D1D1F] sm:text-4xl">
+          Beragam bisnis. Satu standar kualitas.
         </h2>
 
-        <div className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-x-4 gap-y-5">
+        <div className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-x-4 gap-y-6">
           {clientLogos.map((logo) => (
             <LogoItem key={logo.name} {...logo} />
           ))}

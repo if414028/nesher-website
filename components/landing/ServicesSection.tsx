@@ -18,7 +18,7 @@ const icons = [LayoutTemplate, MonitorCog, Gauge, Smartphone, Palette, Wrench];
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-[#FAF7FF] py-20 sm:py-24">
+    <section id="services" className="bg-[#F5F5F7] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeader
@@ -27,7 +27,7 @@ export function ServicesSection() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const Icon = icons[index];
 
@@ -38,16 +38,16 @@ export function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: index * 0.06 }}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -4 }}
               >
-                <Card className="h-full rounded-[2rem] border border-white bg-white p-7 shadow-[0_18px_55px_rgba(59,7,100,0.08)] ring-0">
-                  <div className="mb-7 flex size-14 items-center justify-center rounded-3xl bg-[#F6F1FF] text-[#6D28D9]">
+                <Card className="h-full rounded-[2rem] border-0 bg-white p-8 shadow-none ring-0 sm:p-9">
+                  <div className="mb-9 flex size-14 items-center justify-center rounded-2xl bg-[#F3EEFF] text-[#6D28D9]">
                     <Icon className="size-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#111827]">
+                  <h3 className="text-2xl font-semibold tracking-[-0.025em] text-[#1D1D1F]">
                     {service.title}
                   </h3>
-                  <p className="mt-4 text-base leading-7 text-[#6B7280]">
+                  <p className="mt-4 text-base leading-7 text-[#6E6E73]">
                     {service.description}
                   </p>
                 </Card>

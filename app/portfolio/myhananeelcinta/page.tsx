@@ -23,6 +23,7 @@ export default function MyHananeelCintaPage() {
       category={myHananeelCintaDetail.category}
       title={myHananeelCintaDetail.title}
       subtitle={myHananeelCintaDetail.subtitle}
+      themeColor="#8F1538"
       overview={myHananeelCintaDetail.overview}
       overviewTitle="Aplikasi mobile untuk menghubungkan gereja dan jemaat."
       heroImage={{

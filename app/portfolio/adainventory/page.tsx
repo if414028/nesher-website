@@ -23,6 +23,7 @@ export default function AdaInventoryPage() {
       category={adaInventoryDetail.category}
       title={adaInventoryDetail.title}
       subtitle={adaInventoryDetail.subtitle}
+      themeColor="#58C4CE"
       overview={adaInventoryDetail.overview}
       overviewTitle="Aplikasi Android untuk tagging sampah dengan RFID dan printer thermal."
       heroImage={{

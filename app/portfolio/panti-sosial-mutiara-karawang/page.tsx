@@ -24,6 +24,7 @@ export default function PantiSosialMutiaraKarawangPage() {
       category={pantiSosialMutiaraKarawangDetail.category}
       title={pantiSosialMutiaraKarawangDetail.title}
       subtitle={pantiSosialMutiaraKarawangDetail.subtitle}
+      themeColor="#315B78"
       overview={pantiSosialMutiaraKarawangDetail.overview}
       overviewTitle="Website publikasi yang membantu panti sosial dikenal publik."
       liveUrl={pantiSosialMutiaraKarawangDetail.url}

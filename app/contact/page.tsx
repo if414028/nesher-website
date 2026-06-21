@@ -66,12 +66,16 @@ export default function ContactPage() {
     <div className="min-h-screen bg-white font-sans">
       <Navbar />
       <main>
-        <section className="bg-gradient-to-b from-[#FAF7FF] via-white to-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="mx-auto max-w-7xl">
+        <section className="relative overflow-hidden bg-[#F5F5F7] px-4 pb-24 pt-36 sm:px-6 sm:pb-32 sm:pt-44 lg:px-8 lg:pt-48">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-96 -top-64 h-[64rem] w-[84rem] bg-[radial-gradient(ellipse_at_center,rgba(109,40,217,0.12)_0%,rgba(109,40,217,0.04)_42%,transparent_72%)] blur-[75px]"
+          />
+          <div className="relative mx-auto max-w-7xl">
             <Button
               asChild
               variant="outline"
-              className="mb-10 h-10 rounded-full border-[#E9DFFF] bg-white text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
+              className="mb-12 h-10 rounded-full border-black/10 bg-white/60 text-[#1D1D1F] backdrop-blur-xl hover:bg-white hover:text-[#6D28D9]"
             >
               <Link href="/#home">
                 <ArrowLeft className="mr-2 size-4" />
@@ -79,32 +83,32 @@ export default function ContactPage() {
               </Link>
             </Button>
 
-            <div className="grid gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-end">
+            <div className="grid gap-14 lg:grid-cols-[0.62fr_0.38fr] lg:items-end">
               <div>
-                <p className="text-sm font-bold uppercase tracking-[0.26em] text-[#6D28D9]">
+                <p className="text-sm font-semibold text-[#6D28D9]">
                   Contact
                 </p>
-                <h1 className="mt-5 text-balance text-5xl font-bold leading-tight text-[#111827] sm:text-6xl lg:text-7xl">
-                  Konsultasikan kebutuhan digital Anda.
+                <h1 className="mt-5 text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-[#1D1D1F] sm:text-7xl lg:text-[5.25rem]">
+                  Mari membangun sesuatu yang bekerja dengan indah.
                 </h1>
-                <p className="mt-6 max-w-3xl text-pretty text-lg leading-8 text-[#6B7280]">
+                <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[#6E6E73] sm:text-xl">
                   Ceritakan kebutuhan website, aplikasi, dashboard, atau sistem
                   custom Anda. Tim Nesher akan membantu memetakan solusi,
                   prioritas fitur, dan estimasi pengerjaan yang realistis.
                 </p>
               </div>
 
-              <div className="rounded-[2rem] border border-[#E9DFFF] bg-white p-6 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
-                <div className="flex size-12 items-center justify-center rounded-2xl bg-[#F6F1FF] text-[#6D28D9]">
+              <div className="rounded-[2.5rem] bg-white p-7 sm:p-8">
+                <div className="flex size-12 items-center justify-center rounded-2xl bg-[#F3EEFF] text-[#6D28D9]">
                   <MapPin className="size-6" />
                 </div>
-                <p className="mt-6 text-sm font-bold uppercase tracking-[0.24em] text-[#6D28D9]">
+                <p className="mt-7 text-sm font-semibold text-[#6D28D9]">
                   Kantor Kami
                 </p>
-                <h2 className="mt-3 text-2xl font-bold text-[#111827]">
+                <h2 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-[#1D1D1F]">
                   Nesher Tech
                 </h2>
-                <p className="mt-4 text-base leading-7 text-[#6B7280]">
+                <p className="mt-4 text-base leading-7 text-[#6E6E73]">
                   {officeAddress}
                 </p>
                 <Button
@@ -120,7 +124,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
+        <section className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
             {contactCards.map((item) => {
               const Icon = item.icon;
@@ -134,15 +138,15 @@ export default function ContactPage() {
                   href={item.href}
                   rel="noreferrer"
                   target={item.href.startsWith("http") ? "_blank" : undefined}
-                  className="rounded-[1.75rem] border border-[#E9DFFF] bg-white p-6 shadow-[0_14px_45px_rgba(59,7,100,0.06)] transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(59,7,100,0.1)]"
+                  className="group rounded-[2rem] bg-[#F5F5F7] p-7 transition duration-300 hover:-translate-y-1"
                 >
-                  <div className="flex size-12 items-center justify-center rounded-2xl bg-[#F6F1FF] text-[#6D28D9]">
+                  <div className="flex size-12 items-center justify-center rounded-2xl bg-white text-[#6D28D9] transition group-hover:bg-[#6D28D9] group-hover:text-white">
                     <Icon className="size-6" />
                   </div>
-                  <h3 className="mt-5 text-xl font-bold text-[#111827]">
+                  <h3 className="mt-7 text-2xl font-semibold tracking-[-0.025em] text-[#1D1D1F]">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-base leading-7 text-[#6B7280]">
+                  <p className="mt-3 text-base leading-7 text-[#6E6E73]">
                     {item.description}
                   </p>
                   <p className="mt-5 text-sm font-semibold text-[#6D28D9]">
@@ -154,16 +158,16 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="bg-[#FAF7FF] px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.42fr_0.58fr]">
+        <section className="bg-[#F5F5F7] px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.4fr_0.6fr] lg:gap-20">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.24em] text-[#6D28D9]">
+              <p className="text-sm font-semibold text-[#6D28D9]">
                 Konsultasi Gratis
               </p>
-              <h2 className="mt-4 text-3xl font-bold leading-tight text-[#111827] sm:text-4xl">
+              <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1D1D1F] sm:text-5xl">
                 Mulai dari brief singkat, kami bantu rapikan arahnya.
               </h2>
-              <p className="mt-5 text-lg leading-8 text-[#6B7280]">
+              <p className="mt-6 text-lg leading-8 text-[#6E6E73]">
                 Isi detail kebutuhan Anda atau langsung hubungi kami via
                 WhatsApp. Untuk pengiriman dokumen, proposal, atau brief yang
                 lebih lengkap, email juga tersedia.
@@ -173,7 +177,7 @@ export default function ContactPage() {
                 {projectTypes.map((item) => (
                   <span
                     key={item}
-                    className="inline-flex h-10 items-center rounded-full border border-[#E9DFFF] bg-white px-4 text-sm font-semibold text-[#3B0764]"
+                    className="inline-flex h-10 items-center rounded-full border border-black/8 bg-white px-4 text-sm font-medium text-[#1D1D1F]"
                   >
                     {item}
                   </span>
@@ -181,7 +185,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-[#E9DFFF] bg-white p-6 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
+            <div className="rounded-[2.5rem] bg-white p-6 sm:p-8">
               <form
                 action={`mailto:${emailAddress}`}
                 className="grid gap-5"
@@ -190,51 +194,51 @@ export default function ContactPage() {
                 method="post"
               >
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <label className="grid gap-2 text-sm font-semibold text-[#111827]">
+                  <label className="grid gap-2 text-sm font-semibold text-[#1D1D1F]">
                     Nama
                     <input
                       name="Nama"
                       placeholder="Nama lengkap"
-                      className="h-12 rounded-2xl border border-[#E9DFFF] bg-white px-4 text-sm font-normal text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#6D28D9] focus:ring-4 focus:ring-[#E9DFFF]"
+                      className="h-12 rounded-2xl border border-black/10 bg-[#F5F5F7] px-4 text-sm font-normal text-[#1D1D1F] outline-none transition placeholder:text-[#86868B] focus:border-[#6D28D9] focus:bg-white focus:ring-4 focus:ring-[#E9DFFF]"
                     />
                   </label>
-                  <label className="grid gap-2 text-sm font-semibold text-[#111827]">
+                  <label className="grid gap-2 text-sm font-semibold text-[#1D1D1F]">
                     Email Kerja
                     <input
                       name="Email"
                       placeholder="nama@perusahaan.com"
                       type="email"
-                      className="h-12 rounded-2xl border border-[#E9DFFF] bg-white px-4 text-sm font-normal text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#6D28D9] focus:ring-4 focus:ring-[#E9DFFF]"
+                      className="h-12 rounded-2xl border border-black/10 bg-[#F5F5F7] px-4 text-sm font-normal text-[#1D1D1F] outline-none transition placeholder:text-[#86868B] focus:border-[#6D28D9] focus:bg-white focus:ring-4 focus:ring-[#E9DFFF]"
                     />
                   </label>
                 </div>
 
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <label className="grid gap-2 text-sm font-semibold text-[#111827]">
+                  <label className="grid gap-2 text-sm font-semibold text-[#1D1D1F]">
                     Telepon
                     <input
                       name="Telepon"
                       placeholder="+62"
-                      className="h-12 rounded-2xl border border-[#E9DFFF] bg-white px-4 text-sm font-normal text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#6D28D9] focus:ring-4 focus:ring-[#E9DFFF]"
+                      className="h-12 rounded-2xl border border-black/10 bg-[#F5F5F7] px-4 text-sm font-normal text-[#1D1D1F] outline-none transition placeholder:text-[#86868B] focus:border-[#6D28D9] focus:bg-white focus:ring-4 focus:ring-[#E9DFFF]"
                     />
                   </label>
-                  <label className="grid gap-2 text-sm font-semibold text-[#111827]">
+                  <label className="grid gap-2 text-sm font-semibold text-[#1D1D1F]">
                     Perusahaan
                     <input
                       name="Perusahaan"
                       placeholder="Nama perusahaan"
-                      className="h-12 rounded-2xl border border-[#E9DFFF] bg-white px-4 text-sm font-normal text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#6D28D9] focus:ring-4 focus:ring-[#E9DFFF]"
+                      className="h-12 rounded-2xl border border-black/10 bg-[#F5F5F7] px-4 text-sm font-normal text-[#1D1D1F] outline-none transition placeholder:text-[#86868B] focus:border-[#6D28D9] focus:bg-white focus:ring-4 focus:ring-[#E9DFFF]"
                     />
                   </label>
                 </div>
 
-                <label className="grid gap-2 text-sm font-semibold text-[#111827]">
+                <label className="grid gap-2 text-sm font-semibold text-[#1D1D1F]">
                   Pesan
                   <textarea
                     name="Pesan"
                     placeholder="Ceritakan kebutuhan project, target, fitur utama, atau timeline yang diharapkan."
                     rows={6}
-                    className="resize-none rounded-2xl border border-[#E9DFFF] bg-white px-4 py-3 text-sm font-normal leading-6 text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#6D28D9] focus:ring-4 focus:ring-[#E9DFFF]"
+                    className="resize-none rounded-2xl border border-black/10 bg-[#F5F5F7] px-4 py-3 text-sm font-normal leading-6 text-[#1D1D1F] outline-none transition placeholder:text-[#86868B] focus:border-[#6D28D9] focus:bg-white focus:ring-4 focus:ring-[#E9DFFF]"
                   />
                 </label>
 
@@ -248,7 +252,7 @@ export default function ContactPage() {
                   <Button
                     asChild
                     variant="outline"
-                    className="h-12 rounded-full border-[#E9DFFF] bg-white px-7 text-base text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
+                    className="h-12 rounded-full border-black/10 bg-white px-7 text-base text-[#1D1D1F] hover:bg-[#F5F5F7] hover:text-[#6D28D9]"
                   >
                     <a
                       data-gtag-conversion
@@ -265,8 +269,8 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="relative bg-white pt-4">
-          <div className="relative h-[520px] overflow-hidden border-y border-[#E9DFFF] sm:h-[560px]">
+        <section className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="relative mx-auto h-[520px] max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#F5F5F7] sm:h-[600px]">
             <iframe
               src={officeMapEmbedUrl}
               title="Lokasi kantor Nesher Tech di Google Maps"
@@ -275,18 +279,18 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
             />
 
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/70 to-transparent" />
 
-            <div className="absolute left-4 top-4 max-w-sm rounded-[1.25rem] border border-[#E9DFFF] bg-white p-5 shadow-[0_18px_55px_rgba(59,7,100,0.14)] sm:left-8 sm:top-8">
+            <div className="absolute left-4 top-4 max-w-sm rounded-[1.75rem] border border-white/80 bg-white/80 p-5 shadow-[0_18px_55px_rgba(29,29,31,0.12)] backdrop-blur-xl sm:left-8 sm:top-8 sm:p-6">
               <div className="flex items-start gap-4">
                 <div className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#F6F1FF] text-[#6D28D9]">
                   <MapPin className="size-5" />
                 </div>
                 <div>
-                  <p className="text-base font-bold text-[#111827]">
+                  <p className="text-base font-semibold text-[#1D1D1F]">
                     Nesher Tech
                   </p>
-                  <p className="mt-2 text-sm leading-6 text-[#6B7280]">
+                  <p className="mt-2 text-sm leading-6 text-[#6E6E73]">
                     {officeAddress}
                   </p>
                   <a
@@ -302,10 +306,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div
-            aria-hidden="true"
-            className="h-16 bg-white [clip-path:ellipse(70%_100%_at_50%_100%)]"
-          />
         </section>
       </main>
       <Footer />

@@ -9,17 +9,18 @@ import { whatsappUrl } from "@/lib/landing-data";
 
 export function CTASection() {
   return (
-    <section id="contact" className="bg-white px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+    <section id="contact" className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
       <Reveal>
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#6D28D9] via-[#5B21B6] to-[#3B0764] px-6 py-16 text-center shadow-[0_26px_80px_rgba(59,7,100,0.2)] sm:px-10 lg:px-20">
-          <h2 className="mx-auto max-w-4xl text-balance text-3xl font-bold leading-tight text-white sm:text-5xl">
-            Siap Membuat Bisnis Anda Tampil Lebih Profesional Secara Digital?
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.75rem] bg-[#1D1D1F] px-6 py-20 text-center shadow-[0_30px_90px_rgba(29,29,31,0.18)] sm:px-10 sm:py-24 lg:px-20">
+          <div className="pointer-events-none absolute inset-x-0 -top-48 mx-auto h-96 max-w-3xl rounded-full bg-[#6D28D9]/50 blur-[100px]" />
+          <h2 className="relative mx-auto max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-white sm:text-6xl">
+            Ide yang bagus layak diwujudkan dengan sangat baik.
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/80">
+          <p className="relative mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">
             Diskusikan kebutuhan website, web application, dashboard, atau
             aplikasi mobile Anda bersama Nesher Tech.
           </p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="relative mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               asChild
               className="h-12 rounded-full bg-white px-7 text-base text-[#3B0764] hover:bg-[#5B21B6] hover:text-white"

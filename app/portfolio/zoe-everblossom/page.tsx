@@ -15,6 +15,7 @@ export default function ZoeEverblossomPage() {
       category={zoeEverblossomDetail.category}
       title={zoeEverblossomDetail.title}
       subtitle={zoeEverblossomDetail.subtitle}
+      themeColor="#A56F5B"
       overview={zoeEverblossomDetail.overview}
       overviewTitle="Website resmi untuk brand lilin, bunga, hadiah, dan hampers."
       liveUrl={zoeEverblossomDetail.url}

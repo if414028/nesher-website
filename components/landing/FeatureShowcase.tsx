@@ -9,7 +9,7 @@ import { showcaseFeatures, whatsappUrl } from "@/lib/landing-data";
 
 function WebsiteMockup() {
   return (
-    <div className="overflow-hidden rounded-[2rem] border border-[#E9DFFF] bg-white p-3 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
+    <div className="overflow-hidden rounded-[2rem] bg-white p-2 shadow-[0_30px_80px_rgba(29,29,31,0.1)]">
       <Image
         src="/images/business-growth-handshake.jpg"
         alt="Ilustrasi konsultasi bisnis dengan grafik pertumbuhan"
@@ -24,7 +24,7 @@ function WebsiteMockup() {
 
 function DashboardMockup() {
   return (
-    <div className="overflow-hidden rounded-[2rem] border border-[#E9DFFF] bg-white p-3 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
+    <div className="overflow-hidden rounded-[2rem] bg-white p-2 shadow-[0_30px_80px_rgba(29,29,31,0.1)]">
       <Image
         src="/images/business-dashboard-interface.webp"
         alt="Ilustrasi dashboard digital dengan visualisasi data bisnis"
@@ -39,7 +39,7 @@ function DashboardMockup() {
 
 function WorkflowMockup() {
   return (
-    <div className="overflow-hidden rounded-[2rem] border border-[#E9DFFF] bg-white p-3 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
+    <div className="overflow-hidden rounded-[2rem] bg-white p-2 shadow-[0_30px_80px_rgba(29,29,31,0.1)]">
       <Image
         src="/images/custom-workflow-automation.jpg"
         alt="Ilustrasi sistem workflow digital dengan checklist otomatis"
@@ -60,21 +60,21 @@ function ShowcaseVisual({ type }: { type: string }) {
 
 export function FeatureShowcase() {
   return (
-    <section className="bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl space-y-20 px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl space-y-28 px-4 sm:px-6 lg:space-y-36 lg:px-8">
         {showcaseFeatures.map((feature, index) => (
           <div
             key={feature.title}
-            className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
+            className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20"
           >
             <Reveal className={index % 2 === 1 ? "lg:order-2" : undefined}>
               <p className="text-sm font-semibold text-[#6D28D9]">
                 {feature.eyebrow}
               </p>
-              <h2 className="mt-4 text-balance text-3xl font-bold leading-tight text-[#111827] sm:text-4xl">
+              <h2 className="mt-4 text-balance text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1D1D1F] sm:text-5xl lg:text-6xl">
                 {feature.title}
               </h2>
-              <p className="mt-5 text-lg leading-8 text-[#6B7280]">
+              <p className="mt-6 text-lg leading-8 tracking-[-0.01em] text-[#6E6E73] sm:text-xl">
                 {feature.text}
               </p>
               <Button
@@ -99,7 +99,7 @@ export function FeatureShowcase() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, ease: "easeOut" }}
             >
-              <div className="rounded-[2.25rem] bg-gradient-to-br from-[#FAF7FF] to-white p-4">
+              <div className="rounded-[2.5rem] bg-[#F5F5F7] p-5 sm:p-7">
                 <ShowcaseVisual type={feature.type} />
               </div>
             </MotionDiv>

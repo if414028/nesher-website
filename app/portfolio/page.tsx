@@ -28,12 +28,16 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-white font-sans">
       <Navbar />
       <main>
-        <section className="bg-gradient-to-b from-[#FAF7FF] via-white to-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="mx-auto max-w-7xl">
+        <section className="relative overflow-hidden bg-[#F5F5F7] px-4 pb-24 pt-36 sm:px-6 sm:pb-32 sm:pt-44 lg:px-8 lg:pt-48">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 -top-48 h-[56rem] w-[78rem] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,rgba(109,40,217,0.11)_0%,rgba(109,40,217,0.045)_38%,transparent_72%)] blur-[70px]"
+          />
+          <div className="relative mx-auto max-w-7xl">
             <Button
               asChild
               variant="outline"
-              className="mb-10 h-10 rounded-full border-[#E9DFFF] bg-white text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
+              className="mb-12 h-10 rounded-full border-black/10 bg-white/60 text-[#1D1D1F] backdrop-blur-xl hover:bg-white hover:text-[#6D28D9]"
             >
               <Link href="/#portfolio">
                 <ArrowLeft className="mr-2 size-4" />
@@ -41,23 +45,22 @@ export default function PortfolioPage() {
               </Link>
             </Button>
 
-            <div className="max-w-4xl">
-              <span className="inline-flex rounded-full border border-[#E9DFFF] bg-white px-4 py-2 text-sm font-semibold text-[#6D28D9] shadow-sm">
+            <div className="mx-auto max-w-5xl text-center">
+              <span className="inline-flex rounded-full border border-white/80 bg-white/65 px-4 py-2 text-sm font-semibold text-[#6D28D9] shadow-sm backdrop-blur-xl">
                 Portfolio
               </span>
-              <h1 className="mt-6 text-balance text-4xl font-bold leading-tight text-[#111827] sm:text-5xl lg:text-6xl">
-                Semua solusi digital yang pernah kami bangun
+              <h1 className="mt-7 text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-[#1D1D1F] sm:text-7xl lg:text-[5.25rem]">
+                Produk digital yang dirancang untuk bekerja.
               </h1>
-              <p className="mt-6 text-pretty text-lg leading-8 text-[#6B7280]">
-                Kumpulan project website, dashboard, mobile application, dan
-                sistem custom yang dibuat untuk kebutuhan bisnis, organisasi,
-                dan operasional lapangan.
+              <p className="mx-auto mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[#6E6E73] sm:text-2xl sm:leading-9">
+                Website, dashboard, aplikasi, dan sistem custom yang mengubah
+                kebutuhan nyata menjadi pengalaman digital yang jernih.
               </p>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#FAF7FF] px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+        <section className="bg-[#F5F5F7] px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <PortfolioGrid items={portfolioItems} />
           </div>

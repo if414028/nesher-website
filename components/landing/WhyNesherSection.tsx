@@ -9,8 +9,8 @@ import { whyNesher } from "@/lib/landing-data";
 
 export function WhyNesherSection() {
   return (
-    <section className="bg-[#FAF7FF] py-20 sm:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+    <section className="bg-[#F5F5F7] py-24 sm:py-32">
+      <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
         <Reveal>
           <SectionHeader
             align="left"
@@ -28,8 +28,8 @@ export function WhyNesherSection() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <Card className="rounded-[2rem] border border-white bg-white p-6 shadow-[0_20px_65px_rgba(59,7,100,0.09)] ring-0">
-            <div className="rounded-[1.5rem] bg-[#FAF7FF] p-5">
+          <Card className="rounded-[2.5rem] border-0 bg-white p-6 shadow-none ring-0 sm:p-8">
+            <div className="rounded-[2rem] bg-[#F5F5F7] p-5 sm:p-7">
               <div className="flex items-center gap-4">
                 <div className="flex size-14 items-center justify-center rounded-3xl bg-[#6D28D9] text-white">
                   <MessageCircle className="size-6" />

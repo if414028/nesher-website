@@ -23,6 +23,7 @@ export default function LetsGrowAcademyPage() {
       category={letsGrowAcademyDetail.category}
       title={letsGrowAcademyDetail.title}
       subtitle={letsGrowAcademyDetail.subtitle}
+      themeColor="#2563EB"
       overview={letsGrowAcademyDetail.overview}
       overviewTitle="Dashboard untuk membaca kinerja sales dengan lebih jelas."
       heroImage={{

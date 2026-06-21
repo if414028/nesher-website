@@ -12,9 +12,9 @@ function DashboardMockup() {
   const bars = ["h-24", "h-32", "h-20", "h-36", "h-28", "h-40", "h-24"];
 
   return (
-    <div className="relative mx-auto mt-10 max-w-6xl px-3 sm:px-6">
+    <div className="relative mx-auto mt-16 max-w-6xl px-3 sm:mt-20 sm:px-6">
       <MotionDiv
-        className="absolute -left-1 top-16 z-20 hidden rounded-3xl border border-[#E9DFFF] bg-white px-5 py-4 shadow-[0_18px_50px_rgba(59,7,100,0.12)] md:block"
+        className="absolute -left-1 top-16 z-20 hidden rounded-3xl border border-white/80 bg-white/75 px-5 py-4 shadow-[0_18px_50px_rgba(59,7,100,0.1)] backdrop-blur-xl md:block"
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -23,7 +23,7 @@ function DashboardMockup() {
       </MotionDiv>
 
       <MotionDiv
-        className="absolute -right-2 top-24 z-20 hidden rounded-3xl border border-[#E9DFFF] bg-white px-5 py-4 shadow-[0_18px_50px_rgba(59,7,100,0.12)] lg:block"
+        className="absolute -right-2 top-24 z-20 hidden rounded-3xl border border-white/80 bg-white/75 px-5 py-4 shadow-[0_18px_50px_rgba(59,7,100,0.1)] backdrop-blur-xl lg:block"
         animate={{ y: [0, 12, 0] }}
         transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -32,7 +32,7 @@ function DashboardMockup() {
       </MotionDiv>
 
       <MotionDiv
-        className="absolute bottom-12 left-8 z-20 hidden rounded-3xl border border-[#E9DFFF] bg-white px-5 py-4 shadow-[0_18px_50px_rgba(59,7,100,0.12)] lg:block"
+        className="absolute bottom-12 left-8 z-20 hidden rounded-3xl border border-white/80 bg-white/75 px-5 py-4 shadow-[0_18px_50px_rgba(59,7,100,0.1)] backdrop-blur-xl lg:block"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
       >
@@ -40,7 +40,7 @@ function DashboardMockup() {
         <p className="mt-1 text-xs text-[#6B7280]">Sesuai workflow bisnis</p>
       </MotionDiv>
 
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white p-3 shadow-[0_30px_90px_rgba(59,7,100,0.16)] sm:rounded-[2.5rem] sm:p-4">
+      <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white/85 p-2 shadow-[0_40px_100px_rgba(59,7,100,0.16)] backdrop-blur-xl sm:rounded-[2.75rem] sm:p-3">
         <div className="rounded-[1.5rem] border border-[#E9DFFF] bg-[#FAF7FF] sm:rounded-[2rem]">
           <div className="flex items-center gap-2 border-b border-[#E9DFFF] px-5 py-4">
             <span className="size-3 rounded-full bg-[#F87171]" />
@@ -160,28 +160,27 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden bg-[#FBFAFE] pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-40"
+      className="relative isolate overflow-hidden bg-[#F5F5F7] pb-24 pt-36 sm:pt-44 lg:pb-32 lg:pt-48"
     >
       <HeroFlowBackground />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-64 bg-gradient-to-b from-transparent to-white" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <Reveal>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#E9DFFF] bg-white px-4 py-2 text-sm font-semibold text-[#3B0764] shadow-sm">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/65 px-4 py-2 text-sm font-semibold text-[#5B21B6] shadow-sm backdrop-blur-xl">
             <Sparkles className="size-4 text-[#6D28D9]" />
             Digital Partner for Growing Businesses
           </div>
-          <h1 className="mx-auto mt-6 max-w-5xl text-balance text-4xl font-bold leading-tight text-[#111827] sm:text-6xl">
-            Software House untuk Website, Aplikasi, dan Dashboard Bisnis Anda
+          <h1 className="mx-auto mt-7 max-w-6xl text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-[#1D1D1F] sm:text-7xl lg:text-[5.5rem]">
+            Teknologi yang terasa sederhana. Dibangun untuk bisnis Anda.
           </h1>
-          <p className="mx-auto mt-5 max-w-3xl text-pretty text-lg leading-8 text-[#6B7280] sm:text-xl">
-            Nesher Teknologi Nusantara membantu bisnis membangun website company
-            profile, web application, dashboard, dan aplikasi custom yang
-            modern, cepat, scalable, dan mudah digunakan.
+          <p className="mx-auto mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[#6E6E73] sm:text-2xl sm:leading-9">
+            Website, aplikasi, dan dashboard yang dirancang jernih, bekerja
+            cepat, dan bertumbuh bersama bisnis Anda.
           </p>
-          <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               asChild
-              className="h-12 rounded-full bg-[#6D28D9] px-7 text-base text-white shadow-[0_18px_40px_rgba(109,40,217,0.25)] hover:bg-[#5B21B6] hover:text-white"
+              className="h-12 rounded-full bg-[#6D28D9] px-7 text-base font-medium text-white shadow-[0_14px_35px_rgba(109,40,217,0.24)] hover:bg-[#5B21B6] hover:text-white"
             >
               <a
                 data-gtag-conversion
@@ -195,12 +194,12 @@ export function HeroSection() {
             <Button
               asChild
               variant="outline"
-              className="h-12 rounded-full border-[#E9DFFF] bg-white px-7 text-base text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
+              className="h-12 rounded-full border-black/10 bg-white/65 px-7 text-base font-medium text-[#1D1D1F] backdrop-blur-xl hover:bg-white hover:text-[#6D28D9]"
             >
               <Link href="/portfolio">Lihat Portofolio</Link>
             </Button>
           </div>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-4 text-sm text-[#6B7280]">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-5 text-sm text-[#6E6E73]">
             {["Modern UI", "Scalable System", "Clear Process"].map((item) => (
               <span key={item} className="inline-flex items-center gap-2">
                 <CheckCircle2 className="size-4 text-[#6D28D9]" />

@@ -97,7 +97,7 @@ export function PortfolioGrid({
           transition={{ duration: 0.5, delay: index * 0.06 }}
           whileHover={{ y: -6 }}
         >
-          <Card className="h-full rounded-[2rem] border border-white bg-white p-5 shadow-[0_18px_55px_rgba(59,7,100,0.08)] ring-0">
+          <Card className="h-full rounded-[2rem] border-0 bg-white p-4 shadow-none ring-0 sm:p-5">
             <PortfolioMockup
               image={item.image}
               index={(startIndex + index) % 3}
@@ -108,10 +108,10 @@ export function PortfolioGrid({
               <span className="inline-flex rounded-full bg-[#F6F1FF] px-3 py-1 text-xs font-semibold text-[#6D28D9]">
                 {item.category}
               </span>
-              <h3 className="mt-4 text-2xl font-bold text-[#111827]">
+              <h3 className="mt-4 text-2xl font-semibold tracking-[-0.025em] text-[#1D1D1F]">
                 {item.title}
               </h3>
-              <p className="mt-3 text-base leading-7 text-[#6B7280]">
+              <p className="mt-3 text-base leading-7 text-[#6E6E73]">
                 {item.description}
               </p>
               <Button
@@ -141,7 +141,7 @@ export function PortfolioSection() {
   const featuredPortfolios = portfolioItems.slice(0, 4);
 
   return (
-    <section id="portfolio" className="bg-[#FAF7FF] py-20 sm:py-24">
+    <section id="portfolio" className="bg-[#F5F5F7] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeader
@@ -150,7 +150,7 @@ export function PortfolioSection() {
           />
         </Reveal>
 
-        <div className="mt-12">
+        <div className="mt-16">
           <PortfolioGrid items={featuredPortfolios} />
         </div>
 

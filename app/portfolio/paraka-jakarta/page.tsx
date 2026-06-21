@@ -23,6 +23,7 @@ export default function ParakaJakartaPage() {
       category={parakaJakartaDetail.category}
       title={parakaJakartaDetail.title}
       subtitle={parakaJakartaDetail.subtitle}
+      themeColor="#D45A1F"
       overview={parakaJakartaDetail.overview}
       overviewTitle="Sistem survey lapangan untuk memetakan dukungan berbasis lokasi."
       heroImage={{

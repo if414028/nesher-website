@@ -24,6 +24,7 @@ export default function DiTenunPage() {
       category={diTenunDetail.category}
       title={diTenunDetail.title}
       subtitle={diTenunDetail.subtitle}
+      themeColor="#2619C7"
       overview={diTenunDetail.overview}
       overviewTitle="Eksplorasi motif tenun Nusantara melalui teknologi AI."
       heroImage={{
