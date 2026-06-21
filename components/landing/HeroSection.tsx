@@ -160,7 +160,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden bg-[#FBFAFE] pb-20 pt-14 sm:pt-16 lg:pb-28"
+      className="relative isolate overflow-hidden bg-[#FBFAFE] pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-40"
     >
       <HeroFlowBackground />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-64 bg-gradient-to-b from-transparent to-white" />
