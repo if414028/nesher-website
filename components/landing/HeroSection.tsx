@@ -1,157 +1,128 @@
-"use client";
-
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Code2,
+  Cpu,
+  Layers3,
+  ShieldCheck,
+} from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { HeroFlowBackground } from "@/components/landing/HeroFlowBackground";
-import { MotionDiv, Reveal } from "@/components/landing/Motion";
 import { whatsappUrl } from "@/lib/landing-data";
 
-function DashboardMockup() {
-  const bars = ["h-24", "h-32", "h-20", "h-36", "h-28", "h-40", "h-24"];
-
+function ProjectShowcase() {
   return (
-    <div className="relative mx-auto mt-16 max-w-6xl px-3 sm:mt-20 sm:px-6">
-      <MotionDiv
-        className="absolute -left-1 top-16 z-20 hidden rounded-3xl border border-white/80 bg-white/75 px-5 py-4 shadow-[0_18px_50px_rgba(59,7,100,0.1)] backdrop-blur-xl md:block"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <p className="text-sm font-semibold text-[#111827]">SEO Ready</p>
-        <p className="mt-1 text-xs text-[#6B7280]">Struktur cepat ditemukan</p>
-      </MotionDiv>
+    <div className="relative mx-auto w-full max-w-[44rem] lg:mx-0">
+      <div className="absolute -inset-10 -z-10 rounded-full bg-[#6D28D9]/10 blur-3xl" />
 
-      <MotionDiv
-        className="absolute -right-2 top-24 z-20 hidden rounded-3xl border border-white/80 bg-white/75 px-5 py-4 shadow-[0_18px_50px_rgba(59,7,100,0.1)] backdrop-blur-xl lg:block"
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <p className="text-sm font-semibold text-[#111827]">Responsive Design</p>
-        <p className="mt-1 text-xs text-[#6B7280]">Rapi di semua layar</p>
-      </MotionDiv>
+      <div className="absolute -left-2 -top-5 z-10 -rotate-3 rounded-xl bg-[#6D28D9] px-4 py-2.5 text-white shadow-[0_14px_28px_rgba(109,40,217,0.28)] sm:-left-5 sm:px-5">
+        <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.16em] sm:text-xs">
+          <Code2 className="size-4" />
+          Dibangun sesuai kebutuhan
+        </span>
+      </div>
 
-      <MotionDiv
-        className="absolute bottom-12 left-8 z-20 hidden rounded-3xl border border-white/80 bg-white/75 px-5 py-4 shadow-[0_18px_50px_rgba(59,7,100,0.1)] backdrop-blur-xl lg:block"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <p className="text-sm font-semibold text-[#111827]">Custom System</p>
-        <p className="mt-1 text-xs text-[#6B7280]">Sesuai workflow bisnis</p>
-      </MotionDiv>
+      <div className="overflow-hidden rounded-[1.6rem] border-2 border-[#3B0764] bg-white shadow-[12px_14px_0_rgba(59,7,100,0.09)]">
+        <div className="flex h-12 items-center justify-between bg-[#3B0764] px-5 text-white">
+          <div className="flex items-center gap-2">
+            <span className="size-2 rounded-full bg-[#C4B5FD]" />
+            <span className="text-[9px] font-bold uppercase tracking-[0.22em] sm:text-[10px]">
+              Project spec · Draft
+            </span>
+          </div>
+          <span className="text-[9px] font-semibold tracking-[0.18em] text-white/65">
+            V0.1
+          </span>
+        </div>
 
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white/85 p-2 shadow-[0_40px_100px_rgba(59,7,100,0.16)] backdrop-blur-xl sm:rounded-[2.75rem] sm:p-3">
-        <div className="rounded-[1.5rem] border border-[#E9DFFF] bg-[#FAF7FF] sm:rounded-[2rem]">
-          <div className="flex items-center gap-2 border-b border-[#E9DFFF] px-5 py-4">
-            <span className="size-3 rounded-full bg-[#F87171]" />
-            <span className="size-3 rounded-full bg-[#FBBF24]" />
-            <span className="size-3 rounded-full bg-[#34D399]" />
-            <div className="ml-4 hidden h-8 flex-1 rounded-full bg-white px-4 text-left text-xs leading-8 text-[#6B7280] sm:block">
-              app.neshertechnology.com/dashboard
+        <div
+          role="img"
+          aria-label="Ilustrasi spesifikasi proyek sistem digital custom"
+          className="bg-white px-5 py-5 sm:px-7 sm:py-7"
+        >
+          <div className="flex items-center gap-4 border-b border-dashed border-[#D8CDEA] pb-5">
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-[#6D28D9]/15 bg-[#F2EAFF] text-[#6D28D9]">
+              <Layers3 className="size-5" />
+            </span>
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#86868B]">
+                Modul
+              </p>
+              <p className="mt-1 text-sm font-bold text-[#2F1457] sm:text-lg">
+                Dashboard + API + Admin Panel
+              </p>
             </div>
           </div>
 
-          <div className="grid gap-4 p-4 lg:grid-cols-[180px_1fr_190px] lg:p-5">
-            <aside className="hidden rounded-[1.5rem] bg-white p-4 lg:block">
-              <div className="mb-7 h-8 w-24 rounded-full bg-[#6D28D9]" />
-              {["Overview", "Projects", "Clients", "Reports", "Settings"].map(
-                (item, index) => (
+          <div className="flex items-start gap-4 border-b border-dashed border-[#D8CDEA] py-5">
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-[#4C919B]/20 bg-[#EBF7F8] text-[#4C919B]">
+              <Cpu className="size-5" />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#86868B]">
+                Technology stack
+              </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {["Next.js", "Laravel", "PostgreSQL", "AWS"].map((stack) => (
+                  <span
+                    key={stack}
+                    className="rounded-md border border-[#D8CDEA] bg-[#F8F5FC] px-2.5 py-1 text-[9px] font-semibold text-[#3B0764] sm:text-[10px]"
+                  >
+                    {stack}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-5">
+            <div className="flex items-center justify-between">
+              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#86868B]">
+                Timeline
+              </p>
+              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#6D28D9]">
+                ± 12 minggu
+              </p>
+            </div>
+            <div className="mt-3 grid grid-cols-4 gap-1">
+              {["Brief", "Design", "Build", "Live"].map((phase, index) => (
+                <div key={phase}>
                   <div
-                    key={item}
-                    className={`mb-3 h-9 rounded-full ${
-                      index === 0 ? "bg-[#F6F1FF]" : "bg-[#F9FAFB]"
+                    className={`h-2 rounded-full ${
+                      index === 0
+                        ? "bg-[#6D28D9]"
+                        : index === 1
+                          ? "bg-[#8B5CF6]"
+                          : index === 2
+                            ? "bg-[#A78BFA]"
+                            : "bg-[#C4B5FD]"
                     }`}
                   />
-                )
-              )}
-            </aside>
-
-            <main className="space-y-4">
-              <div className="grid gap-3 sm:grid-cols-3">
-                {["Revenue", "Projects", "Leads"].map((item, index) => (
-                  <div key={item} className="rounded-3xl bg-white p-4">
-                    <p className="text-xs font-medium text-[#6B7280]">{item}</p>
-                    <p className="mt-2 text-2xl font-bold text-[#111827]">
-                      {index === 0 ? "128%" : index === 1 ? "42" : "316"}
-                    </p>
-                    <div className="mt-4 h-2 rounded-full bg-[#F6F1FF]">
-                      <div
-                        className="h-full rounded-full bg-[#6D28D9]"
-                        style={{ width: `${68 + index * 8}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="grid gap-4 lg:grid-cols-[1fr_220px]">
-                <div className="rounded-[1.5rem] bg-white p-5">
-                  <div className="mb-5 flex items-center justify-between">
-                    <div>
-                      <div className="h-4 w-32 rounded-full bg-[#111827]" />
-                      <div className="mt-2 h-3 w-44 rounded-full bg-[#E9DFFF]" />
-                    </div>
-                    <div className="h-9 w-24 rounded-full bg-[#F6F1FF]" />
-                  </div>
-                  <div className="flex h-44 items-end gap-3 rounded-3xl bg-[#FAF7FF] p-4">
-                    {bars.map((height, index) => (
-                      <div
-                        key={`${height}-${index}`}
-                        className={`${height} flex-1 rounded-t-2xl bg-gradient-to-t from-[#6D28D9] to-[#C4B5FD]`}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="rounded-[1.5rem] bg-white p-5">
-                  <div className="mb-5 h-4 w-28 rounded-full bg-[#111827]" />
-                  {[82, 64, 48, 72].map((width, index) => (
-                    <div key={width} className="mb-4">
-                      <div className="mb-2 flex justify-between">
-                        <span className="h-3 w-16 rounded-full bg-[#E9DFFF]" />
-                        <span className="h-3 w-8 rounded-full bg-[#E9DFFF]" />
-                      </div>
-                      <div className="h-2 rounded-full bg-[#F6F1FF]">
-                        <div
-                          className="h-full rounded-full bg-[#6D28D9]"
-                          style={{ width: `${width - index * 4}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-[1.5rem] bg-white p-4">
-                {[1, 2, 3].map((row) => (
-                  <div
-                    key={row}
-                    className="grid grid-cols-[1fr_80px_70px] items-center gap-3 border-b border-[#F3ECFF] py-3 last:border-0"
+                  <p
+                    className={`mt-2 text-[8px] font-semibold ${
+                      index === 3 ? "text-right" : "text-[#6E6E73]"
+                    }`}
                   >
-                    <div className="h-3 rounded-full bg-[#E9DFFF]" />
-                    <div className="h-3 rounded-full bg-[#F6F1FF]" />
-                    <div className="h-7 rounded-full bg-[#F6F1FF]" />
-                  </div>
-                ))}
-              </div>
-            </main>
-
-            <aside className="hidden items-center justify-center lg:flex">
-              <div className="h-[420px] w-[170px] rounded-[2rem] border-[10px] border-[#111827] bg-white p-3 shadow-2xl">
-                <div className="mx-auto mb-4 h-1.5 w-14 rounded-full bg-[#E9DFFF]" />
-                <div className="rounded-3xl bg-[#F6F1FF] p-3">
-                  <div className="h-20 rounded-2xl bg-white" />
-                  <div className="mt-3 h-3 w-20 rounded-full bg-[#6D28D9]" />
-                  <div className="mt-2 h-3 w-24 rounded-full bg-[#E9DFFF]" />
+                    {phase}
+                  </p>
                 </div>
-                {[1, 2, 3, 4].map((item) => (
-                  <div key={item} className="mt-3 h-14 rounded-2xl bg-[#FAF7FF]" />
-                ))}
-              </div>
-            </aside>
+              ))}
+            </div>
           </div>
         </div>
+
+        <div className="flex items-center justify-between border-t border-[#D8CDEA] bg-[#FBFAFE] px-5 py-3.5 sm:px-7">
+          <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#6E6E73]">
+            Prepared by Nesher Technology
+          </p>
+          <span className="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.16em] text-[#4C919B]">
+            <span className="size-1.5 rounded-full bg-[#4C919B]" />
+            Scope aktif
+          </span>
+        </div>
       </div>
+
     </div>
   );
 }
@@ -160,27 +131,37 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden bg-[#F5F5F7] pb-24 pt-36 sm:pt-44 lg:pb-32 lg:pt-48"
+      className="relative isolate overflow-hidden bg-[#FBFAFE] px-4 pb-20 pt-32 sm:px-6 sm:pb-24 sm:pt-36 lg:min-h-[47rem] lg:px-8 lg:pb-24"
     >
-      <HeroFlowBackground />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-64 bg-gradient-to-b from-transparent to-white" />
-      <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/65 px-4 py-2 text-sm font-semibold text-[#5B21B6] shadow-sm backdrop-blur-xl">
-            <Sparkles className="size-4 text-[#6D28D9]" />
-            Digital Partner for Growing Businesses
-          </div>
-          <h1 className="mx-auto mt-7 max-w-6xl text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-[#1D1D1F] sm:text-7xl lg:text-[5.5rem]">
-            Teknologi yang terasa sederhana. Dibangun untuk bisnis Anda.
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-20 opacity-70 [background-image:radial-gradient(rgba(109,40,217,0.11)_1px,transparent_1px)] [background-size:24px_24px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_78%_45%,rgba(109,40,217,0.12),transparent_34%),linear-gradient(to_bottom,rgba(251,250,254,0.25),#FBFAFE_88%)]"
+      />
+
+      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.96fr_1.04fr] lg:gap-9">
+        <div className="text-center lg:text-left">
+          <h1 className="text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-[#1D1D1F] sm:text-6xl lg:text-[4rem]">
+            Bukan sekadar dibuat.{" "}
+            <span className="relative whitespace-nowrap text-[#6D28D9]">
+              Siap dipakai
+              <span className="absolute inset-x-0 -bottom-1 -z-10 h-3 -rotate-1 rounded-full bg-[#C4B5FD]/55" />
+            </span>{" "}
+            untuk bertumbuh.
           </h1>
-          <p className="mx-auto mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[#6E6E73] sm:text-2xl sm:leading-9">
-            Website, aplikasi, dan dashboard yang dirancang jernih, bekerja
-            cepat, dan bertumbuh bersama bisnis Anda.
+
+          <p className="mx-auto mt-7 max-w-2xl text-pretty text-lg leading-8 text-[#6E6E73] sm:text-xl lg:mx-0">
+            Kami merancang website, aplikasi, dan dashboard custom yang rapi,
+            cepat, dan benar-benar mengikuti cara kerja bisnis Anda.
           </p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
             <Button
               asChild
-              className="h-12 rounded-full bg-[#6D28D9] px-7 text-base font-medium text-white shadow-[0_14px_35px_rgba(109,40,217,0.24)] hover:bg-[#5B21B6] hover:text-white"
+              className="h-13 rounded-full bg-[#6D28D9] px-7 text-base font-semibold text-white shadow-[0_14px_35px_rgba(109,40,217,0.24)] hover:bg-[#5B21B6] hover:text-white"
             >
               <a
                 data-gtag-conversion
@@ -194,23 +175,42 @@ export function HeroSection() {
             <Button
               asChild
               variant="outline"
-              className="h-12 rounded-full border-black/10 bg-white/65 px-7 text-base font-medium text-[#1D1D1F] backdrop-blur-xl hover:bg-white hover:text-[#6D28D9]"
+              className="h-13 rounded-full border-[#6D28D9]/25 bg-white px-7 text-base font-semibold text-[#3B0764] hover:bg-[#F6F1FF] hover:text-[#6D28D9]"
             >
-              <Link href="/portfolio">Lihat Portofolio</Link>
+              <Link href="/portfolio">Lihat Hasil Kerja</Link>
             </Button>
           </div>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-5 text-sm text-[#6E6E73]">
-            {["Modern UI", "Scalable System", "Clear Process"].map((item) => (
+
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-xs font-semibold text-[#6E6E73] lg:justify-start">
+            {[
+              "Desain sesuai brand",
+              "Mobile responsive",
+              "Support setelah live",
+            ].map((item) => (
               <span key={item} className="inline-flex items-center gap-2">
                 <CheckCircle2 className="size-4 text-[#6D28D9]" />
                 {item}
               </span>
             ))}
           </div>
-        </Reveal>
-      </div>
-      <div className="relative z-10">
-        <DashboardMockup />
+
+          <div className="mx-auto mt-8 flex max-w-xl items-center gap-3 rounded-2xl border border-black/6 bg-white/80 px-4 py-3 text-left shadow-sm lg:mx-0">
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#F2EAFF] text-[#6D28D9]">
+              <ShieldCheck className="size-5" />
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-[#1D1D1F]">
+                Proses jelas dari awal sampai live
+              </p>
+              <p className="mt-0.5 text-xs leading-5 text-[#86868B]">
+                Anda selalu tahu apa yang sedang dikerjakan dan tahap
+                berikutnya.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <ProjectShowcase />
       </div>
     </section>
   );
