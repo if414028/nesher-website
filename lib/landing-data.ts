@@ -89,13 +89,22 @@ export const showcaseFeatures = [
 
 export const portfolioItems = [
   {
-    title: "MyHananeelCinta",
-    category: "Mobile Application",
+    title: "JuangGroup",
+    category: "Website & Business Strategy",
     description:
-      "Aplikasi official Gereja JKI Hananeel Cinta untuk Android dan iOS, berisi management jemaat, informasi ibadah, informasi gereja, dan permintaan doa.",
+      "Company profile website Next.js untuk JuangGroup, dilengkapi business plan presentation dan marketing strategy bagi pengembangan brand lintas Indonesia dan Afrika.",
+    href: "/portfolio/juanggroup",
+    image: "/portfolio/juanggroup/company-profile-home.png",
+  },
+  {
+    title: "MyHananeelCinta",
+    category: "Mobile App, Website & Admin Dashboard",
+    description:
+      "Ekosistem digital JKI Hananeel Cinta yang mencakup aplikasi Android dan iOS, website publik, admin dashboard, serta REST API berbasis Laravel.",
     href: "/portfolio/myhananeelcinta",
-    image: "/portfolio/myhananeelcinta/home.webp",
-    previewType: "mobile",
+    image: "/portfolio/myhananeelcinta/admin-dashboard.png",
+    secondaryImage: "/portfolio/myhananeelcinta/home.webp",
+    previewType: "hybrid",
   },
   {
     title: "Zoe Everblossom",
@@ -210,23 +219,31 @@ export const letsGrowAcademyDetail = {
 
 export const myHananeelCintaDetail = {
   title: "MyHananeelCinta",
-  category: "Mobile Application",
+  category: "Digital Church Ecosystem",
   subtitle:
-    "Aplikasi official Gereja JKI Hananeel Cinta untuk Android dan iOS, dibuat agar jemaat dapat mengakses informasi ibadah, informasi gereja, renungan, dan permintaan doa dalam satu aplikasi.",
+    "Ekosistem digital JKI Hananeel Cinta yang menghubungkan aplikasi Android dan iOS, website publik, admin dashboard, serta REST API Laravel dalam satu sistem.",
   overview:
-    "MyHananeelCinta membantu gereja menghadirkan kanal digital yang rapi untuk jemaat. Aplikasi ini menyatukan kebutuhan informasi, data jemaat, jadwal ibadah, renungan, persembahan, dan permintaan doa sehingga jemaat dapat tetap terhubung dengan aktivitas gereja melalui perangkat mobile.",
+    "MyHananeelCinta membantu gereja mengelola pelayanan dan komunikasi jemaat secara terintegrasi. Aplikasi mobile dan website publik memberikan akses ke informasi ibadah, renungan, pengumuman, komunitas, serta permintaan doa. Di sisi operasional, admin dashboard Laravel menjadi content management system, sedangkan REST API Laravel menyinkronkan data dan layanan untuk aplikasi mobile.",
   client: "Gereja JKI Hananeel Cinta",
-  platform: "Android & iOS",
-  role: "Mobile app development",
+  platform: "Android, iOS & Web",
+  role: "Mobile, website, dashboard & API development",
   toneColor: "#990026",
-  stack: ["Mobile Application", "Android", "iOS", "API Integration", "Member Management"],
+  stack: [
+    "Android",
+    "iOS",
+    "Laravel",
+    "REST API",
+    "Admin Dashboard",
+    "Content Management System",
+    "Responsive Website",
+  ],
   highlights: [
-    "Authentication flow untuk akses aplikasi jemaat.",
-    "Homepage berisi sapaan personal, renungan, pengumuman, dan menu utama.",
-    "Informasi ibadah dan informasi gereja yang mudah diakses jemaat.",
-    "Renungan harian dengan daftar konten dan halaman detail bacaan.",
-    "Form permintaan doa untuk kunjungan, bantuan doa, dan konseling.",
-    "Fitur pendukung gereja seperti persembahan dan informasi rekening.",
+    "Aplikasi Android dan iOS untuk informasi ibadah, renungan, persembahan, pengumuman, dan layanan jemaat.",
+    "Admin dashboard Laravel untuk mengelola data jemaat, prayer request, Mezbah Keluarga, pengumuman, dan Pastor Message.",
+    "REST API berbasis Laravel sebagai penghubung data dan layanan untuk aplikasi mobile.",
+    "Website publik responsive untuk profil gereja, jadwal ibadah, komunitas, pengumuman, serta Pastor Message.",
+    "Form prayer request dengan opsi anonim dan confidential untuk menjaga privasi jemaat.",
+    "Role, permission, website settings, dan audit logs untuk operasional admin yang aman dan terkontrol.",
   ],
   gallery: [
     {

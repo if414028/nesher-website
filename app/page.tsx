@@ -88,7 +88,7 @@ const homeJsonLd = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(homeJsonLd) }}

@@ -52,38 +52,56 @@
   --font-geist-sans: "Geist", "Inter", "Segoe UI", Arial, sans-serif;
   --font-geist-mono: "Geist Mono", "SFMono-Regular", Consolas, "Liberation Mono",
     monospace;
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --nesher-purple-900: #3b0764;
+  --nesher-purple-700: #5b21b6;
+  --nesher-purple-600: #6d28d9;
+  --nesher-purple-300: #c4b5fd;
+  --nesher-purple-100: #f3eeff;
+  --nesher-purple-75: #f6f1ff;
+  --nesher-purple-50: #faf7ff;
+  --nesher-purple-border: #e9dfff;
+  --nesher-canvas: #fbfafe;
+  --nesher-surface-muted: #f5f5f7;
+  --nesher-ink: #1d1d1f;
+  --nesher-carbon: #111827;
+  --nesher-body: #6e6e73;
+  --nesher-muted: #86868b;
+  --nesher-soft-shadow: 0 18px 45px rgba(59, 7, 100, 0.06);
+  --nesher-raised-shadow: 0 18px 55px rgba(59, 7, 100, 0.1);
+  --nesher-glow: 0 14px 35px rgba(109, 40, 217, 0.24);
+  --nesher-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --card: #ffffff;
+  --card-foreground: var(--nesher-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--nesher-ink);
+  --primary: var(--nesher-purple-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--nesher-purple-75);
+  --secondary-foreground: var(--nesher-purple-900);
+  --muted: var(--nesher-surface-muted);
+  --muted-foreground: var(--nesher-body);
+  --accent: var(--nesher-purple-75);
+  --accent-foreground: var(--nesher-purple-900);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --border: var(--nesher-purple-border);
+  --input: rgba(0, 0, 0, 0.1);
+  --ring: var(--nesher-purple-600);
+  --chart-1: var(--nesher-purple-600);
+  --chart-2: var(--nesher-purple-700);
+  --chart-3: var(--nesher-purple-300);
+  --chart-4: var(--nesher-purple-900);
+  --chart-5: var(--nesher-body);
+  --radius: 1.5rem;
+  --sidebar: var(--nesher-canvas);
+  --sidebar-foreground: var(--nesher-ink);
+  --sidebar-primary: var(--nesher-purple-600);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--nesher-purple-75);
+  --sidebar-accent-foreground: var(--nesher-purple-900);
+  --sidebar-border: var(--nesher-purple-border);
+  --sidebar-ring: var(--nesher-purple-600);
+  --background: var(--nesher-canvas);
+  --foreground: var(--nesher-ink);
 }
 
 .dark {
@@ -125,10 +143,113 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .nesher-canvas {
+    background:
+      radial-gradient(circle at 78% 45%, rgba(109, 40, 217, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(251, 250, 254, 0.25), var(--nesher-canvas) 88%);
+  }
+
+  .nesher-section {
+    background: var(--nesher-surface-muted);
+  }
+
+  .nesher-card {
+    border: 1px solid rgba(109, 40, 217, 0.1);
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: var(--nesher-soft-shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .nesher-card-raised {
+    border: 1px solid rgba(233, 223, 255, 0.9);
+    background: #ffffff;
+    box-shadow: var(--nesher-raised-shadow);
+  }
+
+  .nesher-liquid {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(250, 247, 255, 0.74)),
+      radial-gradient(circle at 18% 0%, rgba(196, 181, 253, 0.22), transparent 34%);
+    box-shadow: var(--nesher-raised-shadow);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+  }
+
+  .nesher-liquid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(120deg, rgba(255, 255, 255, 0.72), transparent 42%),
+      radial-gradient(circle at 92% 14%, rgba(109, 40, 217, 0.1), transparent 32%);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .nesher-orbit {
+    position: absolute;
+    border: 1px solid rgba(109, 40, 217, 0.16);
+    border-radius: 999px;
+    pointer-events: none;
+  }
+
+  .nesher-chip {
+    border: 1px solid var(--nesher-purple-border);
+    background: #ffffff;
+    color: var(--nesher-purple-900);
+  }
+
+  .nesher-icon-tile {
+    background: var(--nesher-purple-100);
+    color: var(--nesher-purple-600);
+  }
+
+  .nesher-input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: var(--nesher-surface-muted);
+    color: var(--nesher-ink);
+  }
+
+  .nesher-input::placeholder {
+    color: var(--nesher-muted);
+  }
+
+  .nesher-input:focus {
+    border-color: var(--nesher-purple-600);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px var(--nesher-purple-border);
+    outline: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nesher-hover-lift {
+    transition:
+      transform 240ms var(--nesher-ease-out),
+      box-shadow 240ms var(--nesher-ease-out),
+      border-color 240ms var(--nesher-ease-out),
+      background-color 240ms var(--nesher-ease-out);
+  }
+
+  .nesher-hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--nesher-raised-shadow);
   }
 }
 

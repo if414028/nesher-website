@@ -14,7 +14,7 @@ export function Navbar() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
-      <div className="pointer-events-auto mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] border border-white/65 bg-white/55 shadow-[0_18px_55px_rgba(59,7,100,0.1)] ring-1 ring-[#E9DFFF]/40 backdrop-blur-2xl">
+      <div className="pointer-events-auto mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] border border-white/65 bg-white/55 shadow-[var(--nesher-raised-shadow)] ring-1 ring-[var(--nesher-purple-border)]/40 backdrop-blur-2xl">
         <nav
           className="flex items-center justify-between px-4 py-3 sm:px-5 lg:px-6"
           aria-label="Primary navigation"
@@ -37,7 +37,7 @@ export function Navbar() {
                 href={link.href}
                 rel={link.href.startsWith("https://") ? "noreferrer" : undefined}
                 target={link.href.startsWith("https://") ? "_blank" : undefined}
-                className="text-sm font-medium text-[#6B7280] transition hover:text-[#3B0764]"
+                className="text-sm font-medium text-[var(--nesher-body)] transition hover:text-[var(--nesher-purple-900)]"
               >
                 {link.label}
               </Link>
@@ -47,7 +47,7 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Button
               asChild
-              className="h-11 rounded-full bg-[#6D28D9] px-6 text-white shadow-[0_14px_30px_rgba(109,40,217,0.22)] hover:bg-[#5B21B6] hover:text-white"
+              className="h-11 px-6"
             >
               <a
                 data-gtag-conversion
@@ -62,7 +62,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-white/70 bg-white/45 text-[#111827] transition hover:bg-white/75 lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-white/70 bg-white/45 text-[var(--nesher-carbon)] transition hover:bg-white/75 lg:hidden"
             aria-label={open ? "Tutup menu" : "Buka menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
@@ -89,7 +89,7 @@ export function Navbar() {
                   target={
                     link.href.startsWith("https://") ? "_blank" : undefined
                   }
-                  className="rounded-2xl px-4 py-3 text-sm font-medium text-[#6B7280] transition hover:bg-white/80 hover:text-[#3B0764]"
+                  className="rounded-2xl px-4 py-3 text-sm font-medium text-[var(--nesher-body)] transition hover:bg-white/80 hover:text-[var(--nesher-purple-900)]"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
@@ -97,7 +97,7 @@ export function Navbar() {
               ))}
               <Button
                 asChild
-                className="mt-2 h-11 rounded-full bg-[#6D28D9] text-white hover:bg-[#5B21B6] hover:text-white"
+                className="mt-2 h-11"
               >
                 <a
                   data-gtag-conversion

@@ -9,7 +9,7 @@ import { whyNesher } from "@/lib/landing-data";
 
 export function WhyNesherSection() {
   return (
-    <section className="bg-[#F5F5F7] py-24 sm:py-32">
+    <section className="bg-[var(--nesher-surface-muted)] py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
         <Reveal>
           <SectionHeader
@@ -20,25 +20,27 @@ export function WhyNesherSection() {
           <div className="mt-9 grid gap-4 sm:grid-cols-2">
             {whyNesher.map((item) => (
               <div key={item} className="flex gap-3">
-                <CheckCircle2 className="mt-1 size-5 shrink-0 text-[#6D28D9]" />
-                <p className="font-medium leading-7 text-[#111827]">{item}</p>
+                <CheckCircle2 className="mt-1 size-5 shrink-0 text-primary" />
+                <p className="font-medium leading-7 text-[var(--nesher-carbon)]">
+                  {item}
+                </p>
               </div>
             ))}
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <Card className="rounded-[2.5rem] border-0 bg-white p-6 shadow-none ring-0 sm:p-8">
-            <div className="rounded-[2rem] bg-[#F5F5F7] p-5 sm:p-7">
+          <Card className="nesher-liquid rounded-[2.5rem] p-6 sm:p-8">
+            <div className="rounded-[2rem] border border-primary/10 bg-[var(--nesher-surface-muted)] p-5 sm:p-7">
               <div className="flex items-center gap-4">
-                <div className="flex size-14 items-center justify-center rounded-3xl bg-[#6D28D9] text-white">
+                <div className="flex size-14 items-center justify-center rounded-3xl bg-primary text-white">
                   <MessageCircle className="size-6" />
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-[#111827]">
+                  <p className="text-lg font-bold text-[var(--nesher-carbon)]">
                     Project clarity
                   </p>
-                  <p className="text-sm text-[#6B7280]">
+                  <p className="text-sm text-[var(--nesher-body)]">
                     Scope, progress, dan feedback dibuat transparan.
                   </p>
                 </div>
@@ -46,18 +48,18 @@ export function WhyNesherSection() {
               <div className="mt-7 grid gap-4">
                 {["Discovery selesai", "UI design approved", "Development sprint"].map(
                   (item, index) => (
-                    <div key={item} className="rounded-3xl bg-white p-4">
+                    <div key={item} className="nesher-hover-lift rounded-3xl border border-[var(--nesher-purple-border)] bg-white p-4">
                       <div className="flex items-center justify-between">
-                        <span className="font-semibold text-[#111827]">
+                        <span className="font-semibold text-[var(--nesher-carbon)]">
                           {item}
                         </span>
-                        <span className="rounded-full bg-[#F6F1FF] px-3 py-1 text-xs font-semibold text-[#6D28D9]">
+                        <span className="rounded-full bg-[var(--nesher-purple-75)] px-3 py-1 text-xs font-semibold text-primary">
                           {index === 2 ? "In progress" : "Done"}
                         </span>
                       </div>
-                      <div className="mt-4 h-2 rounded-full bg-[#F6F1FF]">
+                      <div className="mt-4 h-2 rounded-full bg-[var(--nesher-purple-75)]">
                         <div
-                          className="h-full rounded-full bg-[#6D28D9]"
+                          className="h-full rounded-full bg-primary"
                           style={{ width: `${index === 2 ? 68 : 100}%` }}
                         />
                       </div>

@@ -45,9 +45,10 @@ type PortfolioCaseStudyPageProps = {
   heroImage: {
     alt: string;
     src: string;
+    secondarySrc?: string;
     height: number;
     width: number;
-    variant?: "desktop" | "mobile";
+    variant?: "desktop" | "mobile" | "hybrid";
   };
   meta: MetaItem[];
   responsibilities: string[];
@@ -73,7 +74,7 @@ const responsibilityIcons = [
 function ProjectMeta({ items }: { items: MetaItem[] }) {
   return (
     <aside
-      className="rounded-[2.5rem] bg-white p-7 sm:p-8"
+      className="nesher-card-raised rounded-[2.5rem] p-7 sm:p-8"
       data-apple-reveal-delay="140ms"
       data-apple-reveal-item
     >
@@ -83,7 +84,7 @@ function ProjectMeta({ items }: { items: MetaItem[] }) {
       <div className="mt-7 divide-y divide-black/8">
         {items.map((item) => (
           <div key={item.label} className="py-5 first:pt-0 last:pb-0">
-            <p className="text-xs font-semibold text-[#86868B]">
+            <p className="text-xs font-semibold text-[var(--nesher-muted)]">
               {item.label}
             </p>
             {item.href ? (
@@ -91,12 +92,12 @@ function ProjectMeta({ items }: { items: MetaItem[] }) {
                 href={item.href}
                 rel="noreferrer"
                 target="_blank"
-                className="mt-2 inline-flex text-lg font-semibold tracking-[-0.02em] text-[#1D1D1F] hover:text-[var(--portfolio-accent)]"
+                className="mt-2 inline-flex text-lg font-semibold tracking-[-0.02em] text-[var(--nesher-ink)] hover:text-[var(--portfolio-accent)]"
               >
                 {item.value}
               </a>
             ) : (
-              <p className="mt-2 text-lg font-semibold tracking-[-0.02em] text-[#1D1D1F]">
+              <p className="mt-2 text-lg font-semibold tracking-[-0.02em] text-[var(--nesher-ink)]">
                 {item.value}
               </p>
             )}
@@ -112,9 +113,47 @@ function HeroImage({
 }: {
   image: PortfolioCaseStudyPageProps["heroImage"];
 }) {
+  if (image.variant === "hybrid" && image.secondarySrc) {
+    return (
+      <div className="relative aspect-[16/10] overflow-hidden rounded-[2.75rem] border border-[var(--nesher-purple-border)] bg-[linear-gradient(145deg,#fff_0%,color-mix(in_srgb,var(--portfolio-accent)_5%,white)_100%)] p-5 shadow-[var(--nesher-raised-shadow)] sm:p-8 lg:p-12">
+        <div
+          aria-hidden="true"
+          className="absolute -right-32 -top-40 size-[34rem] rounded-full bg-[color-mix(in_srgb,var(--portfolio-accent)_14%,transparent)] blur-[80px]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -bottom-32 left-10 size-80 rounded-full bg-[var(--nesher-purple-100)]/70 blur-[70px]"
+        />
+        <div className="absolute inset-x-[6%] top-[11%] drop-shadow-[0_32px_48px_rgba(29,29,31,0.18)]">
+          <Image
+            src={image.src}
+            alt={`${image.alt} admin dashboard`}
+            width={image.width}
+            height={image.height}
+            priority
+            className="aspect-[4064/2458] w-full object-contain object-top"
+          />
+        </div>
+        <div className="absolute bottom-[4%] right-[8%] w-[20%] min-w-[96px] rotate-[2deg] drop-shadow-[0_34px_38px_rgba(29,29,31,0.3)]">
+          <Image
+            src={image.secondarySrc}
+            alt={`${image.alt} mobile application`}
+            width={1362}
+            height={2880}
+            priority
+            className="aspect-[9/19] w-full object-contain object-top"
+          />
+        </div>
+        <div className="absolute bottom-[7%] left-[8%] hidden rounded-full border border-white/70 bg-white/85 px-5 py-2.5 text-sm font-semibold text-[var(--portfolio-accent)] shadow-sm backdrop-blur-xl sm:block">
+          Mobile App + Laravel Admin Dashboard
+        </div>
+      </div>
+    );
+  }
+
   if (image.variant === "mobile") {
     return (
-      <div className="relative overflow-hidden rounded-[2.75rem] bg-white/75 px-8 py-14 shadow-[0_35px_100px_rgba(29,29,31,0.1)] backdrop-blur-xl sm:py-20">
+      <div className="relative overflow-hidden rounded-[2.75rem] border border-[var(--nesher-purple-border)] bg-white/80 px-8 py-14 shadow-[var(--nesher-raised-shadow)] backdrop-blur-xl sm:py-20">
         <div
           aria-hidden="true"
           className="absolute left-1/2 -top-16 h-[34rem] w-[42rem] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--portfolio-accent)_22%,transparent)_0%,color-mix(in_srgb,var(--portfolio-accent)_7%,transparent)_42%,transparent_72%)] blur-[55px]"
@@ -132,7 +171,7 @@ function HeroImage({
   }
 
   return (
-    <div className="overflow-hidden rounded-[2.75rem] bg-white p-2 shadow-[0_35px_100px_rgba(29,29,31,0.12)] sm:p-3">
+    <div className="overflow-hidden rounded-[2.75rem] border border-[var(--nesher-purple-border)] bg-white p-2 shadow-[var(--nesher-raised-shadow)] sm:p-3">
       <Image
         src={image.src}
         alt={image.alt}
@@ -154,7 +193,7 @@ function GalleryImage({
 }) {
   if (variant === "mobile") {
     return (
-      <div className="rounded-[2rem] bg-[#F5F5F7] p-6">
+      <div className="rounded-[2rem] bg-[var(--nesher-surface-muted)] p-6">
         <Image
           src={item.src}
           alt={`${item.title} screen`}
@@ -167,7 +206,7 @@ function GalleryImage({
   }
 
   return (
-    <div className="bg-[#F5F5F7] p-3 sm:p-5">
+    <div className="bg-[var(--nesher-surface-muted)] p-3 sm:p-5">
       <Image
         src={item.src}
         alt={`${item.title} screenshot`}
@@ -194,11 +233,11 @@ function GallerySection({
             <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
               {section.eyebrow}
             </p>
-            <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1D1D1F] sm:text-5xl lg:text-6xl">
+            <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl lg:text-6xl">
               {section.title}
             </h2>
           </div>
-          <p className="text-lg leading-8 tracking-[-0.01em] text-[#6E6E73]">
+          <p className="text-lg leading-8 tracking-[-0.01em] text-[var(--nesher-body)]">
             {section.description}
           </p>
         </div>
@@ -213,7 +252,7 @@ function GallerySection({
           {section.items.map((item, index) => (
             <article
               key={item.src}
-              className="overflow-hidden rounded-[2.5rem] bg-[#F5F5F7]"
+            className="overflow-hidden rounded-[2.5rem] border border-[var(--nesher-purple-border)] bg-[var(--nesher-surface-muted)]"
             >
               {isMobileGallery ? (
                 <div className="p-5">
@@ -222,10 +261,10 @@ function GallerySection({
                     <span className="text-sm font-semibold text-[var(--portfolio-accent)]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mt-3 text-xl font-semibold tracking-[-0.02em] text-[#1D1D1F]">
+                    <h3 className="mt-3 text-xl font-semibold tracking-[-0.02em] text-[var(--nesher-ink)]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-base leading-7 text-[#6E6E73]">
+                    <p className="mt-3 text-base leading-7 text-[var(--nesher-body)]">
                       {item.description}
                     </p>
                   </div>
@@ -236,10 +275,10 @@ function GallerySection({
                     <span className="text-sm font-semibold text-[var(--portfolio-accent)]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.025em] text-[#1D1D1F]">
+                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-base leading-7 text-[#6E6E73]">
+                    <p className="mt-3 text-base leading-7 text-[var(--nesher-body)]">
                       {item.description}
                     </p>
                   </div>
@@ -272,12 +311,12 @@ function ProjectNavigation({ title }: { title: string }) {
         {previous ? (
           <Link
             href={previous.href}
-            className="rounded-[2rem] bg-[#F5F5F7] p-7 transition hover:-translate-y-1"
+            className="nesher-card rounded-[2rem] p-7 transition hover:-translate-y-1 hover:bg-white"
           >
             <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
               Sebelumnya
             </p>
-            <h3 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-[#1D1D1F]">
+            <h3 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
               {previous.title}
             </h3>
           </Link>
@@ -288,12 +327,12 @@ function ProjectNavigation({ title }: { title: string }) {
         {next ? (
           <Link
             href={next.href}
-            className="rounded-[2rem] bg-[#F5F5F7] p-7 text-left transition hover:-translate-y-1 md:text-right"
+            className="nesher-card rounded-[2rem] p-7 text-left transition hover:-translate-y-1 hover:bg-white md:text-right"
           >
             <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
               Selanjutnya
             </p>
-            <h3 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-[#1D1D1F]">
+            <h3 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
               {next.title}
             </h3>
           </Link>
@@ -326,10 +365,10 @@ export function PortfolioCaseStudyPage({
   } as CSSProperties;
 
   return (
-    <div className="min-h-screen bg-white font-sans" style={themeStyle}>
+    <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans" style={themeStyle}>
       <Navbar />
       <main>
-        <section className="relative overflow-hidden bg-[#F5F5F7] px-4 pb-24 pt-36 sm:px-6 sm:pb-32 sm:pt-44 lg:px-8 lg:pt-48">
+        <section className="nesher-section relative overflow-hidden px-4 pb-24 pt-36 sm:px-6 sm:pb-32 sm:pt-44 lg:px-8 lg:pt-48">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute left-1/2 -top-56 h-[64rem] w-[88rem] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--portfolio-accent)_15%,transparent)_0%,color-mix(in_srgb,var(--portfolio-accent)_5%,transparent)_40%,transparent_72%)] blur-[75px]"
@@ -342,7 +381,7 @@ export function PortfolioCaseStudyPage({
               <Button
                 asChild
                 variant="outline"
-                className="mb-12 h-10 rounded-full border-black/10 bg-white/60 text-[#1D1D1F] backdrop-blur-xl hover:bg-white hover:text-[var(--portfolio-accent)]"
+                className="mb-12 h-11 bg-white/70 px-5 backdrop-blur-xl hover:text-[var(--portfolio-accent)]"
               >
                 <Link href="/#portfolio">
                   <ArrowLeft className="mr-2 size-4" />
@@ -356,16 +395,16 @@ export function PortfolioCaseStudyPage({
                 <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
                   {category}
                 </p>
-                <h1 className="mt-5 text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-[#1D1D1F] sm:text-7xl lg:text-[5.25rem]">
+                <h1 className="mt-5 text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--nesher-ink)] sm:text-7xl lg:text-[5.25rem]">
                   {title}
                 </h1>
-                <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[#6E6E73] sm:text-xl">
+                <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[var(--nesher-body)] sm:text-xl">
                   {subtitle}
                 </p>
                 {liveUrl ? (
                   <Button
                     asChild
-                    className="mt-8 h-12 rounded-full bg-[var(--portfolio-accent)] px-7 text-base text-white shadow-[0_18px_40px_rgba(29,29,31,0.14)] hover:brightness-90 hover:text-white"
+                    className="mt-8 h-12 bg-[var(--portfolio-accent)] px-7 text-base text-white shadow-[var(--nesher-glow)] hover:brightness-90 hover:text-white"
                   >
                     <a href={liveUrl} rel="noreferrer" target="_blank">
                       {liveUrlLabel} <ArrowUpRight className="ml-2 size-4" />
@@ -392,24 +431,24 @@ export function PortfolioCaseStudyPage({
               <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
                 What We Do
               </p>
-              <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1D1D1F] sm:text-5xl">
+              <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl">
                 {overviewTitle}
               </h2>
             </div>
-            <p className="text-xl leading-9 tracking-[-0.015em] text-[#6E6E73] sm:text-2xl sm:leading-10">
+            <p className="text-xl leading-9 tracking-[-0.015em] text-[var(--nesher-body)] sm:text-2xl sm:leading-10">
               {overview}
             </p>
           </div>
         </section>
 
-        <section className="bg-[#F5F5F7] px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+        <section className="bg-[var(--nesher-surface-muted)] px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
               <div>
                 <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
                   Our Responsibility
                 </p>
-                <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1D1D1F] sm:text-5xl">
+                <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl">
                   {responsibilityTitle}
                 </h2>
               </div>
@@ -422,12 +461,12 @@ export function PortfolioCaseStudyPage({
                   return (
                     <div
                       key={item}
-                      className="rounded-[2rem] bg-white p-6"
+                      className="nesher-liquid nesher-hover-lift rounded-[2rem] p-6"
                     >
                       <div className="flex size-11 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--portfolio-accent)_10%,white)] text-[var(--portfolio-accent)]">
                         <Icon className="size-5" />
                       </div>
-                      <p className="mt-5 font-medium leading-7 text-[#1D1D1F]">
+                      <p className="mt-5 font-medium leading-7 text-[var(--nesher-ink)]">
                         {item}
                       </p>
                     </div>
@@ -444,7 +483,7 @@ export function PortfolioCaseStudyPage({
               <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
                 Technology Stack
               </p>
-              <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1D1D1F] sm:text-5xl">
+              <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl">
                 Stack yang dipilih sesuai kebutuhan project.
               </h2>
             </div>
@@ -453,7 +492,7 @@ export function PortfolioCaseStudyPage({
               {stack.map((item) => (
                 <span
                   key={item}
-                  className="inline-flex h-10 items-center whitespace-nowrap rounded-full border border-black/8 bg-[#F5F5F7] px-5 text-sm font-medium leading-none text-[#1D1D1F]"
+                  className="inline-flex h-10 items-center whitespace-nowrap rounded-full border border-[var(--nesher-purple-border)] bg-white px-5 text-sm font-medium leading-none text-[var(--nesher-ink)] shadow-[0_10px_30px_rgba(59,7,100,0.04)]"
                 >
                   {item}
                 </span>
@@ -479,7 +518,7 @@ export function PortfolioCaseStudyPage({
             </p>
             <Button
               asChild
-              className="relative mt-10 h-12 rounded-full bg-white px-7 text-base text-[#1D1D1F] hover:bg-[var(--portfolio-accent)] hover:text-white"
+              className="relative mt-10 h-12 rounded-full bg-white px-7 text-base text-[var(--nesher-ink)] hover:bg-[var(--portfolio-accent)] hover:text-white"
             >
               <a
                 data-gtag-conversion

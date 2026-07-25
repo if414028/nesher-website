@@ -79,15 +79,15 @@ const policySections = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans">
       <Navbar />
       <main>
-        <section className="bg-gradient-to-b from-[#FAF7FF] via-white to-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <section className="bg-gradient-to-b from-[var(--nesher-purple-50)] via-white to-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <Button
               asChild
               variant="outline"
-              className="mb-10 h-10 rounded-full border-[#E9DFFF] bg-white text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
+              className="mb-10 h-11 px-5 hover:bg-primary hover:text-white"
             >
               <Link href="/#home">
                 <ArrowLeft className="mr-2 size-4" />
@@ -97,37 +97,37 @@ export default function PrivacyPolicyPage() {
 
             <div className="grid gap-10 lg:grid-cols-[0.66fr_0.34fr] lg:items-end">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#E9DFFF] bg-white px-4 py-2 text-sm font-semibold text-[#6D28D9] shadow-sm">
+                <div className="nesher-chip inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold shadow-sm">
                   <ShieldCheck className="size-4" />
                   Privacy Policy
                 </div>
-                <h1 className="mt-6 text-balance text-4xl font-bold leading-tight text-[#111827] sm:text-5xl lg:text-6xl">
+                <h1 className="mt-6 text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl lg:text-6xl">
                   Kebijakan Privasi Nesher Teknologi Nusantara
                 </h1>
-                <p className="mt-6 max-w-3xl text-pretty text-lg leading-8 text-[#6B7280]">
+                <p className="mt-6 max-w-3xl text-pretty text-lg leading-8 text-[var(--nesher-body)]">
                   Halaman ini menjelaskan bagaimana Nesher Tech mengumpulkan,
                   menggunakan, menyimpan, dan melindungi informasi pribadi yang
                   Anda berikan saat menggunakan website atau menghubungi kami.
                 </p>
-                <p className="mt-5 text-sm font-semibold text-[#3B0764]">
+                <p className="mt-5 text-sm font-semibold text-[var(--nesher-purple-900)]">
                   Terakhir diperbarui: 17 Juni 2026
                 </p>
               </div>
 
-              <div className="rounded-[2rem] border border-[#E9DFFF] bg-white p-6 shadow-[0_18px_55px_rgba(59,7,100,0.08)]">
-                <h2 className="text-xl font-bold text-[#111827]">
+              <div className="nesher-card-raised rounded-[2rem] p-6">
+                <h2 className="text-xl font-semibold text-[var(--nesher-ink)]">
                   Kontak Privasi
                 </h2>
-                <div className="mt-5 grid gap-4 text-sm leading-6 text-[#6B7280]">
+                <div className="mt-5 grid gap-4 text-sm leading-6 text-[var(--nesher-body)]">
                   <a
                     href={`mailto:${emailAddress}`}
-                    className="flex items-start gap-3 transition hover:text-[#6D28D9]"
+                    className="flex items-start gap-3 transition hover:text-primary"
                   >
-                    <Mail className="mt-0.5 size-4 shrink-0 text-[#6D28D9]" />
+                    <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
                     {emailAddress}
                   </a>
                   <p className="flex items-start gap-3">
-                    <MapPin className="mt-0.5 size-4 shrink-0 text-[#6D28D9]" />
+                    <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
                     {officeAddress}
                   </p>
                 </div>
@@ -139,10 +139,10 @@ export default function PrivacyPolicyPage() {
         <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.28fr_0.72fr]">
             <aside className="lg:sticky lg:top-28 lg:self-start">
-              <p className="text-sm font-bold uppercase tracking-[0.24em] text-[#6D28D9]">
+              <p className="text-sm font-semibold text-primary">
                 Ringkasan
               </p>
-              <p className="mt-4 text-base leading-7 text-[#6B7280]">
+              <p className="mt-4 text-base leading-7 text-[var(--nesher-body)]">
                 Kebijakan ini berlaku untuk penggunaan website
                 neshertechnology.id dan komunikasi awal terkait layanan
                 software house, website, dashboard, mobile app, serta sistem
@@ -154,16 +154,16 @@ export default function PrivacyPolicyPage() {
               {policySections.map((section) => (
                 <article
                   key={section.title}
-                  className="rounded-[1.75rem] border border-[#E9DFFF] bg-white p-6 shadow-[0_12px_38px_rgba(59,7,100,0.05)]"
+                  className="nesher-card rounded-[1.75rem] p-6"
                 >
-                  <h2 className="text-xl font-bold text-[#111827]">
+                  <h2 className="text-xl font-semibold text-[var(--nesher-ink)]">
                     {section.title}
                   </h2>
                   <div className="mt-4 grid gap-4">
                     {section.body.map((paragraph) => (
                       <p
                         key={paragraph}
-                        className="text-base leading-8 text-[#4B5563]"
+                        className="text-base leading-8 text-[var(--nesher-body)]"
                       >
                         {paragraph}
                       </p>
@@ -172,16 +172,16 @@ export default function PrivacyPolicyPage() {
                 </article>
               ))}
 
-              <article className="rounded-[1.75rem] border border-[#E9DFFF] bg-[#FAF7FF] p-6">
-                <h2 className="text-xl font-bold text-[#111827]">
+              <article className="rounded-[1.75rem] border border-[var(--nesher-purple-border)] bg-[var(--nesher-purple-50)] p-6">
+                <h2 className="text-xl font-semibold text-[var(--nesher-ink)]">
                   9. Hubungi Kami
                 </h2>
-                <p className="mt-4 text-base leading-8 text-[#4B5563]">
+                <p className="mt-4 text-base leading-8 text-[var(--nesher-body)]">
                   Untuk pertanyaan, permintaan, atau klarifikasi terkait
                   kebijakan privasi ini, silakan hubungi Nesher Tech melalui{" "}
                   <a
                     href={`mailto:${emailAddress}`}
-                    className="font-semibold text-[#6D28D9] hover:text-[#3B0764]"
+                    className="font-semibold text-primary hover:text-[var(--nesher-purple-900)]"
                   >
                     {emailAddress}
                   </a>

@@ -9,7 +9,7 @@ import { showcaseFeatures, whatsappUrl } from "@/lib/landing-data";
 
 function WebsiteMockup() {
   return (
-    <div className="overflow-hidden rounded-[2rem] bg-white p-2 shadow-[0_30px_80px_rgba(29,29,31,0.1)]">
+    <div className="overflow-hidden rounded-[2rem] border border-[var(--nesher-purple-border)] bg-white p-2 shadow-[var(--nesher-raised-shadow)]">
       <Image
         src="/images/business-growth-handshake.jpg"
         alt="Ilustrasi konsultasi bisnis dengan grafik pertumbuhan"
@@ -24,7 +24,7 @@ function WebsiteMockup() {
 
 function DashboardMockup() {
   return (
-    <div className="overflow-hidden rounded-[2rem] bg-white p-2 shadow-[0_30px_80px_rgba(29,29,31,0.1)]">
+    <div className="overflow-hidden rounded-[2rem] border border-[var(--nesher-purple-border)] bg-white p-2 shadow-[var(--nesher-raised-shadow)]">
       <Image
         src="/images/business-dashboard-interface.webp"
         alt="Ilustrasi dashboard digital dengan visualisasi data bisnis"
@@ -39,7 +39,7 @@ function DashboardMockup() {
 
 function WorkflowMockup() {
   return (
-    <div className="overflow-hidden rounded-[2rem] bg-white p-2 shadow-[0_30px_80px_rgba(29,29,31,0.1)]">
+    <div className="overflow-hidden rounded-[2rem] border border-[var(--nesher-purple-border)] bg-white p-2 shadow-[var(--nesher-raised-shadow)]">
       <Image
         src="/images/custom-workflow-automation.jpg"
         alt="Ilustrasi sistem workflow digital dengan checklist otomatis"
@@ -68,18 +68,18 @@ export function FeatureShowcase() {
             className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20"
           >
             <Reveal className={index % 2 === 1 ? "lg:order-2" : undefined}>
-              <p className="text-sm font-semibold text-[#6D28D9]">
+              <p className="text-sm font-semibold text-primary">
                 {feature.eyebrow}
               </p>
-              <h2 className="mt-4 text-balance text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#1D1D1F] sm:text-5xl lg:text-6xl">
+              <h2 className="mt-4 text-balance text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl lg:text-6xl">
                 {feature.title}
               </h2>
-              <p className="mt-6 text-lg leading-8 tracking-[-0.01em] text-[#6E6E73] sm:text-xl">
+              <p className="mt-6 text-lg leading-8 tracking-[-0.01em] text-[var(--nesher-body)] sm:text-xl">
                 {feature.text}
               </p>
               <Button
                 asChild
-                className="mt-8 h-11 rounded-full bg-[#6D28D9] px-6 text-white hover:bg-[#5B21B6] hover:text-white"
+                className="mt-8 h-11 rounded-full bg-primary px-6 text-white hover:bg-[var(--nesher-purple-700)] hover:text-white"
               >
                 <a
                   data-gtag-conversion
@@ -99,7 +99,7 @@ export function FeatureShowcase() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, ease: "easeOut" }}
             >
-              <div className="rounded-[2.5rem] bg-[#F5F5F7] p-5 sm:p-7">
+              <div className="nesher-liquid rounded-[2.5rem] p-5 sm:p-7">
                 <ShowcaseVisual type={feature.type} />
               </div>
             </MotionDiv>

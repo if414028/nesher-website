@@ -34,10 +34,7 @@ const businessProblems = [
 
 export function ProblemSection() {
   return (
-    <section
-      className="relative isolate overflow-hidden py-24 text-[#1D1D1F] sm:py-32"
-      style={{ backgroundColor: "#F8F6FC" }}
-    >
+    <section className="relative isolate overflow-hidden bg-[var(--nesher-purple-50)] py-24 text-[var(--nesher-ink)] sm:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background-image:linear-gradient(rgba(109,40,217,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(109,40,217,0.07)_1px,transparent_1px)] [background-size:64px_64px]"
@@ -51,13 +48,13 @@ export function ProblemSection() {
         <div className="grid items-end gap-8 lg:grid-cols-[1.45fr_0.7fr] lg:gap-20">
           <h2 className="max-w-3xl text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.045em] sm:text-5xl lg:text-[3.65rem]">
             Bisnis berkembang, tapi sistem{" "}
-            <span className="font-normal italic text-[#6D28D9]">
+            <span className="font-normal italic text-primary">
               tidak lagi pas
             </span>{" "}
             dengan cara kerja tim.
           </h2>
 
-          <p className="max-w-md text-pretty text-sm leading-7 text-[#6E6E73] sm:text-base">
+          <p className="max-w-md text-pretty text-sm leading-7 text-[var(--nesher-body)] sm:text-base">
             Empat tanda yang sering muncul sebelum bisnis memutuskan membangun
             sistem sendiri. Kalau terasa familiar, fondasi digital Anda mungkin
             sudah waktunya dirancang ulang.
@@ -72,21 +69,21 @@ export function ProblemSection() {
             return (
               <article
                 key={problem.title}
-                className="group relative min-h-60 overflow-hidden rounded-[1.5rem] border border-[#6D28D9]/10 bg-white/80 p-7 shadow-[0_18px_45px_rgba(59,7,100,0.06)] backdrop-blur-sm transition-colors hover:bg-white sm:p-8"
+                className="nesher-liquid nesher-hover-lift group relative min-h-60 rounded-[1.75rem] p-7 sm:p-8"
               >
-                <div className="flex items-start justify-end border-b border-[#6D28D9]/10 pb-5">
+                <div className="flex items-start justify-end border-b border-primary/10 pb-5">
                   <div className="flex items-center gap-3">
-                    <Icon className="size-4 text-[#6D28D9]" strokeWidth={1.8} />
-                    <span className="text-2xl font-semibold tracking-[-0.04em] text-[#6D28D9]/12">
+                    <Icon className="size-4 text-primary" strokeWidth={1.8} />
+                    <span className="text-2xl font-semibold tracking-[-0.04em] text-primary/12">
                       {number}
                     </span>
                   </div>
                 </div>
 
-                <h3 className="mt-6 max-w-md text-xl font-semibold leading-snug tracking-[-0.025em] text-[#1D1D1F]">
+                <h3 className="mt-6 max-w-md text-xl font-semibold leading-snug tracking-[-0.025em] text-[var(--nesher-ink)]">
                   {problem.title}
                 </h3>
-                <p className="mt-3 max-w-xl text-sm leading-6 text-[#6E6E73]">
+                <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--nesher-body)]">
                   {problem.description}
                 </p>
               </article>

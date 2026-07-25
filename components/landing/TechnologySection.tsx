@@ -20,7 +20,7 @@ export function TechnologySection() {
             {techStack.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-black/8 bg-[#F5F5F7] px-5 py-3 text-sm font-medium text-[#1D1D1F] transition hover:-translate-y-0.5 hover:border-[#6D28D9]/25 hover:text-[#6D28D9]"
+                className="nesher-hover-lift rounded-full border border-[var(--nesher-purple-border)] bg-white px-5 py-3 text-sm font-medium text-[var(--nesher-ink)] shadow-[0_10px_30px_rgba(59,7,100,0.04)] transition hover:border-primary/25 hover:text-primary"
               >
                 {tech}
               </span>

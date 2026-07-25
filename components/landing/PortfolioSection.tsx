@@ -16,17 +16,51 @@ function PortfolioMockup({
   image,
   index,
   previewType,
+  secondaryImage,
   title,
 }: {
   image?: string;
   index: number;
   previewType?: string;
+  secondaryImage?: string;
   title: string;
 }) {
   if (image) {
+    if (previewType === "hybrid" && secondaryImage) {
+      return (
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-[var(--nesher-purple-border)] bg-[linear-gradient(145deg,#fff_0%,var(--nesher-purple-50)_100%)] p-4 sm:p-5">
+          <div
+            aria-hidden="true"
+            className="absolute -right-12 -top-16 size-56 rounded-full bg-[#8F1538]/10 blur-3xl"
+          />
+          <div className="absolute inset-x-[5%] top-[13%] drop-shadow-[0_18px_28px_rgba(29,29,31,0.16)]">
+            <Image
+              src={image}
+              alt={`${title} admin dashboard preview`}
+              width={2400}
+              height={1452}
+              className="aspect-[4064/2458] w-full object-contain object-top"
+            />
+          </div>
+          <div className="absolute bottom-[5%] right-[8%] w-[22%] min-w-[72px] rotate-[2deg] drop-shadow-[0_22px_28px_rgba(29,29,31,0.28)]">
+            <Image
+              src={secondaryImage}
+              alt={`${title} mobile application preview`}
+              width={1362}
+              height={2880}
+              className="aspect-[9/19] w-full object-contain object-top"
+            />
+          </div>
+          <span className="absolute bottom-[8%] left-[7%] rounded-full border border-white/70 bg-white/85 px-3 py-1.5 text-[10px] font-semibold text-[#8F1538] shadow-sm backdrop-blur-md sm:text-xs">
+            Mobile + Admin Dashboard
+          </span>
+        </div>
+      );
+    }
+
     if (previewType === "mobile") {
       return (
-        <div className="overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-[#FAF7FF] to-white p-5">
+        <div className="overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-[var(--nesher-purple-50)] to-white p-5">
           <Image
             src={image}
             alt={`${title} preview`}
@@ -39,7 +73,7 @@ function PortfolioMockup({
     }
 
     return (
-      <div className="overflow-hidden rounded-[1.5rem] border border-[#E9DFFF] bg-[#FAF7FF]">
+      <div className="overflow-hidden rounded-[1.5rem] border border-[var(--nesher-purple-border)] bg-[var(--nesher-purple-50)]">
         <Image
           src={image}
           alt={`${title} preview`}
@@ -52,7 +86,7 @@ function PortfolioMockup({
   }
 
   return (
-    <div className="rounded-[1.5rem] bg-[#FAF7FF] p-4">
+    <div className="rounded-[1.5rem] bg-[var(--nesher-purple-50)] p-4">
       <div className="mb-4 flex items-center gap-2">
         <span className="size-2.5 rounded-full bg-[#F87171]" />
         <span className="size-2.5 rounded-full bg-[#FBBF24]" />
@@ -60,16 +94,16 @@ function PortfolioMockup({
       </div>
       <div className="grid h-44 gap-3">
         <div className="rounded-2xl bg-white p-4">
-          <div className="h-4 w-28 rounded-full bg-[#6D28D9]" />
-          <div className="mt-5 h-7 w-44 max-w-full rounded-full bg-[#111827]" />
-          <div className="mt-3 h-3 w-2/3 rounded-full bg-[#E9DFFF]" />
+          <div className="h-4 w-28 rounded-full bg-primary" />
+          <div className="mt-5 h-7 w-44 max-w-full rounded-full bg-[var(--nesher-carbon)]" />
+          <div className="mt-3 h-3 w-2/3 rounded-full bg-[var(--nesher-purple-border)]" />
         </div>
         <div className="grid grid-cols-3 gap-3">
           {[1, 2, 3].map((item) => (
             <div
               key={item}
               className={`rounded-2xl ${
-                item === index + 1 ? "bg-[#6D28D9]" : "bg-white"
+                item === index + 1 ? "bg-primary" : "bg-white"
               }`}
             />
           ))}
@@ -97,27 +131,30 @@ export function PortfolioGrid({
           transition={{ duration: 0.5, delay: index * 0.06 }}
           whileHover={{ y: -6 }}
         >
-          <Card className="h-full rounded-[2rem] border-0 bg-white p-4 shadow-none ring-0 sm:p-5">
+          <Card className="nesher-liquid nesher-hover-lift h-full rounded-[2rem] p-4 sm:p-5">
             <PortfolioMockup
               image={item.image}
               index={(startIndex + index) % 3}
               previewType={item.previewType}
+              secondaryImage={
+                "secondaryImage" in item ? item.secondaryImage : undefined
+              }
               title={item.title}
             />
             <div className="px-1 pb-2 pt-4">
-              <span className="inline-flex rounded-full bg-[#F6F1FF] px-3 py-1 text-xs font-semibold text-[#6D28D9]">
+              <span className="inline-flex rounded-full bg-[var(--nesher-purple-75)] px-3 py-1 text-xs font-semibold text-primary">
                 {item.category}
               </span>
-              <h3 className="mt-4 text-2xl font-semibold tracking-[-0.025em] text-[#1D1D1F]">
+              <h3 className="mt-4 text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
                 {item.title}
               </h3>
-              <p className="mt-3 text-base leading-7 text-[#6E6E73]">
+              <p className="mt-3 text-base leading-7 text-[var(--nesher-body)]">
                 {item.description}
               </p>
               <Button
                 asChild
                 variant="outline"
-                className="mt-6 h-10 rounded-full border-[#E9DFFF] bg-white text-[#3B0764] hover:bg-[#6D28D9] hover:text-white"
+                className="mt-6 h-11 px-5 hover:bg-primary hover:text-white"
               >
                 <Link
                   href={item.href}
@@ -141,7 +178,7 @@ export function PortfolioSection() {
   const featuredPortfolios = portfolioItems.slice(0, 4);
 
   return (
-    <section id="portfolio" className="bg-[#F5F5F7] py-24 sm:py-32">
+    <section id="portfolio" className="nesher-section py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeader
@@ -157,7 +194,7 @@ export function PortfolioSection() {
         <div className="mt-10 flex justify-center">
           <Button
             asChild
-            className="h-12 rounded-full bg-[#6D28D9] px-7 text-base text-white shadow-[0_18px_40px_rgba(109,40,217,0.2)] hover:bg-[#5B21B6] hover:text-white"
+            className="h-12 px-7 text-base"
           >
             <Link href="/portfolio">
               Lihat Semua Portofolio <ArrowRight className="ml-2 size-4" />
