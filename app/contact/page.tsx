@@ -63,19 +63,19 @@ const projectTypes = [
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans">
+    <div className="min-h-screen bg-[#0b0b0d] font-sans">
       <Navbar />
-      <main>
-        <section className="nesher-section relative overflow-hidden px-4 pb-24 pt-36 sm:px-6 sm:pb-32 sm:pt-44 lg:px-8 lg:pt-48">
+      <main id="main-content" className="w-full max-w-full overflow-x-hidden">
+        <section className="relative overflow-hidden px-4 pb-28 pt-40 text-white sm:px-6 md:pb-44 md:pt-52 lg:px-8">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -right-96 -top-64 h-[64rem] w-[84rem] bg-[radial-gradient(ellipse_at_center,rgba(109,40,217,0.12)_0%,rgba(109,40,217,0.04)_42%,transparent_72%)] blur-[75px]"
           />
-          <div className="relative mx-auto max-w-7xl">
+          <div className="relative mx-auto max-w-[1440px]">
             <Button
               asChild
               variant="outline"
-              className="mb-12 h-11 bg-white/70 px-5 backdrop-blur-xl"
+              className="mb-12 h-11 rounded-full border-white/15 bg-white/5 px-5 text-white backdrop-blur-xl hover:bg-white hover:text-black"
             >
               <Link href="/#home">
                 <ArrowLeft className="mr-2 size-4" />
@@ -83,37 +83,31 @@ export default function ContactPage() {
               </Link>
             </Button>
 
-            <div className="grid gap-14 lg:grid-cols-[0.62fr_0.38fr] lg:items-end">
+            <div className="grid gap-14 lg:grid-cols-[0.7fr_0.3fr] lg:items-end">
               <div>
-                <p className="text-sm font-semibold text-primary">
-                  Contact
-                </p>
-                <h1 className="mt-5 text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--nesher-ink)] sm:text-7xl lg:text-[5.25rem]">
-                  Mari membangun sesuatu yang bekerja dengan indah.
+                <h1 className="w-full max-w-6xl text-[clamp(3.4rem,7vw,7.5rem)] font-semibold leading-[.9] tracking-[-.07em] text-white">
+                  Mari bangun sesuatu yang bekerja indah.
                 </h1>
-                <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[var(--nesher-body)] sm:text-xl">
+                <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-white/55 sm:text-xl">
                   Ceritakan kebutuhan website, aplikasi, dashboard, atau sistem
                   custom Anda. Tim Nesher akan membantu memetakan solusi,
                   prioritas fitur, dan estimasi pengerjaan yang realistis.
                 </p>
               </div>
 
-              <div className="nesher-card-raised rounded-[2.5rem] p-7 sm:p-8">
-                <div className="nesher-icon-tile flex size-12 items-center justify-center rounded-2xl">
+              <div className="rounded-[2.5rem] border border-white/15 bg-white/5 p-7 backdrop-blur-xl sm:p-8">
+                <div className="flex size-12 items-center justify-center rounded-2xl bg-[#c4b5fd] text-[#17131f]">
                   <MapPin className="size-6" />
                 </div>
-                <p className="mt-7 text-sm font-semibold text-primary">
-                  Kantor Kami
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
+                <h2 className="mt-7 text-2xl font-semibold tracking-[-0.025em] text-white">
                   Nesher Tech
                 </h2>
-                <p className="mt-4 text-base leading-7 text-[var(--nesher-body)]">
+                <p className="mt-4 text-base leading-7 text-white/55">
                   {officeAddress}
                 </p>
                 <Button
                   asChild
-                  className="mt-6 h-11 px-6"
+                  className="mt-6 h-11 rounded-full bg-[#c4b5fd] px-6 text-[#17131f] hover:bg-white"
                 >
                   <a href={officeMapUrl} rel="noreferrer" target="_blank">
                     Buka di Google Maps <Navigation className="ml-2 size-4" />
@@ -124,8 +118,8 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
+        <section className="bg-[#e8e1ff] px-4 py-32 sm:px-6 md:py-48 lg:px-8">
+          <div className="mx-auto grid max-w-[1440px] gap-4 md:grid-cols-3">
             {contactCards.map((item) => {
               const Icon = item.icon;
 
@@ -138,7 +132,7 @@ export default function ContactPage() {
                   href={item.href}
                   rel="noreferrer"
                   target={item.href.startsWith("http") ? "_blank" : undefined}
-                  className="nesher-liquid nesher-hover-lift group rounded-[2rem] p-7"
+                  className="group rounded-[2rem] border border-black/8 bg-white/60 p-7 transition-transform duration-500 hover:-translate-y-1"
                 >
                   <div className="flex size-12 items-center justify-center rounded-2xl bg-white text-primary transition group-hover:bg-primary group-hover:text-white">
                     <Icon className="size-6" />
@@ -158,13 +152,10 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="nesher-section px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.4fr_0.6fr] lg:gap-20">
+        <section className="bg-[#f4f1eb] px-4 py-32 sm:px-6 md:py-48 lg:px-8">
+          <div className="mx-auto grid max-w-[1440px] gap-14 lg:grid-cols-[0.4fr_0.6fr] lg:gap-20">
             <div>
-              <p className="text-sm font-semibold text-primary">
-                Konsultasi Gratis
-              </p>
-              <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl">
+              <h2 className="text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[.96] tracking-[-.06em] text-[#17131f]">
                 Mulai dari brief singkat, kami bantu rapikan arahnya.
               </h2>
               <p className="mt-6 text-lg leading-8 text-[var(--nesher-body)]">
@@ -185,7 +176,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="nesher-liquid rounded-[2.5rem] p-6 sm:p-8">
+            <div className="rounded-[2.5rem] border border-black/8 bg-white p-6 shadow-[0_30px_80px_rgba(39,25,69,.1)] sm:p-8">
               <form
                 action={`mailto:${emailAddress}`}
                 className="grid gap-5"
@@ -269,8 +260,8 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="relative mx-auto h-[520px] max-w-7xl overflow-hidden rounded-[2.5rem] bg-[var(--nesher-surface-muted)] shadow-[var(--nesher-raised-shadow)] sm:h-[600px]">
+        <section className="bg-[#f4f1eb] px-4 pb-32 sm:px-6 sm:pb-48 lg:px-8">
+          <div className="relative mx-auto h-[520px] max-w-[1440px] overflow-hidden rounded-[2.5rem] bg-white shadow-[0_30px_80px_rgba(39,25,69,.12)] sm:h-[600px]">
             <iframe
               src={officeMapEmbedUrl}
               title="Lokasi kantor Nesher Tech di Google Maps"

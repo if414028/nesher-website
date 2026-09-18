@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import { useRef, type CSSProperties } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -16,6 +21,8 @@ import { Footer } from "@/components/landing/Footer";
 import { Navbar } from "@/components/landing/Navbar";
 import { Button } from "@/components/ui/button";
 import { portfolioItems, whatsappUrl } from "@/lib/landing-data";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 type GalleryItem = {
   title: string;
@@ -74,17 +81,14 @@ const responsibilityIcons = [
 function ProjectMeta({ items }: { items: MetaItem[] }) {
   return (
     <aside
-      className="nesher-card-raised rounded-[2.5rem] p-7 sm:p-8"
+      className="rounded-[2rem] border border-white/15 bg-white/5 p-7 text-white backdrop-blur-xl sm:p-8"
       data-apple-reveal-delay="140ms"
       data-apple-reveal-item
     >
-      <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
-        Project Info
-      </p>
-      <div className="mt-7 divide-y divide-black/8">
+      <div className="divide-y divide-white/10">
         {items.map((item) => (
           <div key={item.label} className="py-5 first:pt-0 last:pb-0">
-            <p className="text-xs font-semibold text-[var(--nesher-muted)]">
+            <p className="text-xs font-semibold text-white/35">
               {item.label}
             </p>
             {item.href ? (
@@ -92,12 +96,12 @@ function ProjectMeta({ items }: { items: MetaItem[] }) {
                 href={item.href}
                 rel="noreferrer"
                 target="_blank"
-                className="mt-2 inline-flex text-lg font-semibold tracking-[-0.02em] text-[var(--nesher-ink)] hover:text-[var(--portfolio-accent)]"
+                className="mt-2 inline-flex text-lg font-semibold tracking-[-0.02em] text-white hover:text-[#c4b5fd]"
               >
                 {item.value}
               </a>
             ) : (
-              <p className="mt-2 text-lg font-semibold tracking-[-0.02em] text-[var(--nesher-ink)]">
+              <p className="mt-2 text-lg font-semibold tracking-[-0.02em] text-white">
                 {item.value}
               </p>
             )}
@@ -193,26 +197,26 @@ function GalleryImage({
 }) {
   if (variant === "mobile") {
     return (
-      <div className="rounded-[2rem] bg-[var(--nesher-surface-muted)] p-6">
+      <div className="overflow-hidden rounded-[2rem] bg-[#e8e1ff] p-6">
         <Image
           src={item.src}
           alt={`${item.title} screen`}
           width={1440}
           height={3120}
-          className="mx-auto aspect-[9/16] w-full max-w-[260px] object-contain object-top"
+          className="mx-auto aspect-[9/16] w-full max-w-[260px] object-contain object-top transition-transform duration-700 ease-out group-hover:scale-105"
         />
       </div>
     );
   }
 
   return (
-    <div className="bg-[var(--nesher-surface-muted)] p-3 sm:p-5">
+    <div className="overflow-hidden bg-[#e8e1ff] p-3 sm:p-5">
       <Image
         src={item.src}
         alt={`${item.title} screenshot`}
         width={3840}
         height={2400}
-        className="rounded-[1.75rem] object-cover object-top"
+        className="rounded-[1.75rem] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
       />
     </div>
   );
@@ -226,14 +230,11 @@ function GallerySection({
   const isMobileGallery = section.variant === "mobile";
 
   return (
-    <section className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-[#f4f1eb] px-4 py-32 sm:px-6 md:py-48 lg:px-8">
+      <div className="mx-auto max-w-[1440px]">
         <div className="mb-16 grid gap-7 lg:grid-cols-[0.58fr_0.42fr] lg:items-end">
           <div>
-            <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
-              {section.eyebrow}
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl lg:text-6xl">
+            <h2 className="text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[.96] tracking-[-0.06em] text-[#17131f]">
               {section.title}
             </h2>
           </div>
@@ -252,7 +253,8 @@ function GallerySection({
           {section.items.map((item, index) => (
             <article
               key={item.src}
-            className="overflow-hidden rounded-[2.5rem] border border-[var(--nesher-purple-border)] bg-[var(--nesher-surface-muted)]"
+            data-case-image
+            className="group overflow-hidden rounded-[2.5rem] border border-black/8 bg-white"
             >
               {isMobileGallery ? (
                 <div className="p-5">
@@ -306,12 +308,12 @@ function ProjectNavigation({ title }: { title: string }) {
   }
 
   return (
-    <section className="bg-white px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8">
+    <section className="bg-[#f4f1eb] px-4 pb-32 sm:px-6 sm:pb-48 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-2">
         {previous ? (
           <Link
             href={previous.href}
-            className="nesher-card rounded-[2rem] p-7 transition hover:-translate-y-1 hover:bg-white"
+            className="group rounded-[2rem] border border-black/10 bg-white p-7 transition duration-500 hover:-translate-y-1 hover:bg-[#e8e1ff]"
           >
             <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
               Sebelumnya
@@ -327,7 +329,7 @@ function ProjectNavigation({ title }: { title: string }) {
         {next ? (
           <Link
             href={next.href}
-            className="nesher-card rounded-[2rem] p-7 text-left transition hover:-translate-y-1 hover:bg-white md:text-right"
+            className="group rounded-[2rem] border border-black/10 bg-white p-7 text-left transition duration-500 hover:-translate-y-1 hover:bg-[#e8e1ff] md:text-right"
           >
             <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
               Selanjutnya
@@ -360,28 +362,38 @@ export function PortfolioCaseStudyPage({
   themeColor = "#6D28D9",
   title,
 }: PortfolioCaseStudyPageProps) {
+  const root = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    gsap.from("[data-case-hero] > *", { y: 56, opacity: 0, duration: 1, stagger: 0.12, ease: "power4.out" });
+    gsap.utils.toArray<HTMLElement>("[data-case-image]").forEach((card) => {
+      gsap.fromTo(card, { scale: 0.86, opacity: 0.25 }, { scale: 1, opacity: 1, ease: "none", scrollTrigger: { trigger: card, start: "top 92%", end: "center 58%", scrub: 1 } });
+    });
+  }, { scope: root });
+
   const themeStyle = {
     "--portfolio-accent": themeColor,
   } as CSSProperties;
 
   return (
-    <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans" style={themeStyle}>
+    <div ref={root} className="min-h-screen bg-[#0b0b0d] font-sans" style={themeStyle}>
       <Navbar />
-      <main>
-        <section className="nesher-section relative overflow-hidden px-4 pb-24 pt-36 sm:px-6 sm:pb-32 sm:pt-44 lg:px-8 lg:pt-48">
+      <main id="main-content" className="w-full max-w-full overflow-x-hidden">
+        <section className="relative overflow-hidden px-4 pb-28 pt-40 text-white sm:px-6 md:pb-44 md:pt-52 lg:px-8">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute left-1/2 -top-56 h-[64rem] w-[88rem] -translate-x-1/2 bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--portfolio-accent)_15%,transparent)_0%,color-mix(in_srgb,var(--portfolio-accent)_5%,transparent)_40%,transparent_72%)] blur-[75px]"
           />
           <div
-            className="relative mx-auto max-w-7xl"
+            data-case-hero
+            className="relative mx-auto max-w-[1440px]"
             data-apple-reveal="off"
           >
             <div data-apple-reveal-delay="0ms" data-apple-reveal-item>
               <Button
                 asChild
                 variant="outline"
-                className="mb-12 h-11 bg-white/70 px-5 backdrop-blur-xl hover:text-[var(--portfolio-accent)]"
+                className="mb-12 h-11 rounded-full border-white/15 bg-white/5 px-5 text-white backdrop-blur-xl hover:bg-white hover:text-black"
               >
                 <Link href="/#portfolio">
                   <ArrowLeft className="mr-2 size-4" />
@@ -392,19 +404,19 @@ export function PortfolioCaseStudyPage({
 
             <div className="grid gap-14 lg:grid-cols-[0.68fr_0.32fr] lg:items-end">
               <div data-apple-reveal-delay="70ms" data-apple-reveal-item>
-                <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
+                <p className="text-sm font-semibold text-[#c4b5fd]">
                   {category}
                 </p>
-                <h1 className="mt-5 text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--nesher-ink)] sm:text-7xl lg:text-[5.25rem]">
+                <h1 className="mt-5 w-full max-w-5xl text-[clamp(3.4rem,7vw,7.5rem)] font-semibold leading-[.9] tracking-[-.07em] text-white">
                   {title}
                 </h1>
-                <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[var(--nesher-body)] sm:text-xl">
+                <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-white/55 sm:text-xl">
                   {subtitle}
                 </p>
                 {liveUrl ? (
                   <Button
                     asChild
-                    className="mt-8 h-12 bg-[var(--portfolio-accent)] px-7 text-base text-white shadow-[var(--nesher-glow)] hover:brightness-90 hover:text-white"
+                    className="mt-8 h-12 rounded-full bg-[#c4b5fd] px-7 text-base text-[#17131f] hover:bg-white"
                   >
                     <a href={liveUrl} rel="noreferrer" target="_blank">
                       {liveUrlLabel} <ArrowUpRight className="ml-2 size-4" />
@@ -425,13 +437,10 @@ export function PortfolioCaseStudyPage({
           </div>
         </section>
 
-        <section className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.38fr_0.62fr] lg:gap-20">
+        <section className="bg-[#f4f1eb] px-4 py-32 sm:px-6 md:py-48 lg:px-8">
+          <div className="mx-auto grid max-w-[1440px] gap-12 lg:grid-cols-[0.38fr_0.62fr] lg:gap-20">
             <div>
-              <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
-                What We Do
-              </p>
-              <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl">
+              <h2 className="text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#17131f] sm:text-5xl">
                 {overviewTitle}
               </h2>
             </div>
@@ -441,14 +450,11 @@ export function PortfolioCaseStudyPage({
           </div>
         </section>
 
-        <section className="bg-[var(--nesher-surface-muted)] px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-7xl">
+        <section className="bg-[#e8e1ff] px-4 py-32 sm:px-6 md:py-48 lg:px-8">
+          <div className="mx-auto max-w-[1440px]">
             <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
               <div>
-                <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
-                  Our Responsibility
-                </p>
-                <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl">
+                <h2 className="text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#17131f] sm:text-5xl">
                   {responsibilityTitle}
                 </h2>
               </div>
@@ -461,7 +467,7 @@ export function PortfolioCaseStudyPage({
                   return (
                     <div
                       key={item}
-                      className="nesher-liquid nesher-hover-lift rounded-[2rem] p-6"
+                      className="rounded-[2rem] border border-black/8 bg-white/65 p-6 transition-transform duration-500 hover:-translate-y-1"
                     >
                       <div className="flex size-11 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--portfolio-accent)_10%,white)] text-[var(--portfolio-accent)]">
                         <Icon className="size-5" />
@@ -477,13 +483,10 @@ export function PortfolioCaseStudyPage({
           </div>
         </section>
 
-        <section className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.34fr_0.66fr]">
+        <section className="bg-[#f4f1eb] px-4 py-32 sm:px-6 md:py-48 lg:px-8">
+          <div className="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[0.34fr_0.66fr]">
             <div>
-              <p className="text-sm font-semibold text-[var(--portfolio-accent)]">
-                Technology Stack
-              </p>
-              <h2 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl">
+              <h2 className="text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#17131f] sm:text-5xl">
                 Stack yang dipilih sesuai kebutuhan project.
               </h2>
             </div>
@@ -507,18 +510,18 @@ export function PortfolioCaseStudyPage({
 
         <ProjectNavigation title={title} />
 
-        <section className="bg-white px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8">
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.75rem] bg-[#1D1D1F] px-6 py-20 text-center text-white shadow-[0_30px_90px_rgba(29,29,31,0.18)] sm:px-10 sm:py-24">
+        <section className="bg-[#f4f1eb] px-4 pb-32 sm:px-6 sm:pb-48 lg:px-8">
+          <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-[2.75rem] bg-[#c4b5fd] px-6 py-20 text-center text-[#17131f] sm:px-10 sm:py-28">
             <div className="pointer-events-none absolute inset-x-0 -top-64 mx-auto h-[32rem] max-w-5xl bg-[radial-gradient(ellipse_at_center,color-mix(in_srgb,var(--portfolio-accent)_62%,transparent)_0%,color-mix(in_srgb,var(--portfolio-accent)_18%,transparent)_42%,transparent_72%)] blur-[65px]" />
             <h2 className="relative mx-auto max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] sm:text-6xl">
               {ctaTitle}
             </h2>
-            <p className="relative mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">
+            <p className="relative mx-auto mt-6 max-w-2xl text-lg leading-8 text-black/55 sm:text-xl">
               {ctaDescription}
             </p>
             <Button
               asChild
-              className="relative mt-10 h-12 rounded-full bg-white px-7 text-base text-[var(--nesher-ink)] hover:bg-[var(--portfolio-accent)] hover:text-white"
+              className="relative mt-10 h-12 rounded-full bg-[#17131f] px-7 text-base text-white hover:bg-white hover:text-[#17131f]"
             >
               <a
                 data-gtag-conversion

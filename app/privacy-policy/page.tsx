@@ -79,15 +79,16 @@ const policySections = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans">
+    <div className="min-h-screen bg-[#0b0b0d] font-sans">
       <Navbar />
-      <main>
-        <section className="bg-gradient-to-b from-[var(--nesher-purple-50)] via-white to-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="mx-auto max-w-7xl">
+      <main id="main-content" className="w-full max-w-full overflow-x-hidden">
+        <section className="relative overflow-hidden bg-[#0b0b0d] px-4 pb-28 pt-40 text-white sm:px-6 md:pb-44 md:pt-52 lg:px-8">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_30%,rgba(109,40,217,.4),transparent_32%)]" />
+          <div className="relative mx-auto max-w-[1440px]">
             <Button
               asChild
               variant="outline"
-              className="mb-10 h-11 px-5 hover:bg-primary hover:text-white"
+              className="mb-12 h-11 rounded-full border-white/15 bg-white/5 px-5 text-white hover:bg-white hover:text-black"
             >
               <Link href="/#home">
                 <ArrowLeft className="mr-2 size-4" />
@@ -97,28 +98,25 @@ export default function PrivacyPolicyPage() {
 
             <div className="grid gap-10 lg:grid-cols-[0.66fr_0.34fr] lg:items-end">
               <div>
-                <div className="nesher-chip inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold shadow-sm">
-                  <ShieldCheck className="size-4" />
-                  Privacy Policy
-                </div>
-                <h1 className="mt-6 text-balance text-4xl font-semibold leading-tight tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl lg:text-6xl">
+                <ShieldCheck className="size-8 text-[#c4b5fd]" />
+                <h1 className="mt-8 w-full max-w-6xl text-[clamp(3.2rem,6.5vw,7rem)] font-semibold leading-[.92] tracking-[-.07em] text-white">
                   Kebijakan Privasi Nesher Teknologi Nusantara
                 </h1>
-                <p className="mt-6 max-w-3xl text-pretty text-lg leading-8 text-[var(--nesher-body)]">
+                <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 text-white/55">
                   Halaman ini menjelaskan bagaimana Nesher Tech mengumpulkan,
                   menggunakan, menyimpan, dan melindungi informasi pribadi yang
                   Anda berikan saat menggunakan website atau menghubungi kami.
                 </p>
-                <p className="mt-5 text-sm font-semibold text-[var(--nesher-purple-900)]">
+                <p className="mt-5 text-sm font-semibold text-[#c4b5fd]">
                   Terakhir diperbarui: 17 Juni 2026
                 </p>
               </div>
 
-              <div className="nesher-card-raised rounded-[2rem] p-6">
-                <h2 className="text-xl font-semibold text-[var(--nesher-ink)]">
+              <div className="rounded-[2rem] border border-white/15 bg-white/5 p-6 backdrop-blur-xl">
+                <h2 className="text-xl font-semibold text-white">
                   Kontak Privasi
                 </h2>
-                <div className="mt-5 grid gap-4 text-sm leading-6 text-[var(--nesher-body)]">
+                <div className="mt-5 grid gap-4 text-sm leading-6 text-white/55">
                   <a
                     href={`mailto:${emailAddress}`}
                     className="flex items-start gap-3 transition hover:text-primary"
@@ -136,8 +134,8 @@ export default function PrivacyPolicyPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.28fr_0.72fr]">
+        <section className="bg-[#f4f1eb] px-4 py-32 sm:px-6 md:py-48 lg:px-8">
+          <div className="mx-auto grid max-w-[1440px] gap-12 lg:grid-cols-[0.28fr_0.72fr]">
             <aside className="lg:sticky lg:top-28 lg:self-start">
               <p className="text-sm font-semibold text-primary">
                 Ringkasan
@@ -154,7 +152,7 @@ export default function PrivacyPolicyPage() {
               {policySections.map((section) => (
                 <article
                   key={section.title}
-                  className="nesher-card rounded-[1.75rem] p-6"
+                  className="rounded-[1.75rem] border border-black/8 bg-white p-7 transition-transform duration-500 hover:-translate-y-1"
                 >
                   <h2 className="text-xl font-semibold text-[var(--nesher-ink)]">
                     {section.title}

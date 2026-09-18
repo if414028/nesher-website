@@ -8,11 +8,11 @@ export const officeMapEmbedUrl =
   "https://www.google.com/maps?q=Estubizi%20Business%20Center%20Lobby%20Setiabudi%202%20Jl.%20H.%20R.%20Rasuna%20Said%206%20Karet%20Kuningan%20Setiabudi%20Jakarta%2012920&output=embed";
 
 export const navLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Process", href: "/#process" },
-  { label: "Contact", href: "/contact" },
+  { label: "Beranda", href: "/#home" },
+  { label: "Layanan", href: "/#services" },
+  { label: "Karya", href: "/#work" },
+  { label: "Portofolio", href: "/portfolio" },
+  { label: "Kontak", href: "/contact" },
 ];
 
 export const highlightServices = [

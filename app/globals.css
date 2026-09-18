@@ -49,6 +49,14 @@
 }
 
 :root {
+  color-scheme: light dark;
+  --nesher-bg-dark: #0b0b0d;
+  --nesher-bg-light: #f4f1eb;
+  --nesher-surface-lavender: #e8e1ff;
+  --nesher-accent: #c4b5fd;
+  --nesher-accent-strong: #7c5ce5;
+  --nesher-text-dark: #17131f;
+  --nesher-text-light: #f7f5fb;
   --font-geist-sans: "Geist", "Inter", "Segoe UI", Arial, sans-serif;
   --font-geist-mono: "Geist Mono", "SFMono-Regular", Consolas, "Liberation Mono",
     monospace;
@@ -145,10 +153,23 @@
   body {
     @apply bg-background text-foreground antialiased;
     text-rendering: optimizeLegibility;
+    min-width: 320px;
   }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+  }
+}
+
+@layer base {
+  :where(a, button, input, textarea, select, summary):focus-visible {
+    outline: 3px solid var(--nesher-accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--nesher-accent);
+    color: var(--nesher-text-dark);
   }
 }
 
@@ -284,6 +305,41 @@
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
     filter: blur(0);
+  }
+}
+
+@keyframes nesher-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: nesher-marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .nesher-nav-glass {
+    background: var(--nesher-bg-dark) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .nesher-nav-glass {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    background: #000 !important;
+  }
+
+  :where(a, button, input, textarea, select) {
+    text-decoration-thickness: 2px;
   }
 }
 

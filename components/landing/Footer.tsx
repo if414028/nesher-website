@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import {
@@ -11,24 +10,18 @@ import {
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--nesher-purple-border)] bg-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+    <footer className="border-t border-white/10 bg-[#0b0b0d] text-white">
+      <div className="mx-auto grid max-w-[1440px] gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <Image
-            src="/brand/nesher-logo.png"
-            alt="Nesher Tech"
-            width={1850}
-            height={700}
-            className="h-16 w-auto object-contain"
-          />
-          <p className="mt-4 max-w-sm text-base leading-7 text-[var(--nesher-body)]">
+          <p className="text-2xl font-semibold tracking-[-0.04em]">Nesher Tech</p>
+          <p className="mt-4 max-w-sm text-base leading-7 text-white/45">
             Partner digital untuk website, web application, dashboard, dan
             aplikasi custom.
           </p>
         </div>
 
         <div>
-          <h3 className="font-semibold text-[var(--nesher-carbon)]">Menu</h3>
+          <h3 className="font-semibold text-white">Menu</h3>
           <div className="mt-4 grid gap-3">
             {navLinks.map((link) => (
               <Link
@@ -38,7 +31,7 @@ export function Footer() {
                   link.href.startsWith("https://") ? "noreferrer" : undefined
                 }
                 target={link.href.startsWith("https://") ? "_blank" : undefined}
-                className="text-sm text-[var(--nesher-body)] transition hover:text-primary"
+                className="text-sm text-white/45 transition hover:text-[#c4b5fd]"
               >
                 {link.label}
               </Link>
@@ -47,13 +40,13 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold text-[var(--nesher-carbon)]">Services</h3>
+          <h3 className="font-semibold text-white">Services</h3>
           <div className="mt-4 grid gap-3">
             {services.slice(0, 5).map((service) => (
               <Link
                 key={service.title}
                 href="/#services"
-                className="text-sm text-[var(--nesher-body)] transition hover:text-primary"
+                className="text-sm text-white/45 transition hover:text-[#c4b5fd]"
               >
                 {service.title}
               </Link>
@@ -62,11 +55,11 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold text-[var(--nesher-carbon)]">Contact</h3>
-          <div className="mt-4 grid gap-3 text-sm text-[var(--nesher-body)]">
+          <h3 className="font-semibold text-white">Contact</h3>
+          <div className="mt-4 grid gap-3 text-sm text-white/45">
             <a
               href={`mailto:${emailAddress}`}
-              className="transition hover:text-primary"
+              className="transition hover:text-[#c4b5fd]"
             >
               {emailAddress}
             </a>
@@ -74,26 +67,26 @@ export function Footer() {
               href={officeMapUrl}
               rel="noreferrer"
               target="_blank"
-              className="leading-6 transition hover:text-primary"
+              className="leading-6 transition hover:text-[#c4b5fd]"
             >
               {officeAddress}
             </a>
             <a
               href="https://www.neshertechnology.id"
-              className="transition hover:text-primary"
+              className="transition hover:text-[#c4b5fd]"
             >
               www.neshertechnology.id
             </a>
             <Link
               href="/privacy-policy"
-              className="transition hover:text-primary"
+              className="transition hover:text-[#c4b5fd]"
             >
               Privacy Policy
             </Link>
           </div>
         </div>
       </div>
-      <div className="border-t border-[var(--nesher-purple-border)] px-4 py-6 text-center text-sm text-[var(--nesher-body)]">
+      <div className="border-t border-white/10 px-4 py-6 text-center text-sm text-white/35">
         © 2026 Nesher Tech. All rights reserved.
       </div>
     </footer>

@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
 
-import { CTASection } from "@/components/landing/CTASection";
-import { FAQSection } from "@/components/landing/FAQSection";
-import { FeatureShowcase } from "@/components/landing/FeatureShowcase";
-import { Footer } from "@/components/landing/Footer";
-import { HeroSection } from "@/components/landing/HeroSection";
-import { ClientMarqueeSection } from "@/components/landing/ClientMarqueeSection";
-import { Navbar } from "@/components/landing/Navbar";
-import { PortfolioSection } from "@/components/landing/PortfolioSection";
-import { ProblemSection } from "@/components/landing/ProblemSection";
-import { ProcessSection } from "@/components/landing/ProcessSection";
-import { ServicesSection } from "@/components/landing/ServicesSection";
-import { TechnologySection } from "@/components/landing/TechnologySection";
-import { WhyNesherSection } from "@/components/landing/WhyNesherSection";
+import { TasteLanding } from "@/components/landing/TasteLanding";
 import { faqItems, services } from "@/lib/landing-data";
 import { absoluteUrl, createPageMetadata, jsonLd, siteConfig } from "@/lib/seo";
 
@@ -88,26 +76,12 @@ const homeJsonLd = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans">
+    <div className="min-h-screen font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(homeJsonLd) }}
       />
-      <Navbar />
-      <main>
-        <HeroSection />
-        <ClientMarqueeSection />
-        <ProblemSection />
-        <ServicesSection />
-        <FeatureShowcase />
-        <PortfolioSection />
-        <ProcessSection />
-        <WhyNesherSection />
-        <TechnologySection />
-        <FAQSection />
-        <CTASection />
-      </main>
-      <Footer />
+      <TasteLanding />
     </div>
   );
 }
