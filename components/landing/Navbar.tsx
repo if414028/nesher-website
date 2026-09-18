@@ -14,7 +14,7 @@ export function Navbar() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
-      <div className="pointer-events-auto mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] border border-white/65 bg-white/55 shadow-[var(--nesher-raised-shadow)] ring-1 ring-[var(--nesher-purple-border)]/40 backdrop-blur-2xl">
+      <div className="nesher-glass pointer-events-auto mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] border border-white/65 bg-white/72 shadow-[var(--nesher-raised-shadow)] ring-1 ring-[var(--nesher-purple-border)]/40 backdrop-blur-2xl">
         <nav
           className="flex items-center justify-between px-4 py-3 sm:px-5 lg:px-6"
           aria-label="Primary navigation"
@@ -37,7 +37,7 @@ export function Navbar() {
                 href={link.href}
                 rel={link.href.startsWith("https://") ? "noreferrer" : undefined}
                 target={link.href.startsWith("https://") ? "_blank" : undefined}
-                className="text-sm font-medium text-[var(--nesher-body)] transition hover:text-[var(--nesher-purple-900)]"
+                className="rounded-xl px-1 py-3 text-sm font-medium text-[var(--nesher-body)] transition hover:text-[var(--nesher-purple-900)]"
               >
                 {link.label}
               </Link>
@@ -62,7 +62,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-white/70 bg-white/45 text-[var(--nesher-carbon)] transition hover:bg-white/75 lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-white/70 bg-white/55 text-[var(--nesher-carbon)] transition hover:bg-white/85 lg:hidden"
             aria-label={open ? "Tutup menu" : "Buka menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}

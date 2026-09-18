@@ -27,7 +27,7 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans">
       <Navbar />
-      <main>
+      <main id="main-content">
         <section className="nesher-section relative overflow-hidden px-4 pb-24 pt-36 sm:px-6 sm:pb-32 sm:pt-44 lg:px-8 lg:pt-48">
           <div
             aria-hidden="true"

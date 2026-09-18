@@ -88,13 +88,13 @@ const homeJsonLd = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans">
+    <div className="min-h-screen w-full max-w-full overflow-x-clip bg-[var(--nesher-canvas)] font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(homeJsonLd) }}
       />
       <Navbar />
-      <main>
+      <main id="main-content">
         <HeroSection />
         <ClientMarqueeSection />
         <ProblemSection />

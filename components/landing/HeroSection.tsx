@@ -27,11 +27,11 @@ function ProjectShowcase() {
         <div className="flex h-12 items-center justify-between bg-[var(--nesher-purple-900)] px-5 text-white">
           <div className="flex items-center gap-2">
             <span className="size-2 rounded-full bg-[#C4B5FD]" />
-            <span className="text-[9px] font-bold sm:text-[10px]">
+            <span className="text-[10px] font-bold">
               Project spec · Draft
             </span>
           </div>
-          <span className="text-[9px] font-semibold tracking-[0.18em] text-white/65">
+          <span className="text-[10px] font-semibold tracking-[0.18em] text-white/70">
             V0.1
           </span>
         </div>
@@ -46,7 +46,7 @@ function ProjectShowcase() {
               <Layers3 className="size-5" />
             </span>
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--nesher-muted)]">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--nesher-muted)]">
                 Modul
               </p>
               <p className="mt-1 text-sm font-bold text-[var(--nesher-purple-900)] sm:text-lg">
@@ -60,14 +60,14 @@ function ProjectShowcase() {
               <Cpu className="size-5" />
             </span>
             <div className="min-w-0">
-              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--nesher-muted)]">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--nesher-muted)]">
                 Technology stack
               </p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {["Next.js", "Laravel", "PostgreSQL", "AWS"].map((stack) => (
                   <span
                     key={stack}
-                    className="rounded-full border border-[var(--nesher-purple-border)] bg-[var(--nesher-purple-50)] px-2.5 py-1 text-[9px] font-semibold text-[var(--nesher-purple-900)] sm:text-[10px]"
+                    className="rounded-full border border-[var(--nesher-purple-border)] bg-[var(--nesher-purple-50)] px-2.5 py-1 text-[10px] font-semibold text-[var(--nesher-purple-900)]"
                   >
                     {stack}
                   </span>
@@ -78,10 +78,10 @@ function ProjectShowcase() {
 
           <div className="pt-5">
             <div className="flex items-center justify-between">
-              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[var(--nesher-muted)]">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--nesher-muted)]">
                 Timeline
               </p>
-              <p className="text-[9px] font-bold text-primary">
+              <p className="text-[10px] font-bold text-primary">
                 ± 12 minggu
               </p>
             </div>
@@ -100,7 +100,7 @@ function ProjectShowcase() {
                     }`}
                   />
                   <p
-                    className={`mt-2 text-[8px] font-semibold ${
+                    className={`mt-2 text-[10px] font-semibold ${
                       index === 3 ? "text-right" : "text-[var(--nesher-body)]"
                     }`}
                   >
@@ -113,10 +113,10 @@ function ProjectShowcase() {
         </div>
 
         <div className="flex items-center justify-between border-t border-[#D8CDEA] bg-[#FBFAFE] px-5 py-3.5 sm:px-7">
-          <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--nesher-body)]">
+          <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--nesher-body)]">
             Prepared by Nesher Technology
           </p>
-          <span className="inline-flex items-center gap-1.5 text-[9px] font-bold text-primary">
+          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-primary">
             <span className="size-1.5 rounded-full bg-primary" />
             Scope aktif
           </span>

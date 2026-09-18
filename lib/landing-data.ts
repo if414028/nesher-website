@@ -652,34 +652,46 @@ export const diTenunDetail = {
 
 export const processSteps = [
   {
-    title: "Discovery",
-    description:
-      "Kami memahami kebutuhan, target user, tujuan bisnis, dan scope awal project.",
+    title: "Discovery & Alignment",
+    duration: "Tahap 1 · Memahami konteks",
+    description: "Kami membedah cara kerja bisnis, masalah yang paling mendesak, siapa yang akan menggunakan produk, dan hasil bisnis yang ingin dicapai.",
+    deliverables: ["Stakeholder interview", "Problem map", "Goal alignment"],
+    output: "Brief tervalidasi",
   },
   {
-    title: "Planning",
-    description:
-      "Kami menyusun struktur fitur, timeline, estimasi biaya, dan prioritas pengerjaan.",
+    title: "Scope & Roadmap",
+    duration: "Tahap 2 · Menentukan arah",
+    description: "Kebutuhan diterjemahkan menjadi prioritas fitur, alur utama, arsitektur awal, timeline, dan milestone yang realistis untuk dikerjakan.",
+    deliverables: ["Feature priority", "User flow", "Timeline & estimate"],
+    output: "Roadmap project",
   },
   {
-    title: "UI/UX Design",
-    description:
-      "Kami membuat desain yang modern, rapi, dan mudah digunakan sebelum development dimulai.",
+    title: "Experience Design",
+    duration: "Tahap 3 · Membentuk pengalaman",
+    description: "Kami merancang struktur informasi, wireframe, visual interface, dan prototype agar pengalaman pengguna dapat diuji sebelum development dimulai.",
+    deliverables: ["Wireframe", "UI design", "Clickable prototype"],
+    output: "Design approved",
   },
   {
-    title: "Development",
-    description:
-      "Website atau sistem dibangun dengan teknologi modern dan struktur code yang scalable.",
+    title: "Build in Sprints",
+    duration: "Tahap 4 · Membangun bertahap",
+    description: "Produk dibangun dalam sprint terukur. Anda menerima update berkala dan dapat meninjau fitur yang selesai tanpa menunggu seluruh project rampung.",
+    deliverables: ["Frontend", "Backend & API", "Progress demo"],
+    output: "Working product",
   },
   {
-    title: "Testing & Revision",
-    description:
-      "Kami melakukan pengujian, perbaikan, dan penyesuaian agar hasil sesuai kebutuhan.",
+    title: "Quality & Refinement",
+    duration: "Tahap 5 · Memastikan kualitas",
+    description: "Fungsi, tampilan responsif, performa, keamanan dasar, dan skenario penggunaan diuji. Feedback dirapikan dalam revisi yang terkontrol.",
+    deliverables: ["Functional QA", "Responsive test", "Final refinement"],
+    output: "Release candidate",
   },
   {
-    title: "Launch & Maintenance",
-    description:
-      "Project dipublish dan bisa dilanjutkan dengan support, update, serta improvement.",
+    title: "Launch & Grow",
+    duration: "Tahap 6 · Menjalankan produk",
+    description: "Kami menangani deployment, handover, dan monitoring awal. Setelah live, produk dapat dilanjutkan dengan maintenance dan pengembangan berbasis data nyata.",
+    deliverables: ["Deployment", "Handover", "Post-launch support"],
+    output: "Live & documented",
   },
 ];
 
