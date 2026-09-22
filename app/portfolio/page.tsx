@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -45,17 +46,29 @@ export default function PortfolioPage() {
               </Link>
             </Button>
 
-            <div className="mx-auto max-w-5xl text-center">
-              <span className="nesher-chip inline-flex rounded-full px-4 py-2 text-sm font-semibold shadow-sm backdrop-blur-xl">
-                Portfolio
-              </span>
-              <h1 className="mt-7 text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--nesher-ink)] sm:text-7xl lg:text-[5.25rem]">
-                Produk digital yang dirancang untuk bekerja.
-              </h1>
-              <p className="mx-auto mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[var(--nesher-body)] sm:text-2xl sm:leading-9">
-                Website, dashboard, aplikasi, dan sistem custom yang mengubah
-                kebutuhan nyata menjadi pengalaman digital yang jernih.
-              </p>
+            <div className="grid items-center gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
+              <div className="relative z-10 text-center lg:col-start-2 lg:row-start-1 lg:text-left">
+                <span className="nesher-chip inline-flex rounded-full px-4 py-2 text-sm font-semibold shadow-sm backdrop-blur-xl">
+                  Portfolio
+                </span>
+                <h1 className="mt-7 text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--nesher-ink)] sm:text-7xl lg:text-[4.75rem]">
+                  Produk digital yang dirancang untuk bekerja.
+                </h1>
+                <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[var(--nesher-body)] sm:text-2xl sm:leading-9">
+                  Website, dashboard, aplikasi, dan sistem custom yang mengubah
+                  kebutuhan nyata menjadi pengalaman digital yang jernih.
+                </p>
+              </div>
+
+              <Image
+                src="/images/portfolio/eagle-portfolio.png"
+                alt="Maskot elang Nesher mempresentasikan portfolio website, dashboard, dan aplikasi mobile"
+                width={1199}
+                height={1312}
+                priority
+                sizes="(min-width: 1024px) 460px, (min-width: 640px) 320px, 240px"
+                className="relative z-10 mx-auto h-auto w-60 object-contain drop-shadow-[0_24px_32px_rgba(63,19,104,0.18)] sm:w-80 lg:col-start-1 lg:row-start-1 lg:w-full lg:max-w-[29rem]"
+              />
             </div>
           </div>
         </section>

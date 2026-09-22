@@ -14,12 +14,12 @@ import { cn } from "@/lib/utils";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const serviceArtwork = [
-  ["/images/services/mascot-company-profile.webp", "Maskot Nesher mempresentasikan rancangan company profile website"],
-  ["/images/services/mascot-web-application.webp", "Maskot Nesher menghubungkan modul dalam sebuah web application"],
-  ["/images/services/mascot-dashboard.webp", "Maskot Nesher menjelaskan dashboard dan visualisasi laporan"],
-  ["/images/services/mascot-mobile-app.webp", "Maskot Nesher menunjukkan rancangan mobile application"],
-  ["/images/services/mascot-ui-ux.webp", "Maskot Nesher menyusun komponen antarmuka dan pengalaman pengguna"],
-  ["/images/services/mascot-maintenance.webp", "Maskot Nesher menjaga performa, keamanan, dan maintenance sistem"],
+  ["/images/services/eagle-company-profile.png", "Maskot elang Nesher mempresentasikan rancangan company profile website", 1199, 1312],
+  ["/images/services/eagle-web-application.png", "Maskot elang Nesher menghubungkan modul dalam sebuah web application", 1199, 1312],
+  ["/images/services/eagle-dashboard.png", "Maskot elang Nesher menjelaskan dashboard dan visualisasi laporan", 1199, 1312],
+  ["/images/services/eagle-mobile-app.png", "Maskot elang Nesher menunjukkan rancangan mobile application", 1199, 1312],
+  ["/images/services/eagle-ui-ux.png", "Maskot elang Nesher menyusun komponen antarmuka dan pengalaman pengguna", 1145, 1374],
+  ["/images/services/eagle-maintenance.png", "Maskot elang Nesher menjaga performa, keamanan, dan maintenance sistem", 1199, 1312],
 ] as const;
 
 const desktopSpans = [
@@ -101,7 +101,7 @@ export function ServicesSection() {
 
         <div className="mt-20 grid grid-flow-dense grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-6 lg:gap-6">
           {services.map((service, index) => {
-            const [src, alt] = serviceArtwork[index];
+            const [src, alt, width, height] = serviceArtwork[index];
             const isWide = index === services.length - 1;
             const isCompact = index >= 2 && index <= 4;
 
@@ -155,8 +155,8 @@ export function ServicesSection() {
                       data-service-artwork
                       src={src}
                       alt={alt}
-                      width={720}
-                      height={864}
+                      width={width}
+                      height={height}
                       sizes={isWide ? "(min-width: 1024px) 560px, 88vw" : "(min-width: 1024px) 380px, 88vw"}
                       className={cn(
                         "relative z-10 max-h-[20rem] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-105",

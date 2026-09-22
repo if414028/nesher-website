@@ -81,7 +81,7 @@ function LogoItem({ logo, name }: ClientLogo) {
 
 export function ClientMarqueeSection() {
   return (
-    <section className="bg-white px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+    <section className="bg-white px-4 pb-20 pt-12 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <p className="text-sm font-semibold text-primary">
           Dipercaya untuk membangun produk digital

@@ -16,16 +16,16 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const showcaseArtwork = {
   website: {
-    src: "/images/services/mascot-company-profile.webp",
-    alt: "Maskot Nesher mempresentasikan website profesional untuk pertumbuhan brand",
+    src: "/images/services/eagle-company-profile.png",
+    alt: "Maskot elang Nesher mempresentasikan website profesional untuk pertumbuhan brand",
   },
   dashboard: {
-    src: "/images/services/mascot-dashboard.webp",
-    alt: "Maskot Nesher menjelaskan dashboard dan laporan bisnis",
+    src: "/images/services/eagle-dashboard.png",
+    alt: "Maskot elang Nesher menjelaskan dashboard dan laporan bisnis",
   },
   workflow: {
-    src: "/images/services/mascot-web-application.webp",
-    alt: "Maskot Nesher merangkai web application sesuai workflow bisnis",
+    src: "/images/services/eagle-web-application.png",
+    alt: "Maskot elang Nesher merangkai web application sesuai workflow bisnis",
   },
 } as const;
 
@@ -50,8 +50,8 @@ function ShowcaseVisual({ type }: { type: keyof typeof showcaseArtwork }) {
         data-showcase-artwork
         src={artwork.src}
         alt={artwork.alt}
-        width={720}
-        height={864}
+        width={1199}
+        height={1312}
         sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
         className="relative z-10 h-[92%] w-auto object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-105"
       />

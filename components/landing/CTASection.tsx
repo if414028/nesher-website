@@ -58,10 +58,10 @@ export function CTASection() {
                 className="absolute bottom-5 left-1/2 h-20 w-3/4 -translate-x-1/2 rounded-[100%] bg-primary/35 blur-3xl"
               />
               <Image
-                src="/images/cta/mascot-idea-consultation.png"
-                alt="Maskot Nesher mengajak berdiskusi tentang ide website, aplikasi, dan dashboard"
-                width={1024}
-                height={1100}
+                src="/images/cta/eagle-idea-consultation.png"
+                alt="Maskot elang Nesher membawa ide dan solusi digital untuk didiskusikan"
+                width={1199}
+                height={1312}
                 sizes="(min-width: 1024px) 520px, 88vw"
                 className="relative z-10 h-auto max-h-[34rem] w-auto object-contain object-bottom drop-shadow-[0_30px_40px_rgba(0,0,0,0.28)] transition-transform duration-700 ease-out group-hover:scale-[1.025]"
               />

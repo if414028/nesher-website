@@ -15,28 +15,40 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const processArtwork = [
   {
-    src: "/images/process/discovery.png",
-    alt: "Maskot Nesher menggali kebutuhan dan memahami target pengguna",
+    src: "/images/process/eagle-discovery.png",
+    alt: "Maskot elang Nesher menggali kebutuhan dan memahami target pengguna",
+    width: 1254,
+    height: 1254,
   },
   {
-    src: "/images/process/planning.png",
-    alt: "Maskot Nesher menyusun roadmap, timeline, dan prioritas proyek",
+    src: "/images/process/eagle-planning.png",
+    alt: "Maskot elang Nesher menyusun roadmap, timeline, dan prioritas proyek",
+    width: 1254,
+    height: 1254,
   },
   {
-    src: "/images/process/ui-ux-design.png",
-    alt: "Maskot Nesher merancang komponen UI dan pengalaman pengguna",
+    src: "/images/process/eagle-ui-ux-design.png",
+    alt: "Maskot elang Nesher merancang komponen UI dan pengalaman pengguna",
+    width: 1145,
+    height: 1374,
   },
   {
-    src: "/images/process/development.png",
-    alt: "Maskot Nesher membangun aplikasi dan menghubungkan modul sistem",
+    src: "/images/process/eagle-development.png",
+    alt: "Maskot elang Nesher membangun aplikasi dan menghubungkan modul sistem",
+    width: 1254,
+    height: 1254,
   },
   {
-    src: "/images/process/testing-revision.png",
-    alt: "Maskot Nesher melakukan pengujian, pengecekan, dan revisi",
+    src: "/images/process/eagle-testing-revision.png",
+    alt: "Maskot elang Nesher melakukan pengujian, pengecekan, dan revisi",
+    width: 1254,
+    height: 1254,
   },
   {
-    src: "/images/process/launch-maintenance.png",
-    alt: "Maskot Nesher meluncurkan produk digital dan menjaga performanya",
+    src: "/images/process/eagle-launch-maintenance.png",
+    alt: "Maskot elang Nesher meluncurkan produk digital dan menjaga performanya",
+    width: 1254,
+    height: 1254,
   },
 ] as const;
 
@@ -117,8 +129,8 @@ export function ProcessSection() {
                     data-process-artwork
                     src={processArtwork[index].src}
                     alt={processArtwork[index].alt}
-                    width={900}
-                    height={900}
+                    width={processArtwork[index].width}
+                    height={processArtwork[index].height}
                     sizes="(min-width: 1024px) 390px, (min-width: 768px) 46vw, 92vw"
                     className="relative z-10 h-[94%] w-auto object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-105"
                   />

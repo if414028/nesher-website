@@ -96,7 +96,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="relative min-h-[47rem] lg:min-h-[44rem]">
+              <div className="relative min-h-[40rem] sm:min-h-[45rem] lg:min-h-[44rem]">
                 <ContactHeroMascot />
 
                 <div className="nesher-card-raised absolute inset-x-0 bottom-0 z-20 ml-auto rounded-[2.5rem] p-7 sm:inset-x-auto sm:right-0 sm:w-[64%] sm:p-8 lg:w-[60%]">

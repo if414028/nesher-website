@@ -1,16 +1,26 @@
 "use client";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { type CSSProperties, useRef } from "react";
 
-import { MotionDiv, Reveal } from "@/components/landing/Motion";
+import { Reveal } from "@/components/landing/Motion";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { portfolioItems } from "@/lib/landing-data";
 
 type PortfolioItem = (typeof portfolioItems)[number];
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+type PortfolioCardStyle = CSSProperties & {
+  "--portfolio-tone": string;
+};
 
 function PortfolioMockup({
   image,
@@ -28,10 +38,10 @@ function PortfolioMockup({
   if (image) {
     if (previewType === "hybrid" && secondaryImage) {
       return (
-        <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-[var(--nesher-purple-border)] bg-[linear-gradient(145deg,#fff_0%,var(--nesher-purple-50)_100%)] p-4 sm:p-5">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-[color-mix(in_srgb,var(--portfolio-tone)_22%,white)] bg-[linear-gradient(145deg,#fff_0%,color-mix(in_srgb,var(--portfolio-tone)_8%,white)_100%)] p-4 sm:p-5">
           <div
             aria-hidden="true"
-            className="absolute -right-12 -top-16 size-56 rounded-full bg-[#8F1538]/10 blur-3xl"
+            className="absolute -right-12 -top-16 size-56 rounded-full bg-[var(--portfolio-tone)] opacity-15 blur-3xl"
           />
           <div className="absolute inset-x-[5%] top-[13%] drop-shadow-[0_18px_28px_rgba(29,29,31,0.16)]">
             <Image
@@ -51,7 +61,7 @@ function PortfolioMockup({
               className="aspect-[9/19] w-full object-contain object-top"
             />
           </div>
-          <span className="absolute bottom-[8%] left-[7%] rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-xs font-semibold text-[#8F1538] shadow-sm">
+          <span className="absolute bottom-[8%] left-[7%] rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-xs font-semibold text-[var(--portfolio-tone)] shadow-sm">
             Mobile + Admin Dashboard
           </span>
         </div>
@@ -60,7 +70,7 @@ function PortfolioMockup({
 
     if (previewType === "mobile") {
       return (
-        <div className="overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-[var(--nesher-purple-50)] to-white p-5">
+        <div className="overflow-hidden rounded-[1.5rem] border border-[color-mix(in_srgb,var(--portfolio-tone)_18%,white)] bg-[linear-gradient(145deg,color-mix(in_srgb,var(--portfolio-tone)_10%,white),white)] p-5">
           <Image
             src={image}
             alt={`${title} preview`}
@@ -73,7 +83,7 @@ function PortfolioMockup({
     }
 
     return (
-      <div className="overflow-hidden rounded-[1.5rem] border border-[var(--nesher-purple-border)] bg-[var(--nesher-purple-50)]">
+      <div className="overflow-hidden rounded-[1.5rem] border border-[color-mix(in_srgb,var(--portfolio-tone)_20%,white)] bg-[color-mix(in_srgb,var(--portfolio-tone)_8%,white)]">
         <Image
           src={image}
           alt={`${title} preview`}
@@ -86,7 +96,7 @@ function PortfolioMockup({
   }
 
   return (
-    <div className="rounded-[1.5rem] bg-[var(--nesher-purple-50)] p-4">
+    <div className="rounded-[1.5rem] bg-[color-mix(in_srgb,var(--portfolio-tone)_8%,white)] p-4">
       <div className="mb-4 flex items-center gap-2">
         <span className="size-2.5 rounded-full bg-[#F87171]" />
         <span className="size-2.5 rounded-full bg-[#FBBF24]" />
@@ -120,29 +130,94 @@ export function PortfolioGrid({
   items: PortfolioItem[];
   startIndex?: number;
 }) {
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const cards = gsap.utils.toArray<HTMLElement>("[data-portfolio-card]");
+
+      cards.forEach((card, index) => {
+        const media = card.querySelector("[data-portfolio-media]");
+
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 44 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            delay: (index % 2) * 0.08,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 88%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+
+        if (media) {
+          gsap.fromTo(
+            media,
+            { scale: 0.94 },
+            {
+              scale: 1,
+              duration: 0.9,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 90%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
+      });
+    },
+    { scope: gridRef, dependencies: [items.length] }
+  );
+
   return (
-    <div className="grid gap-5 md:grid-cols-2">
+    <div ref={gridRef} className="grid grid-flow-dense gap-6 md:grid-cols-2">
       {items.map((item, index) => (
-        <MotionDiv
+        <div
           key={item.title}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: index * 0.06 }}
-          whileHover={{ y: -6 }}
+          data-portfolio-card
+          style={{ "--portfolio-tone": item.toneColor } as PortfolioCardStyle}
+          className="group/card h-full transition-transform duration-500 ease-out hover:-translate-y-1.5"
         >
-          <Card className="nesher-liquid nesher-hover-lift h-full rounded-[2rem] p-4 sm:p-5">
-            <PortfolioMockup
-              image={item.image}
-              index={(startIndex + index) % 3}
-              previewType={item.previewType}
-              secondaryImage={
-                "secondaryImage" in item ? item.secondaryImage : undefined
-              }
-              title={item.title}
+          <Card className="relative isolate h-full overflow-hidden rounded-[2.25rem] border border-[color-mix(in_srgb,var(--portfolio-tone)_16%,white)] bg-white/95 p-4 shadow-[0_18px_60px_rgba(24,18,33,0.08)] transition-[box-shadow,border-color] duration-500 group-hover/card:border-[color-mix(in_srgb,var(--portfolio-tone)_34%,white)] group-hover/card:shadow-[0_28px_80px_rgba(24,18,33,0.13)] sm:p-5">
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 h-72 bg-[linear-gradient(145deg,color-mix(in_srgb,var(--portfolio-tone)_13%,white),transparent_72%)]"
             />
-            <div className="px-1 pb-2 pt-4">
-              <span className="inline-flex rounded-full bg-[var(--nesher-purple-75)] px-3 py-1 text-xs font-semibold text-primary">
+            <div
+              aria-hidden="true"
+              className="absolute -right-24 -top-28 size-72 rounded-full border-[44px] border-[color-mix(in_srgb,var(--portfolio-tone)_11%,transparent)] transition-transform duration-700 ease-out group-hover/card:scale-110"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute -left-16 top-56 h-52 w-32 -rotate-12 rounded-[100%] bg-[var(--portfolio-tone)] opacity-[0.08] blur-2xl"
+            />
+
+            <div
+              data-portfolio-media
+              className="relative z-10 overflow-hidden rounded-[1.5rem] transition-transform duration-700 ease-out group-hover/card:scale-[1.015]"
+            >
+              <PortfolioMockup
+                image={item.image}
+                index={(startIndex + index) % 3}
+                previewType={item.previewType}
+                secondaryImage={
+                  "secondaryImage" in item ? item.secondaryImage : undefined
+                }
+                title={item.title}
+              />
+            </div>
+            <div className="relative z-10 px-1 pb-2 pt-5">
+              <span className="inline-flex rounded-full bg-[color-mix(in_srgb,var(--portfolio-tone)_10%,white)] px-3 py-1 text-xs font-semibold text-[var(--portfolio-tone)]">
                 {item.category}
               </span>
               <h3 className="mt-4 text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
@@ -154,7 +229,7 @@ export function PortfolioGrid({
               <Button
                 asChild
                 variant="outline"
-                className="mt-6 h-11 px-5 hover:bg-primary hover:text-white"
+                className="mt-6 h-11 border-[color-mix(in_srgb,var(--portfolio-tone)_22%,white)] px-5 text-[var(--portfolio-tone)] hover:border-[var(--portfolio-tone)] hover:bg-[var(--portfolio-tone)] hover:text-white"
               >
                 <Link
                   href={item.href}
@@ -168,7 +243,7 @@ export function PortfolioGrid({
               </Button>
             </div>
           </Card>
-        </MotionDiv>
+        </div>
       ))}
     </div>
   );

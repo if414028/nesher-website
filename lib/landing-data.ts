@@ -95,6 +95,7 @@ export const portfolioItems = [
       "Company profile website Next.js untuk JuangGroup, dilengkapi business plan presentation dan marketing strategy bagi pengembangan brand lintas Indonesia dan Afrika.",
     href: "/portfolio/juanggroup",
     image: "/portfolio/juanggroup/company-profile-home.png",
+    toneColor: "#1F513F",
   },
   {
     title: "MyHananeelCinta",
@@ -105,6 +106,7 @@ export const portfolioItems = [
     image: "/portfolio/myhananeelcinta/admin-dashboard.png",
     secondaryImage: "/portfolio/myhananeelcinta/home.webp",
     previewType: "hybrid",
+    toneColor: "#990026",
   },
   {
     title: "Zoe Everblossom",
@@ -113,6 +115,7 @@ export const portfolioItems = [
       "Website resmi Zoe Everblossom untuk memperkenalkan dan menjual lilin aromaterapi, rangkaian bunga, hadiah, serta hampers dengan nuansa visual yang lembut dan elegan.",
     href: "/portfolio/zoe-everblossom",
     image: "/portfolio/zoe-everblossom/home.png",
+    toneColor: "#9C5C86",
   },
   {
     title: "LetsGrowAcademy",
@@ -121,6 +124,7 @@ export const portfolioItems = [
       "Dashboard sales Coway untuk memantau network sales, performance, report, sales order, dan kontes penunjang kinerja tim.",
     href: "/portfolio/letsgrowacademy",
     image: "/portfolio/letsgrowacademy/overview-dashboard.png",
+    toneColor: "#287C74",
   },
   {
     title: "AdaInventory",
@@ -130,6 +134,7 @@ export const portfolioItems = [
     href: "/portfolio/adainventory",
     image: "/portfolio/adainventory/home.png",
     previewType: "mobile",
+    toneColor: "#C46B24",
   },
   {
     title: "Paraka Jakarta",
@@ -139,6 +144,7 @@ export const portfolioItems = [
     href: "/portfolio/paraka-jakarta",
     image: "/portfolio/paraka-jakarta/map-survey.jpeg",
     previewType: "mobile",
+    toneColor: "#D65A1F",
   },
   {
     title: "DiTenun",
@@ -148,6 +154,7 @@ export const portfolioItems = [
     href: "/portfolio/ditenun",
     image: "/portfolio/ditenun/home.png",
     previewType: "mobile",
+    toneColor: "#6546A5",
   },
   {
     title: "Panti Sosial Mutiara Karawang",
@@ -156,6 +163,7 @@ export const portfolioItems = [
       "Website publikasi untuk Panti Sosial Mutiara Karawang agar profil, layanan, galeri kegiatan, dan informasi kontak mudah diakses publik.",
     href: "/portfolio/panti-sosial-mutiara-karawang",
     image: "/portfolio/panti-sosial-mutiara-karawang/home.png",
+    toneColor: "#167F78",
   },
 ];
 

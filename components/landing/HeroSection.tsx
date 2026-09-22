@@ -23,7 +23,7 @@ function ProjectShowcase() {
   return (
     <div
       data-hero-visual
-      className="group relative mx-auto w-full max-w-[46rem] pb-8 pt-10 lg:mx-0 lg:pb-12"
+      className="group relative mx-auto w-full max-w-[46rem] pb-2 pt-2 sm:pb-6 sm:pt-6 lg:mx-0 lg:pb-12 lg:pt-10"
     >
       <div className="absolute inset-x-0 bottom-0 top-14 -z-10 rounded-full bg-primary/12 blur-3xl" />
 
@@ -132,19 +132,19 @@ function ProjectShowcase() {
 
       <div
         data-hero-mascot
-        className="pointer-events-none absolute -bottom-2 -left-[5%] z-20 w-[38%] min-w-[11rem] sm:-bottom-3 sm:-left-[7%] sm:w-[42%]"
+        className="pointer-events-none absolute -bottom-2 -left-[3%] z-20 w-[36%] min-w-[10rem] sm:-bottom-3 sm:-left-[5%] sm:w-[38%]"
       >
         <div
           aria-hidden="true"
           className="absolute bottom-4 left-1/2 h-16 w-3/4 -translate-x-1/2 rounded-full bg-primary/20 blur-2xl"
         />
         <Image
-          src="/images/services/mascot-company-profile.webp"
-          alt="Maskot Nesher memperkenalkan solusi digital yang dibuat sesuai kebutuhan bisnis"
-          width={720}
-          height={864}
+          src="/images/mascot/nesher-eagle-master.png"
+          alt="Maskot elang ungu Nesher menyambut dan memperkenalkan solusi digital untuk bisnis"
+          width={1199}
+          height={1312}
           priority
-          sizes="(min-width: 1024px) 300px, 42vw"
+          sizes="(min-width: 1024px) 280px, 38vw"
           className="relative h-auto w-full object-contain drop-shadow-[0_24px_28px_rgba(63,19,104,0.18)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:scale-[1.03]"
         />
       </div>
@@ -178,18 +178,23 @@ export function HeroSection() {
           "-=0.72"
         );
 
-      gsap.to("[data-hero-visual]", {
-        y: 70,
-        scale: 0.94,
-        opacity: 0.28,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 0.8,
-        },
+      const media = gsap.matchMedia();
+
+      media.add("(min-width: 1024px)", () => {
+        gsap.to("[data-hero-visual]", {
+          y: 40,
+          scale: 0.97,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.8,
+          },
+        });
       });
+
+      return () => media.revert();
     },
     { scope: heroRef }
   );
@@ -198,7 +203,7 @@ export function HeroSection() {
     <section
       ref={heroRef}
       id="home"
-      className="nesher-canvas relative isolate overflow-hidden px-4 pb-20 pt-32 sm:px-6 sm:pb-24 sm:pt-36 lg:min-h-[47rem] lg:px-8 lg:pb-24"
+      className="nesher-canvas relative isolate overflow-hidden px-4 pb-12 pt-32 sm:px-6 sm:pb-20 sm:pt-36 lg:min-h-[47rem] lg:px-8 lg:pb-24"
     >
       <div
         aria-hidden="true"
@@ -209,7 +214,7 @@ export function HeroSection() {
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_78%_45%,rgba(109,40,217,0.12),transparent_34%),linear-gradient(to_bottom,rgba(251,250,254,0.25),#FBFAFE_88%)]"
       />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.96fr_1.04fr] lg:gap-9">
+      <div className="mx-auto grid max-w-7xl items-center gap-6 sm:gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:gap-9">
         <div data-hero-copy className="text-center lg:text-left">
           <h1 className="text-balance text-[clamp(3rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[var(--nesher-ink)]">
             Bukan sekadar dibuat.{" "}
