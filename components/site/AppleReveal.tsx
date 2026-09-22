@@ -52,13 +52,12 @@ export function AppleReveal() {
       }
     );
 
-    elements.forEach((element, index) => {
+    elements.forEach((element) => {
       element.dataset.appleReveal = "hidden";
       element.style.setProperty("transition", "none");
       element.style.setProperty(
         "--apple-reveal-delay",
-        element.dataset.appleRevealDelay ??
-          `${Math.min(index % 4, 3) * 55}ms`
+        element.dataset.appleRevealDelay ?? "0ms"
       );
     });
 

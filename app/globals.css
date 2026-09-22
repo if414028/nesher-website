@@ -49,26 +49,27 @@
 }
 
 :root {
-  --font-geist-sans: "Geist", "Inter", "Segoe UI", Arial, sans-serif;
-  --font-geist-mono: "Geist Mono", "SFMono-Regular", Consolas, "Liberation Mono",
+  --font-geist-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  --font-geist-mono: "SFMono-Regular", ui-monospace, Menlo, Monaco, Consolas,
     monospace;
-  --nesher-purple-900: #3b0764;
-  --nesher-purple-700: #5b21b6;
-  --nesher-purple-600: #6d28d9;
-  --nesher-purple-300: #c4b5fd;
-  --nesher-purple-100: #f3eeff;
-  --nesher-purple-75: #f6f1ff;
-  --nesher-purple-50: #faf7ff;
-  --nesher-purple-border: #e9dfff;
-  --nesher-canvas: #fbfafe;
-  --nesher-surface-muted: #f5f5f7;
+  --nesher-purple-900: #3f1368;
+  --nesher-purple-700: #5e28a2;
+  --nesher-purple-600: #6e35b7;
+  --nesher-purple-300: #c8aff0;
+  --nesher-purple-100: #f0e8fb;
+  --nesher-purple-75: #f5f0fc;
+  --nesher-purple-50: #faf8fd;
+  --nesher-purple-border: #e4dbea;
+  --nesher-canvas: #f8f7fa;
+  --nesher-surface-muted: #f2f1f4;
   --nesher-ink: #1d1d1f;
   --nesher-carbon: #111827;
-  --nesher-body: #6e6e73;
-  --nesher-muted: #86868b;
-  --nesher-soft-shadow: 0 18px 45px rgba(59, 7, 100, 0.06);
-  --nesher-raised-shadow: 0 18px 55px rgba(59, 7, 100, 0.1);
-  --nesher-glow: 0 14px 35px rgba(109, 40, 217, 0.24);
+  --nesher-body: #515156;
+  --nesher-muted: #6e6e73;
+  --nesher-soft-shadow: 0 1px 2px rgba(29, 29, 31, 0.04), 0 12px 34px rgba(29, 29, 31, 0.055);
+  --nesher-raised-shadow: 0 2px 5px rgba(29, 29, 31, 0.04), 0 22px 60px rgba(29, 29, 31, 0.09);
+  --nesher-glow: 0 12px 30px rgba(110, 53, 183, 0.22);
   --nesher-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --card: #ffffff;
   --card-foreground: var(--nesher-ink);
@@ -145,18 +146,30 @@
   body {
     @apply bg-background text-foreground antialiased;
     text-rendering: optimizeLegibility;
+    font-size: 17px;
+    line-height: 1.47059;
   }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: var(--nesher-purple-300);
+    color: var(--nesher-purple-900);
+  }
+
+  :focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--nesher-purple-600) 72%, white);
+    outline-offset: 3px;
   }
 }
 
 @layer components {
   .nesher-canvas {
     background:
-      radial-gradient(circle at 78% 45%, rgba(109, 40, 217, 0.12), transparent 34%),
-      linear-gradient(180deg, rgba(251, 250, 254, 0.25), var(--nesher-canvas) 88%);
+      radial-gradient(circle at 78% 42%, rgba(110, 53, 183, 0.1), transparent 34%),
+      linear-gradient(180deg, #ffffff 0%, var(--nesher-canvas) 88%);
   }
 
   .nesher-section {
@@ -164,15 +177,13 @@
   }
 
   .nesher-card {
-    border: 1px solid rgba(109, 40, 217, 0.1);
-    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(29, 29, 31, 0.08);
+    background: #ffffff;
     box-shadow: var(--nesher-soft-shadow);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
   }
 
   .nesher-card-raised {
-    border: 1px solid rgba(233, 223, 255, 0.9);
+    border: 1px solid rgba(29, 29, 31, 0.08);
     background: #ffffff;
     box-shadow: var(--nesher-raised-shadow);
   }
@@ -181,13 +192,9 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.72);
-    background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(250, 247, 255, 0.74)),
-      radial-gradient(circle at 18% 0%, rgba(196, 181, 253, 0.22), transparent 34%);
-    box-shadow: var(--nesher-raised-shadow);
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(29, 29, 31, 0.08);
+    background: #ffffff;
+    box-shadow: var(--nesher-soft-shadow);
   }
 
   .nesher-liquid::before {
@@ -195,10 +202,8 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background:
-      linear-gradient(120deg, rgba(255, 255, 255, 0.72), transparent 42%),
-      radial-gradient(circle at 92% 14%, rgba(109, 40, 217, 0.1), transparent 32%);
-    opacity: 0.9;
+    background: linear-gradient(110deg, rgba(110, 53, 183, 0.055), transparent 38%);
+    opacity: 1;
     pointer-events: none;
   }
 
@@ -221,8 +226,8 @@
   }
 
   .nesher-input {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: var(--nesher-surface-muted);
+    border: 1px solid rgba(29, 29, 31, 0.14);
+    background: #ffffff;
     color: var(--nesher-ink);
   }
 
@@ -235,6 +240,33 @@
     background: #ffffff;
     box-shadow: 0 0 0 4px var(--nesher-purple-border);
     outline: none;
+  }
+
+  .nesher-navigation {
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 1px 2px rgba(29, 29, 31, 0.04), 0 14px 44px rgba(29, 29, 31, 0.11);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+  }
+
+  .skip-link {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    transform: translateY(-180%);
+    border-radius: 999px;
+    background: var(--nesher-ink);
+    color: white;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 650;
+    transition: transform 160ms var(--nesher-ease-out);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
   }
 }
 
@@ -255,44 +287,59 @@
 
 [data-apple-reveal="hidden"] {
   opacity: 0;
-  transform: translate3d(0, 32px, 0) scale(0.992);
-  filter: blur(5px);
-  transition:
-    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 550ms ease-out;
   transition-delay: var(--apple-reveal-delay, 0ms);
-  will-change: opacity, transform, filter;
+  will-change: opacity;
 }
 
 [data-apple-reveal="visible"] {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
-  filter: blur(0);
-  animation: apple-reveal-in 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: var(--apple-reveal-delay, 0ms);
-}
-
-@keyframes apple-reveal-in {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 32px, 0) scale(0.992);
-    filter: blur(5px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-    filter: blur(0);
-  }
+  will-change: opacity;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
   [data-apple-reveal] {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
     transition: none !important;
     animation: none !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .nesher-navigation {
+    background: #ffffff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --nesher-body: #303034;
+    --nesher-muted: #454549;
+    --nesher-purple-border: #88729d;
+  }
+
+  .nesher-card,
+  .nesher-card-raised,
+  .nesher-liquid,
+  .nesher-navigation,
+  .nesher-input {
+    border-color: currentColor;
   }
 }

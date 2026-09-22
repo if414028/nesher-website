@@ -51,7 +51,7 @@ function PortfolioMockup({
               className="aspect-[9/19] w-full object-contain object-top"
             />
           </div>
-          <span className="absolute bottom-[8%] left-[7%] rounded-full border border-white/70 bg-white/85 px-3 py-1.5 text-[10px] font-semibold text-[#8F1538] shadow-sm backdrop-blur-md sm:text-xs">
+          <span className="absolute bottom-[8%] left-[7%] rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-xs font-semibold text-[#8F1538] shadow-sm">
             Mobile + Admin Dashboard
           </span>
         </div>
@@ -125,8 +125,8 @@ export function PortfolioGrid({
       {items.map((item, index) => (
         <MotionDiv
           key={item.title}
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, delay: index * 0.06 }}
           whileHover={{ y: -6 }}

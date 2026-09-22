@@ -1,25 +1,97 @@
 "use client";
 
-import {
-  Gauge,
-  LayoutTemplate,
-  MonitorCog,
-  Palette,
-  Smartphone,
-  Wrench,
-} from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import { useRef } from "react";
 
-import { MotionDiv, Reveal } from "@/components/landing/Motion";
+import { Reveal } from "@/components/landing/Motion";
 import { SectionHeader } from "@/components/landing/SectionHeader";
-import { Card } from "@/components/ui/card";
 import { services } from "@/lib/landing-data";
+import { cn } from "@/lib/utils";
 
-const icons = [LayoutTemplate, MonitorCog, Gauge, Smartphone, Palette, Wrench];
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const serviceArtwork = [
+  ["/images/services/mascot-company-profile.webp", "Maskot Nesher mempresentasikan rancangan company profile website"],
+  ["/images/services/mascot-web-application.webp", "Maskot Nesher menghubungkan modul dalam sebuah web application"],
+  ["/images/services/mascot-dashboard.webp", "Maskot Nesher menjelaskan dashboard dan visualisasi laporan"],
+  ["/images/services/mascot-mobile-app.webp", "Maskot Nesher menunjukkan rancangan mobile application"],
+  ["/images/services/mascot-ui-ux.webp", "Maskot Nesher menyusun komponen antarmuka dan pengalaman pengguna"],
+  ["/images/services/mascot-maintenance.webp", "Maskot Nesher menjaga performa, keamanan, dan maintenance sistem"],
+] as const;
+
+const desktopSpans = [
+  "lg:col-span-3",
+  "lg:col-span-3",
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-6",
+];
 
 export function ServicesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const cards = gsap.utils.toArray<HTMLElement>("[data-service-card]");
+
+      cards.forEach((card, index) => {
+        const artwork = card.querySelector("[data-service-artwork]");
+        gsap.set(card, { zIndex: index + 1, transformOrigin: "center top" });
+        gsap.fromTo(
+          card,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.55,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 88%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+
+        if (artwork) {
+          gsap.fromTo(
+            artwork,
+            { scale: 0.82, y: 30 },
+            {
+              scale: 1,
+              y: 0,
+              ease: "none",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 92%",
+                end: "center 52%",
+                scrub: 0.8,
+              },
+            }
+          );
+        }
+      });
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section id="services" className="nesher-section py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      ref={sectionRef}
+      id="services"
+      className="nesher-section relative overflow-hidden py-32 sm:py-40 lg:py-48"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[48rem] w-[70rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(110,53,183,0.12),transparent_68%)] blur-3xl"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeader
             title="Satu Partner untuk Semua Kebutuhan Digital Bisnis Anda"
@@ -27,31 +99,74 @@ export function ServicesSection() {
           />
         </Reveal>
 
-        <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid grid-flow-dense grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-6 lg:gap-6">
           {services.map((service, index) => {
-            const Icon = icons[index];
+            const [src, alt] = serviceArtwork[index];
+            const isWide = index === services.length - 1;
+            const isCompact = index >= 2 && index <= 4;
 
             return (
-              <MotionDiv
+              <article
                 key={service.title}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, delay: index * 0.06 }}
-                whileHover={{ y: -4 }}
+                data-service-card
+                className={cn(
+                  "group relative min-h-[31rem] overflow-hidden rounded-[2.5rem] border border-black/[0.07] bg-white shadow-[var(--nesher-soft-shadow)] max-md:sticky max-md:top-24 md:col-span-1",
+                  desktopSpans[index],
+                  isWide && "lg:min-h-[26rem]"
+                )}
               >
-                <Card className="nesher-card h-full rounded-[2rem] p-8 transition duration-300 group-hover:bg-white sm:p-9">
-                  <div className="nesher-icon-tile mb-9 flex size-14 items-center justify-center rounded-2xl transition duration-300">
-                    <Icon className="size-6" />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(170,125,235,0.2),transparent_42%)] opacity-80"
+                />
+                <div
+                  className={cn(
+                    "relative z-10 flex h-full flex-col p-7 sm:p-9",
+                    isWide && "lg:grid lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-10 lg:p-12"
+                  )}
+                >
+                  <div className={cn(isWide && "lg:max-w-xl")}>
+                    <h3
+                      className={cn(
+                        "max-w-md text-3xl font-semibold leading-[1.02] tracking-[-0.04em] text-[var(--nesher-ink)]",
+                        isCompact ? "lg:text-[1.7rem]" : "sm:text-4xl",
+                        isWide && "lg:text-5xl"
+                      )}
+                    >
+                      {service.title}
+                    </h3>
+                    <p className="mt-5 max-w-xl text-base leading-7 text-[var(--nesher-body)] sm:text-lg sm:leading-8">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
-                    {service.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-7 text-[var(--nesher-body)]">
-                    {service.description}
-                  </p>
-                </Card>
-              </MotionDiv>
+
+                  <div
+                    className={cn(
+                      "relative mt-auto flex min-h-64 items-end justify-center pt-8",
+                      isCompact && "lg:min-h-60",
+                      isWide && "lg:mt-0 lg:min-h-[22rem] lg:pt-0"
+                    )}
+                  >
+                    <div
+                      aria-hidden="true"
+                      className="absolute bottom-4 left-1/2 h-20 w-4/5 -translate-x-1/2 rounded-[100%] bg-primary/15 blur-2xl"
+                    />
+                    <Image
+                      data-service-artwork
+                      src={src}
+                      alt={alt}
+                      width={720}
+                      height={864}
+                      sizes={isWide ? "(min-width: 1024px) 560px, 88vw" : "(min-width: 1024px) 380px, 88vw"}
+                      className={cn(
+                        "relative z-10 max-h-[20rem] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-105",
+                        isCompact && "lg:max-h-[17rem]",
+                        isWide && "lg:max-h-[24rem]"
+                      )}
+                    />
+                  </div>
+                </div>
+              </article>
             );
           })}
         </div>

@@ -11,6 +11,7 @@ import {
   Send,
 } from "lucide-react";
 
+import { ContactHeroMascot } from "@/components/contact/ContactHeroMascot";
 import { Footer } from "@/components/landing/Footer";
 import { Navbar } from "@/components/landing/Navbar";
 import { Button } from "@/components/ui/button";
@@ -65,7 +66,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans">
       <Navbar />
-      <main>
+      <main id="main-content">
         <section className="nesher-section relative overflow-hidden px-4 pb-24 pt-36 sm:px-6 sm:pb-32 sm:pt-44 lg:px-8 lg:pt-48">
           <div
             aria-hidden="true"
@@ -83,12 +84,9 @@ export default function ContactPage() {
               </Link>
             </Button>
 
-            <div className="grid gap-14 lg:grid-cols-[0.62fr_0.38fr] lg:items-end">
+            <div className="grid gap-14 lg:grid-cols-[0.54fr_0.46fr] lg:items-center">
               <div>
-                <p className="text-sm font-semibold text-primary">
-                  Contact
-                </p>
-                <h1 className="mt-5 text-balance text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--nesher-ink)] sm:text-7xl lg:text-[5.25rem]">
+                <h1 className="max-w-5xl text-balance text-[clamp(3.25rem,5.6vw,5rem)] font-semibold leading-[1.02] tracking-[-0.05em] text-[var(--nesher-ink)]">
                   Mari membangun sesuatu yang bekerja dengan indah.
                 </h1>
                 <p className="mt-7 max-w-3xl text-pretty text-lg leading-8 tracking-[-0.015em] text-[var(--nesher-body)] sm:text-xl">
@@ -98,27 +96,28 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="nesher-card-raised rounded-[2.5rem] p-7 sm:p-8">
-                <div className="nesher-icon-tile flex size-12 items-center justify-center rounded-2xl">
-                  <MapPin className="size-6" />
+              <div className="relative min-h-[47rem] lg:min-h-[44rem]">
+                <ContactHeroMascot />
+
+                <div className="nesher-card-raised absolute inset-x-0 bottom-0 z-20 ml-auto rounded-[2.5rem] p-7 sm:inset-x-auto sm:right-0 sm:w-[64%] sm:p-8 lg:w-[60%]">
+                  <div className="nesher-icon-tile flex size-12 items-center justify-center rounded-2xl">
+                    <MapPin className="size-6" />
+                  </div>
+                  <p className="mt-7 text-sm font-semibold text-primary">
+                    Kantor Kami
+                  </p>
+                  <h2 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
+                    Nesher Tech
+                  </h2>
+                  <p className="mt-4 text-base leading-7 text-[var(--nesher-body)]">
+                    {officeAddress}
+                  </p>
+                  <Button asChild className="mt-6 h-11 px-6">
+                    <a href={officeMapUrl} rel="noreferrer" target="_blank">
+                      Buka di Google Maps <Navigation className="ml-2 size-4" />
+                    </a>
+                  </Button>
                 </div>
-                <p className="mt-7 text-sm font-semibold text-primary">
-                  Kantor Kami
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
-                  Nesher Tech
-                </h2>
-                <p className="mt-4 text-base leading-7 text-[var(--nesher-body)]">
-                  {officeAddress}
-                </p>
-                <Button
-                  asChild
-                  className="mt-6 h-11 px-6"
-                >
-                  <a href={officeMapUrl} rel="noreferrer" target="_blank">
-                    Buka di Google Maps <Navigation className="ml-2 size-4" />
-                  </a>
-                </Button>
               </div>
             </div>
           </div>

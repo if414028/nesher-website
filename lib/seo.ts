@@ -23,7 +23,7 @@ export const siteConfig = {
     "sistem custom",
     "dashboard bisnis",
   ],
-  ogImage: "/brand/nesher-logo.png",
+  ogImage: "/images/social/nesher-social-preview-v4.jpg",
 };
 
 type PageMetadataInput = {
@@ -68,9 +68,9 @@ export function createPageMetadata({
       images: [
         {
           url: image,
-          width: 1850,
-          height: 700,
-          alt: `${siteConfig.name} preview`,
+          width: 1200,
+          height: 630,
+          alt: `${siteConfig.name} — jasa website, aplikasi, dan dashboard custom`,
         },
       ],
     },

@@ -94,7 +94,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: jsonLd(homeJsonLd) }}
       />
       <Navbar />
-      <main>
+      <main id="main-content">
         <HeroSection />
         <ClientMarqueeSection />
         <ProblemSection />

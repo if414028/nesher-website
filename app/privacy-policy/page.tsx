@@ -81,7 +81,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-[var(--nesher-canvas)] font-sans">
       <Navbar />
-      <main>
+      <main id="main-content">
         <section className="bg-gradient-to-b from-[var(--nesher-purple-50)] via-white to-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <Button

@@ -14,7 +14,7 @@ export function Navbar() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
-      <div className="pointer-events-auto mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] border border-white/65 bg-white/55 shadow-[var(--nesher-raised-shadow)] ring-1 ring-[var(--nesher-purple-border)]/40 backdrop-blur-2xl">
+      <div className="nesher-navigation pointer-events-auto mx-auto max-w-7xl overflow-hidden rounded-[1.75rem]">
         <nav
           className="flex items-center justify-between px-4 py-3 sm:px-5 lg:px-6"
           aria-label="Primary navigation"
@@ -37,7 +37,7 @@ export function Navbar() {
                 href={link.href}
                 rel={link.href.startsWith("https://") ? "noreferrer" : undefined}
                 target={link.href.startsWith("https://") ? "_blank" : undefined}
-                className="text-sm font-medium text-[var(--nesher-body)] transition hover:text-[var(--nesher-purple-900)]"
+                className="rounded-full px-2 py-2 text-sm font-medium text-[var(--nesher-body)] transition hover:bg-black/[0.04] hover:text-[var(--nesher-purple-900)]"
               >
                 {link.label}
               </Link>
@@ -62,7 +62,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-white/70 bg-white/45 text-[var(--nesher-carbon)] transition hover:bg-white/75 lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-black/[0.06] bg-white/65 text-[var(--nesher-carbon)] transition hover:bg-white lg:hidden"
             aria-label={open ? "Tutup menu" : "Buka menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
@@ -73,7 +73,7 @@ export function Navbar() {
 
         <div
           className={cn(
-            "grid border-t border-white/55 bg-white/40 transition-all duration-300 lg:hidden",
+            "grid border-t border-black/[0.06] bg-white/55 transition-all duration-300 lg:hidden",
             open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
           )}
         >
@@ -89,7 +89,7 @@ export function Navbar() {
                   target={
                     link.href.startsWith("https://") ? "_blank" : undefined
                   }
-                  className="rounded-2xl px-4 py-3 text-sm font-medium text-[var(--nesher-body)] transition hover:bg-white/80 hover:text-[var(--nesher-purple-900)]"
+                  className="flex min-h-11 items-center rounded-2xl px-4 py-3 text-base font-medium text-[var(--nesher-body)] transition hover:bg-white/80 hover:text-[var(--nesher-purple-900)]"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
