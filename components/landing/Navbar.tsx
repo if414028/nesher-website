@@ -16,7 +16,7 @@ export function Navbar() {
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-5">
       <div className="nesher-navigation pointer-events-auto mx-auto max-w-7xl overflow-hidden rounded-[1.75rem]">
         <nav
-          className="flex items-center justify-between px-4 py-3 sm:px-5 lg:px-6"
+          className="relative z-10 flex items-center justify-between px-4 py-3 sm:px-5 lg:px-6"
           aria-label="Primary navigation"
         >
           <Link href="/#home" className="inline-flex items-center">
@@ -62,7 +62,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-full border border-black/[0.06] bg-white/65 text-[var(--nesher-carbon)] transition hover:bg-white lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-white/80 bg-white/45 text-[var(--nesher-carbon)] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_6px_18px_rgba(54,30,76,0.08)] backdrop-blur-xl transition hover:bg-white/70 lg:hidden"
             aria-label={open ? "Tutup menu" : "Buka menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
@@ -73,7 +73,7 @@ export function Navbar() {
 
         <div
           className={cn(
-            "grid border-t border-black/[0.06] bg-white/55 transition-all duration-300 lg:hidden",
+            "relative z-10 grid border-t border-white/60 bg-white/25 backdrop-blur-2xl transition-all duration-300 lg:hidden",
             open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
           )}
         >
