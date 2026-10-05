@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,12 +16,42 @@ import { cn } from "@/lib/utils";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const serviceArtwork = [
-  ["/images/services/eagle-company-profile.png", "Maskot elang Nesher mempresentasikan rancangan company profile website", 1199, 1312],
-  ["/images/services/eagle-web-application.png", "Maskot elang Nesher menghubungkan modul dalam sebuah web application", 1199, 1312],
-  ["/images/services/eagle-dashboard.png", "Maskot elang Nesher menjelaskan dashboard dan visualisasi laporan", 1199, 1312],
-  ["/images/services/eagle-mobile-app.png", "Maskot elang Nesher menunjukkan rancangan mobile application", 1199, 1312],
-  ["/images/services/eagle-ui-ux.png", "Maskot elang Nesher menyusun komponen antarmuka dan pengalaman pengguna", 1145, 1374],
-  ["/images/services/eagle-maintenance.png", "Maskot elang Nesher menjaga performa, keamanan, dan maintenance sistem", 1199, 1312],
+  [
+    "/images/services/eagle-company-profile.png",
+    "Maskot elang Nesher mempresentasikan rancangan company profile website",
+    1199,
+    1312,
+  ],
+  [
+    "/images/services/eagle-web-application.png",
+    "Maskot elang Nesher menghubungkan modul dalam sebuah web application",
+    1199,
+    1312,
+  ],
+  [
+    "/images/services/eagle-dashboard.png",
+    "Maskot elang Nesher menjelaskan dashboard dan visualisasi laporan",
+    1199,
+    1312,
+  ],
+  [
+    "/images/services/eagle-mobile-app.png",
+    "Maskot elang Nesher menunjukkan rancangan mobile application",
+    1199,
+    1312,
+  ],
+  [
+    "/images/services/eagle-ui-ux.png",
+    "Maskot elang Nesher menyusun komponen antarmuka dan pengalaman pengguna",
+    1145,
+    1374,
+  ],
+  [
+    "/images/services/eagle-maintenance.png",
+    "Maskot elang Nesher menjaga performa, keamanan, dan maintenance sistem",
+    1199,
+    1312,
+  ],
 ] as const;
 
 const desktopSpans = [
@@ -32,6 +64,8 @@ const desktopSpans = [
 ];
 
 export function ServicesSection() {
+  const { t } = useTranslations();
+
   const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -55,7 +89,7 @@ export function ServicesSection() {
               start: "top 88%",
               toggleActions: "play none none none",
             },
-          }
+          },
         );
 
         if (artwork) {
@@ -72,12 +106,12 @@ export function ServicesSection() {
                 end: "center 52%",
                 scrub: 0.8,
               },
-            }
+            },
           );
         }
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -94,8 +128,10 @@ export function ServicesSection() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeader
-            title="Satu Partner untuk Semua Kebutuhan Digital Bisnis Anda"
-            subtitle="Dari website company profile hingga sistem custom, Nesher membantu membangun solusi digital yang sesuai dengan kebutuhan nyata bisnis Anda."
+            title={t("Satu Partner untuk Semua Kebutuhan Digital Bisnis Anda")}
+            subtitle={t(
+              "Dari website company profile hingga sistem custom, Nesher membantu membangun solusi digital yang sesuai dengan kebutuhan nyata bisnis Anda.",
+            )}
           />
         </Reveal>
 
@@ -112,7 +148,7 @@ export function ServicesSection() {
                 className={cn(
                   "group relative min-h-[31rem] overflow-hidden rounded-[2.5rem] border border-black/[0.07] bg-white shadow-[var(--nesher-soft-shadow)] max-md:sticky max-md:top-24 md:col-span-1",
                   desktopSpans[index],
-                  isWide && "lg:min-h-[26rem]"
+                  isWide && "lg:min-h-[26rem]",
                 )}
               >
                 <div
@@ -122,7 +158,8 @@ export function ServicesSection() {
                 <div
                   className={cn(
                     "relative z-10 flex h-full flex-col p-7 sm:p-9",
-                    isWide && "lg:grid lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-10 lg:p-12"
+                    isWide &&
+                      "lg:grid lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-10 lg:p-12",
                   )}
                 >
                   <div className={cn(isWide && "lg:max-w-xl")}>
@@ -130,13 +167,13 @@ export function ServicesSection() {
                       className={cn(
                         "max-w-md text-3xl font-semibold leading-[1.02] tracking-[-0.04em] text-[var(--nesher-ink)]",
                         isCompact ? "lg:text-[1.7rem]" : "sm:text-4xl",
-                        isWide && "lg:text-5xl"
+                        isWide && "lg:text-5xl",
                       )}
                     >
-                      {service.title}
+                      {t(service.title)}
                     </h3>
                     <p className="mt-5 max-w-xl text-base leading-7 text-[var(--nesher-body)] sm:text-lg sm:leading-8">
-                      {service.description}
+                      {t(service.description)}
                     </p>
                   </div>
 
@@ -144,7 +181,7 @@ export function ServicesSection() {
                     className={cn(
                       "relative mt-auto flex min-h-64 items-end justify-center pt-8",
                       isCompact && "lg:min-h-60",
-                      isWide && "lg:mt-0 lg:min-h-[22rem] lg:pt-0"
+                      isWide && "lg:mt-0 lg:min-h-[22rem] lg:pt-0",
                     )}
                   >
                     <div
@@ -154,14 +191,18 @@ export function ServicesSection() {
                     <Image
                       data-service-artwork
                       src={src}
-                      alt={alt}
+                      alt={t(alt)}
                       width={width}
                       height={height}
-                      sizes={isWide ? "(min-width: 1024px) 560px, 88vw" : "(min-width: 1024px) 380px, 88vw"}
+                      sizes={
+                        isWide
+                          ? "(min-width: 1024px) 560px, 88vw"
+                          : "(min-width: 1024px) 380px, 88vw"
+                      }
                       className={cn(
                         "relative z-10 max-h-[20rem] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-105",
                         isCompact && "lg:max-h-[17rem]",
-                        isWide && "lg:max-h-[24rem]"
+                        isWide && "lg:max-h-[24rem]",
                       )}
                     />
                   </div>

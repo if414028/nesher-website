@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+
 import { Reveal } from "@/components/landing/Motion";
 import { SectionHeader } from "@/components/landing/SectionHeader";
 import {
@@ -11,11 +13,13 @@ import {
 import { faqItems } from "@/lib/landing-data";
 
 export function FAQSection() {
+  const { t } = useTranslations();
+
   return (
     <section className="bg-[var(--nesher-surface-muted)] py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <SectionHeader title="Pertanyaan yang Sering Ditanyakan" />
+          <SectionHeader title={t("Pertanyaan yang Sering Ditanyakan")} />
         </Reveal>
 
         <Reveal delay={0.1}>
@@ -28,10 +32,10 @@ export function FAQSection() {
                   className="rounded-3xl border-0 border-b border-primary/10 px-5 py-3 last:border-b-0"
                 >
                   <AccordionTrigger className="text-left text-lg font-semibold tracking-[-0.015em] text-[var(--nesher-ink)] hover:no-underline">
-                    {item.question}
+                    {t(item.question)}
                   </AccordionTrigger>
                   <AccordionContent className="text-base leading-7 text-[var(--nesher-body)]">
-                    {item.answer}
+                    {t(item.answer)}
                   </AccordionContent>
                 </AccordionItem>
               ))}

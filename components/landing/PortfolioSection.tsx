@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { type CSSProperties, useRef } from "react";
 
 import { Reveal } from "@/components/landing/Motion";
@@ -35,6 +37,8 @@ function PortfolioMockup({
   secondaryImage?: string;
   title: string;
 }) {
+  const { t } = useTranslations();
+
   if (image) {
     if (previewType === "hybrid" && secondaryImage) {
       return (
@@ -46,7 +50,7 @@ function PortfolioMockup({
           <div className="absolute inset-x-[5%] top-[13%] drop-shadow-[0_18px_28px_rgba(29,29,31,0.16)]">
             <Image
               src={image}
-              alt={`${title} admin dashboard preview`}
+              alt={`${t("Admin dashboard preview")}: ${title}`}
               width={2400}
               height={1452}
               className="aspect-[4064/2458] w-full object-contain object-top"
@@ -55,14 +59,14 @@ function PortfolioMockup({
           <div className="absolute bottom-[5%] right-[8%] w-[22%] min-w-[72px] rotate-[2deg] drop-shadow-[0_22px_28px_rgba(29,29,31,0.28)]">
             <Image
               src={secondaryImage}
-              alt={`${title} mobile application preview`}
+              alt={`${t("Mobile application preview")}: ${title}`}
               width={1362}
               height={2880}
               className="aspect-[9/19] w-full object-contain object-top"
             />
           </div>
           <span className="absolute bottom-[8%] left-[7%] rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-xs font-semibold text-[var(--portfolio-tone)] shadow-sm">
-            Mobile + Admin Dashboard
+            {t("Mobile + Admin Dashboard")}
           </span>
         </div>
       );
@@ -73,7 +77,7 @@ function PortfolioMockup({
         <div className="overflow-hidden rounded-[1.5rem] border border-[color-mix(in_srgb,var(--portfolio-tone)_18%,white)] bg-[linear-gradient(145deg,color-mix(in_srgb,var(--portfolio-tone)_10%,white),white)] p-5">
           <Image
             src={image}
-            alt={`${title} preview`}
+            alt={`${t("Product preview")}: ${title}`}
             width={1362}
             height={2880}
             className="mx-auto aspect-[9/16] w-full max-w-[220px] object-contain object-top"
@@ -86,7 +90,7 @@ function PortfolioMockup({
       <div className="overflow-hidden rounded-[1.5rem] border border-[color-mix(in_srgb,var(--portfolio-tone)_20%,white)] bg-[color-mix(in_srgb,var(--portfolio-tone)_8%,white)]">
         <Image
           src={image}
-          alt={`${title} preview`}
+          alt={`${t("Product preview")}: ${title}`}
           width={2048}
           height={1280}
           className="aspect-[16/10] h-full w-full object-cover object-top"
@@ -130,6 +134,8 @@ export function PortfolioGrid({
   items: PortfolioItem[];
   startIndex?: number;
 }) {
+  const { t } = useTranslations();
+
   const gridRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -155,7 +161,7 @@ export function PortfolioGrid({
               start: "top 88%",
               toggleActions: "play none none none",
             },
-          }
+          },
         );
 
         if (media) {
@@ -171,12 +177,12 @@ export function PortfolioGrid({
                 start: "top 90%",
                 toggleActions: "play none none none",
               },
-            }
+            },
           );
         }
       });
     },
-    { scope: gridRef, dependencies: [items.length] }
+    { scope: gridRef, dependencies: [items.length] },
   );
 
   return (
@@ -213,18 +219,18 @@ export function PortfolioGrid({
                 secondaryImage={
                   "secondaryImage" in item ? item.secondaryImage : undefined
                 }
-                title={item.title}
+                title={t(item.title)}
               />
             </div>
             <div className="relative z-10 px-1 pb-2 pt-5">
               <span className="inline-flex rounded-full bg-[color-mix(in_srgb,var(--portfolio-tone)_10%,white)] px-3 py-1 text-xs font-semibold text-[var(--portfolio-tone)]">
-                {item.category}
+                {t(item.category)}
               </span>
               <h3 className="mt-4 text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
-                {item.title}
+                {t(item.title)}
               </h3>
               <p className="mt-3 text-base leading-7 text-[var(--nesher-body)]">
-                {item.description}
+                {t(item.description)}
               </p>
               <Button
                 asChild
@@ -236,9 +242,11 @@ export function PortfolioGrid({
                   rel={
                     item.href.startsWith("https://") ? "noreferrer" : undefined
                   }
-                  target={item.href.startsWith("https://") ? "_blank" : undefined}
+                  target={
+                    item.href.startsWith("https://") ? "_blank" : undefined
+                  }
                 >
-                  Lihat Detail <ArrowUpRight className="ml-2 size-4" />
+                  {t("Lihat Detail")} <ArrowUpRight className="ml-2 size-4" />
                 </Link>
               </Button>
             </div>
@@ -250,6 +258,8 @@ export function PortfolioGrid({
 }
 
 export function PortfolioSection() {
+  const { t } = useTranslations();
+
   const featuredPortfolios = portfolioItems.slice(0, 4);
 
   return (
@@ -257,8 +267,10 @@ export function PortfolioSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeader
-            title="Portofolio Solusi Digital yang Pernah Kami Bangun"
-            subtitle="Beberapa contoh solusi digital yang dirancang untuk kebutuhan bisnis, organisasi, dan komunitas."
+            title={t("Portofolio Solusi Digital yang Pernah Kami Bangun")}
+            subtitle={t(
+              "Beberapa contoh solusi digital yang dirancang untuk kebutuhan bisnis, organisasi, dan komunitas.",
+            )}
           />
         </Reveal>
 
@@ -267,12 +279,10 @@ export function PortfolioSection() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Button
-            asChild
-            className="h-12 px-7 text-base"
-          >
+          <Button asChild className="h-12 px-7 text-base">
             <Link href="/portfolio">
-              Lihat Semua Portofolio <ArrowRight className="ml-2 size-4" />
+              {t("Lihat Semua Portofolio")}{" "}
+              <ArrowRight className="ml-2 size-4" />
             </Link>
           </Button>
         </div>

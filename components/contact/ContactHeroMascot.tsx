@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,6 +11,8 @@ import { useRef } from "react";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export function ContactHeroMascot() {
+  const { t } = useTranslations();
+
   const rootRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -29,10 +33,10 @@ export function ContactHeroMascot() {
             start: "top 88%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     },
-    { scope: rootRef }
+    { scope: rootRef },
   );
 
   return (
@@ -44,10 +48,12 @@ export function ContactHeroMascot() {
       <Image
         data-contact-mascot
         src="/images/contact/eagle-contact.png"
-        alt="Maskot elang Nesher siap membantu melalui chat, email, dan konsultasi kebutuhan digital"
+        alt={t(
+          "Maskot elang Nesher siap membantu melalui chat, email, dan konsultasi kebutuhan digital",
+        )}
         width={1210}
         height={1300}
-        priority
+        preload
         sizes="(min-width: 1024px) 520px, 92vw"
         className="absolute left-[3%] top-0 h-auto w-[82%] object-contain drop-shadow-[0_28px_38px_rgba(63,19,104,0.2)] transition-transform duration-700 ease-out sm:left-[2%] sm:w-[72%] lg:left-0 lg:w-[76%]"
       />

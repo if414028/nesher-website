@@ -1,16 +1,23 @@
 "use client";
 
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 
 import { Reveal } from "@/components/landing/Motion";
 import { Button } from "@/components/ui/button";
 import { whatsappUrl } from "@/lib/landing-data";
 
 export function CTASection() {
+  const { t } = useTranslations();
+
   return (
-    <section id="contact" className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+    <section
+      id="contact"
+      className="bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8"
+    >
       <Reveal>
         <div className="group relative mx-auto max-w-7xl overflow-hidden rounded-[2.75rem] bg-[#1D1D1F] px-6 pb-0 pt-16 shadow-[0_30px_90px_rgba(29,29,31,0.18)] sm:px-10 sm:pt-20 lg:px-16 lg:py-8">
           <div className="pointer-events-none absolute inset-x-0 -top-48 mx-auto h-96 max-w-3xl rounded-full bg-primary/50 blur-[100px]" />
@@ -22,11 +29,12 @@ export function CTASection() {
           <div className="relative grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-4">
             <div className="text-center lg:py-16 lg:text-left">
               <h2 className="max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-white sm:text-5xl lg:text-[3.4rem]">
-                Ide yang bagus layak diwujudkan dengan sangat baik.
+                {t("Ide yang bagus layak diwujudkan dengan sangat baik.")}
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">
-                Diskusikan kebutuhan website, web application, dashboard, atau
-                aplikasi mobile Anda bersama Nesher Tech.
+                {t(
+                  "Diskusikan kebutuhan website, web application, dashboard, atau aplikasi mobile Anda bersama Nesher Tech.",
+                )}
               </p>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
                 <Button
@@ -39,7 +47,8 @@ export function CTASection() {
                     rel="noreferrer"
                     target="_blank"
                   >
-                    Mulai Konsultasi <ArrowRight className="ml-2 size-4" />
+                    {t("Mulai Konsultasi")}{" "}
+                    <ArrowRight className="ml-2 size-4" />
                   </a>
                 </Button>
                 <Button
@@ -47,7 +56,7 @@ export function CTASection() {
                   variant="outline"
                   className="h-12 border-white/30 bg-transparent px-7 text-base text-white hover:bg-white/10 hover:text-white"
                 >
-                  <Link href="/portfolio">Lihat Portofolio</Link>
+                  <Link href="/portfolio">{t("Lihat Portofolio")}</Link>
                 </Button>
               </div>
             </div>
@@ -59,7 +68,9 @@ export function CTASection() {
               />
               <Image
                 src="/images/cta/eagle-idea-consultation.png"
-                alt="Maskot elang Nesher membawa ide dan solusi digital untuk didiskusikan"
+                alt={t(
+                  "Maskot elang Nesher membawa ide dan solusi digital untuk didiskusikan",
+                )}
                 width={1199}
                 height={1312}
                 sizes="(min-width: 1024px) 520px, 88vw"

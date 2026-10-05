@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { getTranslator } from "@/lib/i18n/translations";
+import { localePath, type Locale } from "@/lib/i18n/routing";
 
 const siteUrl = "https://www.neshertechnology.id";
 
@@ -27,6 +29,7 @@ export const siteConfig = {
 };
 
 type PageMetadataInput = {
+  locale?: Locale;
   title: string;
   description: string;
   path?: string;
@@ -45,17 +48,24 @@ export function createPageMetadata({
   keywords = [],
   path = "/",
   title,
+  locale = "id",
 }: PageMetadataInput): Metadata {
-  const url = absoluteUrl(path);
+  const t = getTranslator(locale);
+  title = t(title);
+  description = t(description);
+  const localizedPath = localePath(path, locale);
+  const url = absoluteUrl(localizedPath);
 
   return {
     title,
     description,
-    keywords: [...siteConfig.keywords, ...keywords],
+    keywords: [...siteConfig.keywords, ...keywords].map(t),
     alternates: {
-      canonical: path,
+      canonical: localizedPath,
       languages: {
-        "id-ID": path,
+        "id-ID": localePath(path, "id"),
+        "en-US": localePath(path, "en"),
+        "x-default": localePath(path, "id"),
       },
     },
     openGraph: {
@@ -63,14 +73,15 @@ export function createPageMetadata({
       description,
       url,
       siteName: siteConfig.name,
-      locale: "id_ID",
+      locale: locale === "id" ? "id_ID" : "en_US",
+      alternateLocale: locale === "id" ? "en_US" : "id_ID",
       type: "website",
       images: [
         {
           url: image,
           width: 1200,
           height: 630,
-          alt: `${siteConfig.name} — jasa website, aplikasi, dan dashboard custom`,
+          alt: `${siteConfig.name} — ${t("jasa website, aplikasi, dan dashboard custom")}`,
         },
       ],
     },

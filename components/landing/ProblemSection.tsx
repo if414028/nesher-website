@@ -1,9 +1,7 @@
-import {
-  Database,
-  LockKeyhole,
-  Puzzle,
-  Workflow,
-} from "lucide-react";
+"use client";
+
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+import { Database, LockKeyhole, Puzzle, Workflow } from "lucide-react";
 
 const businessProblems = [
   {
@@ -33,6 +31,8 @@ const businessProblems = [
 ] as const;
 
 export function ProblemSection() {
+  const { t } = useTranslations();
+
   return (
     <section className="relative isolate overflow-hidden bg-[var(--nesher-purple-50)] py-24 text-[var(--nesher-ink)] sm:py-32">
       <div
@@ -47,17 +47,17 @@ export function ProblemSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-end gap-8 lg:grid-cols-[1.45fr_0.7fr] lg:gap-20">
           <h2 className="max-w-3xl text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.045em] sm:text-5xl lg:text-[3.65rem]">
-            Bisnis berkembang, tapi sistem{" "}
+            {t("Bisnis berkembang, tapi sistem")}{" "}
             <span className="font-normal italic text-primary">
-              tidak lagi pas
+              {t("tidak lagi pas")}
             </span>{" "}
-            dengan cara kerja tim.
+            {t("dengan cara kerja tim.")}
           </h2>
 
           <p className="max-w-md text-pretty text-sm leading-7 text-[var(--nesher-body)] sm:text-base">
-            Empat tanda yang sering muncul sebelum bisnis memutuskan membangun
-            sistem sendiri. Kalau terasa familiar, fondasi digital Anda mungkin
-            sudah waktunya dirancang ulang.
+            {t(
+              "Empat tanda yang sering muncul sebelum bisnis memutuskan membangun sistem sendiri. Kalau terasa familiar, fondasi digital Anda mungkin sudah waktunya dirancang ulang.",
+            )}
           </p>
         </div>
 
@@ -75,16 +75,16 @@ export function ProblemSection() {
                   <div className="flex items-center gap-3">
                     <Icon className="size-4 text-primary" strokeWidth={1.8} />
                     <span className="text-2xl font-semibold tracking-[-0.04em] text-primary/12">
-                      {number}
+                      {t(number)}
                     </span>
                   </div>
                 </div>
 
                 <h3 className="mt-6 max-w-md text-xl font-semibold leading-snug tracking-[-0.025em] text-[var(--nesher-ink)]">
-                  {problem.title}
+                  {t(problem.title)}
                 </h3>
                 <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--nesher-body)]">
-                  {problem.description}
+                  {t(problem.description)}
                 </p>
               </article>
             );

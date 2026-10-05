@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "@/components/i18n/LocaleProvider";
 import Image from "next/image";
 
 const clientLogos = [
@@ -42,6 +45,8 @@ const clientLogos = [
 type ClientLogo = (typeof clientLogos)[number];
 
 function LogoItem({ logo, name }: ClientLogo) {
+  const { t } = useTranslations();
+
   const initials = name
     .split(" ")
     .map((word) => word[0])
@@ -55,23 +60,23 @@ function LogoItem({ logo, name }: ClientLogo) {
           <span className="flex h-10 w-full items-center justify-center overflow-hidden">
             <Image
               src={logo}
-              alt={`${name} logo`}
+              alt={`${t("Logo")} ${name}`}
               width={180}
               height={120}
               className="h-10 w-auto max-w-full object-contain"
             />
           </span>
           <span className="block max-w-full break-words text-xs font-bold leading-tight tracking-wide text-[var(--nesher-carbon)]">
-            {name}
+            {t(name)}
           </span>
         </div>
       ) : (
         <div className="grid h-full min-w-0 grid-cols-[40px_1fr] items-center gap-3 text-left">
           <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-[var(--nesher-purple-75)] text-sm font-bold">
-            {initials}
+            {t(initials)}
           </span>
           <span className="min-w-0 text-sm font-bold leading-tight tracking-wide text-[var(--nesher-carbon)]">
-            {name}
+            {t(name)}
           </span>
         </div>
       )}
@@ -80,14 +85,16 @@ function LogoItem({ logo, name }: ClientLogo) {
 }
 
 export function ClientMarqueeSection() {
+  const { t } = useTranslations();
+
   return (
     <section className="bg-white px-4 pb-20 pt-12 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <p className="text-sm font-semibold text-primary">
-          Dipercaya untuk membangun produk digital
+          {t("Dipercaya untuk membangun produk digital")}
         </p>
         <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em] text-[var(--nesher-ink)] sm:text-4xl">
-          Beragam bisnis. Satu standar kualitas.
+          {t("Beragam bisnis. Satu standar kualitas.")}
         </h2>
 
         <div className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-x-4 gap-y-6">

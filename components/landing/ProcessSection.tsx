@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -53,6 +55,8 @@ const processArtwork = [
 ] as const;
 
 export function ProcessSection() {
+  const { t } = useTranslations();
+
   const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -60,7 +64,7 @@ export function ProcessSection() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
       const artworks = gsap.utils.toArray<HTMLElement>(
-        "[data-process-artwork]"
+        "[data-process-artwork]",
       );
 
       artworks.forEach((artwork) => {
@@ -78,11 +82,11 @@ export function ProcessSection() {
               end: "center 64%",
               scrub: 0.6,
             },
-          }
+          },
         );
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -98,7 +102,9 @@ export function ProcessSection() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <SectionHeader title="Proses Kerja yang Jelas, Rapi, dan Transparan" />
+          <SectionHeader
+            title={t("Proses Kerja yang Jelas, Rapi, dan Transparan")}
+          />
         </Reveal>
 
         <div className="mt-16 grid grid-flow-dense gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -123,12 +129,12 @@ export function ProcessSection() {
                     className="absolute -bottom-20 left-1/2 h-40 w-4/5 -translate-x-1/2 rounded-full bg-primary/15 blur-3xl"
                   />
                   <span className="absolute left-5 top-5 z-20 inline-flex size-11 items-center justify-center rounded-2xl border border-white/80 bg-white/85 text-sm font-semibold text-primary shadow-sm">
-                    {String(index + 1).padStart(2, "0")}
+                    {t(String(index + 1).padStart(2, "0"))}
                   </span>
                   <Image
                     data-process-artwork
                     src={processArtwork[index].src}
-                    alt={processArtwork[index].alt}
+                    alt={t(processArtwork[index].alt)}
                     width={processArtwork[index].width}
                     height={processArtwork[index].height}
                     sizes="(min-width: 1024px) 390px, (min-width: 768px) 46vw, 92vw"
@@ -138,10 +144,10 @@ export function ProcessSection() {
 
                 <div className="p-7 sm:p-8">
                   <h3 className="text-2xl font-semibold tracking-[-0.025em] text-[var(--nesher-ink)]">
-                    {step.title}
+                    {t(step.title)}
                   </h3>
                   <p className="mt-4 text-base leading-7 text-[var(--nesher-body)]">
-                    {step.description}
+                    {t(step.description)}
                   </p>
                 </div>
               </Card>

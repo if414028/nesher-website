@@ -1,39 +1,41 @@
 import type { MetadataRoute } from "next";
-
-import { portfolioItems } from "@/lib/landing-data";
+import { portfolioProjects } from "@/data/portfolio";
 import { absoluteUrl } from "@/lib/seo";
-
-const lastModified = new Date("2026-06-19");
-
+import { locales, localePath } from "@/lib/i18n/routing";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: absoluteUrl("/"),
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: absoluteUrl("/portfolio"),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl("/privacy-policy"),
-      lastModified: new Date("2026-06-17"),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
+  const routes = [
+    "/",
+    "/portfolio",
+    "/contact",
+    "/privacy-policy",
+    ...portfolioProjects.map((project) => `/portfolio/${project.slug}`),
   ];
-
-  const portfolioRoutes: MetadataRoute.Sitemap = portfolioItems.map((item) => ({
-    url: absoluteUrl(item.href),
-    lastModified,
-    changeFrequency: "monthly",
-    priority: 0.75,
-    images: item.image ? [absoluteUrl(item.image)] : undefined,
-  }));
-
-  return [...staticRoutes, ...portfolioRoutes];
+  return routes.flatMap((path) =>
+    locales.map((locale) => ({
+      url: absoluteUrl(localePath(path, locale)),
+      lastModified: new Date("2026-10-05"),
+      changeFrequency:
+        path === "/" ? ("weekly" as const) : ("monthly" as const),
+      priority: path === "/" ? 1 : 0.75,
+      alternates: {
+        languages: {
+          "id-ID": absoluteUrl(localePath(path, "id")),
+          "en-US": absoluteUrl(localePath(path, "en")),
+        },
+      },
+      ...(portfolioProjects.find(
+        (project) => path === `/portfolio/${project.slug}`,
+      )
+        ? {
+            images: [
+              absoluteUrl(
+                portfolioProjects.find(
+                  (project) => path === `/portfolio/${project.slug}`,
+                )!.heroImage.src,
+              ),
+            ],
+          }
+        : {}),
+    })),
+  );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,7 +13,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/i18n/LocaleLink";
 import { useRef } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -20,6 +22,8 @@ import { whatsappUrl } from "@/lib/landing-data";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function ProjectShowcase() {
+  const { t } = useTranslations();
+
   return (
     <div
       data-hero-visual
@@ -35,17 +39,17 @@ function ProjectShowcase() {
           <div className="flex items-center gap-2">
             <span className="size-2 rounded-full bg-[#C4B5FD]" />
             <span className="text-xs font-bold">
-              Project spec · Draft
+              {t("Project spec · Draft")}
             </span>
           </div>
           <span className="text-xs font-semibold tracking-[0.12em] text-white/75">
-            V0.1
+            {t("V0.1")}
           </span>
         </div>
 
         <div
           role="img"
-          aria-label="Ilustrasi spesifikasi proyek sistem digital custom"
+          aria-label={t("Ilustrasi spesifikasi proyek sistem digital custom")}
           className="bg-white px-5 py-5 pl-[31%] sm:px-7 sm:py-7 sm:pl-[29%]"
         >
           <div className="flex items-center gap-4 border-b border-dashed border-[#D8CDEA] pb-5">
@@ -54,10 +58,10 @@ function ProjectShowcase() {
             </span>
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--nesher-muted)]">
-                Modul
+                {t("Modul")}
               </p>
               <p className="mt-1 text-sm font-bold text-[var(--nesher-purple-900)] sm:text-lg">
-                Dashboard + API + Admin Panel
+                {t("Dashboard + API + Admin Panel")}
               </p>
             </div>
           </div>
@@ -68,7 +72,7 @@ function ProjectShowcase() {
             </span>
             <div className="min-w-0">
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--nesher-muted)]">
-                Technology stack
+                {t("Technology stack")}
               </p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {["Next.js", "Laravel", "PostgreSQL", "AWS"].map((stack) => (
@@ -76,7 +80,7 @@ function ProjectShowcase() {
                     key={stack}
                     className="rounded-full border border-[var(--nesher-purple-border)] bg-[var(--nesher-purple-50)] px-2.5 py-1 text-xs font-semibold text-[var(--nesher-purple-900)]"
                   >
-                    {stack}
+                    {t(stack)}
                   </span>
                 ))}
               </div>
@@ -86,10 +90,10 @@ function ProjectShowcase() {
           <div className="pt-5">
             <div className="flex items-center justify-between">
               <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--nesher-muted)]">
-                Timeline
+                {t("Timeline")}
               </p>
               <p className="text-xs font-bold text-primary">
-                ± 12 minggu
+                {t("± 12 minggu")}
               </p>
             </div>
             <div className="mt-3 grid grid-cols-4 gap-1">
@@ -111,7 +115,7 @@ function ProjectShowcase() {
                       index === 3 ? "text-right" : "text-[var(--nesher-body)]"
                     }`}
                   >
-                    {phase}
+                    {t(phase)}
                   </p>
                 </div>
               ))}
@@ -121,11 +125,11 @@ function ProjectShowcase() {
 
         <div className="flex items-center justify-between border-t border-[#D8CDEA] bg-[#FBFAFE] py-3.5 pl-[31%] pr-5 sm:pl-[29%] sm:pr-7">
           <p className="hidden text-xs font-bold uppercase tracking-[0.12em] text-[var(--nesher-body)] sm:block">
-            Prepared by Nesher Technology
+            {t("Prepared by Nesher Technology")}
           </p>
           <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary">
             <span className="size-1.5 rounded-full bg-primary" />
-            Scope aktif
+            {t("Scope aktif")}
           </span>
         </div>
       </div>
@@ -140,20 +144,23 @@ function ProjectShowcase() {
         />
         <Image
           src="/images/mascot/nesher-eagle-master.png"
-          alt="Maskot elang ungu Nesher menyambut dan memperkenalkan solusi digital untuk bisnis"
+          alt={t(
+            "Maskot elang ungu Nesher menyambut dan memperkenalkan solusi digital untuk bisnis",
+          )}
           width={1199}
           height={1312}
-          priority
+          preload
           sizes="(min-width: 1024px) 280px, 38vw"
           className="relative h-auto w-full object-contain drop-shadow-[0_24px_28px_rgba(63,19,104,0.18)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:scale-[1.03]"
         />
       </div>
-
     </div>
   );
 }
 
 export function HeroSection() {
+  const { t } = useTranslations();
+
   const heroRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -170,12 +177,12 @@ export function HeroSection() {
         .from(
           "[data-project-card]",
           { x: 64, opacity: 0, scale: 0.94, duration: 0.9 },
-          "-=0.55"
+          "-=0.55",
         )
         .from(
           "[data-hero-mascot]",
           { x: -56, y: 32, opacity: 0, scale: 0.8, duration: 0.95 },
-          "-=0.72"
+          "-=0.72",
         );
 
       const media = gsap.matchMedia();
@@ -196,7 +203,7 @@ export function HeroSection() {
 
       return () => media.revert();
     },
-    { scope: heroRef }
+    { scope: heroRef },
   );
 
   return (
@@ -217,39 +224,33 @@ export function HeroSection() {
       <div className="mx-auto grid max-w-7xl items-center gap-6 sm:gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:gap-9">
         <div data-hero-copy className="text-center lg:text-left">
           <h1 className="text-balance text-[clamp(3rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[var(--nesher-ink)]">
-            Bukan sekadar dibuat.{" "}
+            {t("Bukan sekadar dibuat.")}{" "}
             <span className="relative whitespace-nowrap text-primary">
-              Siap dipakai
+              {t("Siap dipakai")}
               <span className="absolute inset-x-0 -bottom-1 -z-10 h-3 -rotate-1 rounded-full bg-[#C4B5FD]/55" />
             </span>{" "}
-            untuk bertumbuh.
+            {t("untuk bertumbuh.")}
           </h1>
 
           <p className="mx-auto mt-7 max-w-2xl text-pretty text-lg leading-8 text-[var(--nesher-body)] sm:text-xl lg:mx-0">
-            Kami merancang website, aplikasi, dan dashboard custom yang rapi,
-            cepat, dan benar-benar mengikuti cara kerja bisnis Anda.
+            {t(
+              "Kami merancang website, aplikasi, dan dashboard custom yang rapi, cepat, dan benar-benar mengikuti cara kerja bisnis Anda.",
+            )}
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
-            <Button
-              asChild
-              className="h-13 px-7 text-base"
-            >
+            <Button asChild className="h-13 px-7 text-base">
               <a
                 data-gtag-conversion
                 href={whatsappUrl}
                 rel="noreferrer"
                 target="_blank"
               >
-                Konsultasi Gratis <ArrowRight className="ml-2 size-4" />
+                {t("Konsultasi Gratis")} <ArrowRight className="ml-2 size-4" />
               </a>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="h-13 px-7 text-base"
-            >
-              <Link href="/portfolio">Lihat Hasil Kerja</Link>
+            <Button asChild variant="outline" className="h-13 px-7 text-base">
+              <Link href="/portfolio">{t("Lihat Hasil Kerja")}</Link>
             </Button>
           </div>
 
@@ -261,7 +262,7 @@ export function HeroSection() {
             ].map((item) => (
               <span key={item} className="inline-flex items-center gap-2">
                 <CheckCircle2 className="size-4 text-primary" />
-                {item}
+                {t(item)}
               </span>
             ))}
           </div>
@@ -272,11 +273,12 @@ export function HeroSection() {
             </span>
             <div>
               <p className="text-sm font-semibold text-[var(--nesher-ink)]">
-                Proses jelas dari awal sampai live
+                {t("Proses jelas dari awal sampai live")}
               </p>
               <p className="mt-0.5 text-xs leading-5 text-[var(--nesher-muted)]">
-                Anda selalu tahu apa yang sedang dikerjakan dan tahap
-                berikutnya.
+                {t(
+                  "Anda selalu tahu apa yang sedang dikerjakan dan tahap berikutnya.",
+                )}
               </p>
             </div>
           </div>

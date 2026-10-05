@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+
 import {
   AppWindow,
   ChartNoAxesCombined,
@@ -22,6 +24,8 @@ const icons = [
 ];
 
 export function ServicesHighlight() {
+  const { t } = useTranslations();
+
   return (
     <section className="-mt-8 bg-white px-4 sm:px-6 lg:px-8">
       <Reveal>
@@ -35,7 +39,7 @@ export function ServicesHighlight() {
                 className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[var(--nesher-purple-border)] bg-white/80 px-4 py-3 text-sm font-semibold text-[var(--nesher-purple-900)]"
               >
                 <Icon className="size-4 text-primary" />
-                {service}
+                {t(service)}
               </div>
             );
           })}

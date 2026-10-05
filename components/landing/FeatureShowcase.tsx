@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "@/components/i18n/LocaleProvider";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,6 +32,8 @@ const showcaseArtwork = {
 } as const;
 
 function ShowcaseVisual({ type }: { type: keyof typeof showcaseArtwork }) {
+  const { t } = useTranslations();
+
   const artwork = showcaseArtwork[type];
 
   return (
@@ -49,7 +53,7 @@ function ShowcaseVisual({ type }: { type: keyof typeof showcaseArtwork }) {
       <Image
         data-showcase-artwork
         src={artwork.src}
-        alt={artwork.alt}
+        alt={t(artwork.alt)}
         width={1199}
         height={1312}
         sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
@@ -60,6 +64,8 @@ function ShowcaseVisual({ type }: { type: keyof typeof showcaseArtwork }) {
 }
 
 export function FeatureShowcase() {
+  const { t } = useTranslations();
+
   const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -86,7 +92,7 @@ export function FeatureShowcase() {
               end: "center 55%",
               scrub: 0.8,
             },
-          }
+          },
         );
 
         gsap.fromTo(
@@ -102,16 +108,18 @@ export function FeatureShowcase() {
               end: "center 50%",
               scrub: 0.8,
             },
-          }
+          },
         );
       });
-
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
-    <section ref={sectionRef} className="overflow-hidden bg-white py-24 sm:py-28 lg:py-32">
+    <section
+      ref={sectionRef}
+      className="overflow-hidden bg-white py-24 sm:py-28 lg:py-32"
+    >
       <div className="mx-auto max-w-7xl space-y-20 px-4 sm:space-y-24 sm:px-6 lg:space-y-28 lg:px-8">
         {showcaseFeatures.map((feature, index) => (
           <div
@@ -119,18 +127,16 @@ export function FeatureShowcase() {
             data-showcase-row
             className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
           >
-            <Reveal
-              className={index % 2 === 1 ? "lg:order-2" : undefined}
-            >
+            <Reveal className={index % 2 === 1 ? "lg:order-2" : undefined}>
               <div data-showcase-copy>
                 <p className="text-sm font-semibold text-primary">
-                  {feature.eyebrow}
+                  {t(feature.eyebrow)}
                 </p>
                 <h2 className="mt-4 text-balance text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-[var(--nesher-ink)] sm:text-5xl lg:text-6xl">
-                  {feature.title}
+                  {t(feature.title)}
                 </h2>
                 <p className="mt-6 text-lg leading-8 tracking-[-0.01em] text-[var(--nesher-body)] sm:text-xl">
-                  {feature.text}
+                  {t(feature.text)}
                 </p>
                 <Button
                   asChild
@@ -142,7 +148,8 @@ export function FeatureShowcase() {
                     rel="noreferrer"
                     target="_blank"
                   >
-                    Diskusikan Kebutuhan <ArrowRight className="ml-2 size-4" />
+                    {t("Diskusikan Kebutuhan")}{" "}
+                    <ArrowRight className="ml-2 size-4" />
                   </a>
                 </Button>
               </div>

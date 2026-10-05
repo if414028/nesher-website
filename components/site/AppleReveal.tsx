@@ -17,15 +17,15 @@ export function AppleReveal() {
 
   useLayoutEffect(() => {
     const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     const elements = Array.from(
-      document.querySelectorAll<HTMLElement>(revealSelector)
+      document.querySelectorAll<HTMLElement>(revealSelector),
     ).filter(
       (element) =>
         !element.dataset.appleReveal &&
         (element.hasAttribute("data-apple-reveal-item") ||
-          !element.closest('[data-apple-reveal="off"]'))
+          !element.closest('[data-apple-reveal="off"]')),
     );
 
     if (reducedMotion || !("IntersectionObserver" in window)) {
@@ -49,7 +49,7 @@ export function AppleReveal() {
       {
         rootMargin: "0px 0px -10% 0px",
         threshold: 0.08,
-      }
+      },
     );
 
     elements.forEach((element) => {
@@ -57,7 +57,7 @@ export function AppleReveal() {
       element.style.setProperty("transition", "none");
       element.style.setProperty(
         "--apple-reveal-delay",
-        element.dataset.appleRevealDelay ?? "0ms"
+        element.dataset.appleRevealDelay ?? "0ms",
       );
     });
 
@@ -75,6 +75,11 @@ export function AppleReveal() {
       window.cancelAnimationFrame(preparationFrame);
       window.cancelAnimationFrame(observerFrame);
       observer.disconnect();
+      elements.forEach((element) => {
+        delete element.dataset.appleReveal;
+        element.style.removeProperty("transition");
+        element.style.removeProperty("--apple-reveal-delay");
+      });
     };
   }, [pathname]);
 
